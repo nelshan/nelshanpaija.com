@@ -1,0 +1,144 @@
+.project-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 50px;
+    color: #36363c;
+}
+
+.go-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ac3232;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+
+.go-back-button:hover {
+    color: #8a2626;
+    transform: translateX(-5px);
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 40px;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    color: #ac3232;
+    margin-bottom: 30px;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.project-meta p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-section {
+    margin-bottom: 50px;
+}
+
+.project-section h2 {
+    color: #ac3232;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ac3232;
+    padding-bottom: 10px;
+}
+
+.project-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-section ul li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.project-section ul li:before {
+    content: "•";
+    color: #ac3232;
+    position: absolute;
+    left: 0;
+}
+
+.project-section ul ul {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.highlight-link {
+    color: #ac3232;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.highlight-link:hover {
+    color: #8a2626;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .project-details {
+        padding: 80px 30px;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-section p,
+    .project-section ul li {
+        font-size: 1rem;
+    }
+} 

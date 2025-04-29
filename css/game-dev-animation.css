@@ -1,0 +1,51 @@
+.abstract-coding-animation {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 300px;
+    left: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .code-line {
+    width: 80%;
+    height: 2px;
+    background: #ac3232;
+    animation: pulse 2s infinite;
+  }
+  
+  .code-symbol {
+    font-size: 24px;
+    color: #ac3232;
+    animation: float 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .abstract-coding-animation {
+      display: none;
+    }
+  }
+  
