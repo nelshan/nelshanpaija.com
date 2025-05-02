@@ -3,20 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: Dino Runner - Nelshan Paija</title>
-    <meta name="description" content="Dino Runner - a faithful recreation of the 2D endless runner game inspired by the classic offline dinosaur game found in Google Chrome developed by Nelshan Paija">
+    <title>Project: PONG - Nelshan Paija</title>
+    <meta name="description" content="PONG - a faithful recreation of the classic Pong game developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/project-details.css">
-    <link rel="icon" type="image/png" href="images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/project-details.css">
+    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="index.html" class="navbar__logo">Nelshan Paija</a>
+            <a href="../index.html" class="navbar__logo">
+                <span class="logo__text">Nelshan Paija</span>
+                <div class="characterBox">
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                </div>
+            </a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -38,47 +55,50 @@
 
     <div class="project-details">
         <div class="project-header">
-            <a href="index.html#projects" class="go-back-button">
+            <a href="../index.html#projects" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-            <img src=images/p9.png alt="PONG Game Screenshot" class="project-image">
-            <h1>Dino Runner  – 2D Endless Runner Game</h1>
+            <img src="../images/p1.png" alt="PONG Game Screenshot" class="project-image">
+            <h1>Pong  – 2D Arcade Game Clone</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
                 <p><strong>Platform:</strong> PC (Web)</p>
-                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/dino" target="_blank" class="highlight-link">Itch.io</a></p>
+                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/pong" target="_blank" class="highlight-link">Itch.io</a></p>
             </div>
         </div>
 
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>Dino Runner is a 2D endless runner game inspired by the classic offline dinosaur game found in Google Chrome. Developed using Unity and C#, this project replicates the engaging mechanics of the original, challenging players to navigate a pixel-art dinosaur through a treacherous prehistoric landscape filled with obstacles.</p>
+                <p>This project is a faithful recreation of the classic Pong game, developed to demonstrate proficiency 
+                    in Unity and fundamental game development principles. The game features two-player local multiplayer, 
+                    responsive paddle controls, realistic ball physics, and a scoring system where the first player to reach 10 points wins.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Responsive Controls</strong> Implemented precise input handling to ensure smooth jumping and crouching mechanics.</li>
-                    <li><strong>Dynamic Obstacle Generation:</strong> Utilized procedural generation to create a variety of obstacles, enhancing replayability.</li>
-                    <li><strong>Scoring System:</strong> Developed a real-time score tracking system to monitor player progress and encourage improvement.</li>
-                    <li><strong>Optimized Performance:</strong> Ensured seamless gameplay across web platforms through efficient coding practices.</li>
+                    <li><strong>Two-Player Local Multiplayer:</strong> Engage in head-to-head matches with intuitive controls.</li>
+                    <li><strong>Realistic Ball Physics:</strong> Implemented physics-based ball movement and collision detection for an authentic gameplay experience.</li>
+                    <li><strong>Score Tracking:</strong> Integrated a scoring system that displays each player's score, culminating in a win condition at 10 points.</li>
+                    <li><strong>User Interface:</strong> Designed a clean and minimalist UI to reflect the classic arcade aesthetic.​</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Controls</h2>
                 <ul>
-                    <li><strong>Jump:</strong> Press Spacebar</li>
-                    <li><strong>Crouch:</strong> Hold Left Shift</li>
+                    <li><strong>Player 1 (Left Paddle):</strong> W – Move Up | S – Move Down</li>
+                    <li><strong>Player 2 (Right Paddle):</strong> Up Arrow – Move Up | Down Arrow – Move Down​</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development:</strong> Managed all aspects of the project, including game design, programming, and testing.</li>
+                    <li><strong>Solo Development:</strong> Handled all aspects of development, including programming, design, and testing.</li>
                     <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's 2D capabilities to create smooth gameplay mechanics and responsive controls.</li>
                     <li><strong>Code Optimization:</strong> Wrote clean and efficient C# scripts to manage game logic, input handling, and collision responses.</li>
                 </ul>
@@ -86,7 +106,9 @@
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>Recreating Dino Runner provided valuable experience in understanding classic game mechanics and translating them into modern development environments. The project honed skills in 2D game development, collision detection, and user input management.</p>
+                <p>This project served as an excellent exercise in understanding the core mechanics of game development. Recreating a classic 
+                    game like Pong allowed for a focus on refining gameplay elements and ensuring a polished user experience.
+                </p>
             </section>
         </div>
     </div>
@@ -108,7 +130,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
