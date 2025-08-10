@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: LIGHTLESS - Nelshan Paija</title>
-    <meta name="description" content="LIGHTLESS - A minimalist 2D top-down survival shooter developed by Nelshan Paija">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Space Invaders - Nelshan Paija</title>
+    <meta name="description" content="Space Invaders - a faithful recreation of the classic arcade shooter developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
-    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
-    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="../index.html" class="navbar__logo">
+            <a href="../../index.html" class="navbar__logo">
                 <span class="logo__text">Nelshan Paija</span>
                 <div class="characterBox">
                     <div class="character wakeup">
@@ -34,22 +37,24 @@
                     </div>
                 </div>
             </a>
-            
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="index.html#projects" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="mailto:nelshanpaijapun@gmail.com" class="navbar__links">Contact</a>
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
                 </li>
             </ul>
         </div>
@@ -57,52 +62,60 @@
 
     <div class="project-details">
         <div class="project-header">
-            <a href="../index.html#projects" class="go-back-button">
+            <a href="../../game-development.html" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-            <img src="../images/p5.png" alt="LIGHTLESS Game Screenshot" class="project-image">
-            <h1>LIGHTLESS – 2D Top-Down Survival Shooter</h1>
+            <img src="../../images/p8.png" alt="Space Invaders Game Screenshot" class="project-image">
+            <h1>Space Invaders – Classic Arcade Shooter</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
                 <p><strong>Platform:</strong> PC (Web)</p>
-                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/lightless" target="_blank" class="highlight-link">Itch.io</a></p>
+                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/space-invader" target="_blank" class="highlight-link">Itch.io</a></p>
             </div>
         </div>
 
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>LIGHTLESS is a minimalist 2D top-down shooter that immerses players in a relentless survival experience. Set in a world consumed by darkness, players must fend off endless waves of the undead, relying solely on a flickering light source and a single weapon. The game's core mechanic revolves around the interplay of light and darkness, creating a tense atmosphere where visibility is limited, and danger lurks in the shadows.</p>
+                <p>Space Invader is a faithful recreation of the classic arcade shooter, developed using Unity and C#. 
+                    Players control a lone starfighter, tasked with defending Earth against relentless waves of descending alien invaders.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Dynamic Lighting Mechanics:</strong> The player's light source is both a guide and a shield, illuminating the immediate surroundings while leaving the periphery shrouded in darkness, enhancing the game's suspense.</li>
-                    <li><strong>Endless Survival Mode:</strong> Face continuous waves of enemies, testing reflexes and strategic movement in a battle against time and overwhelming odds.</li>
-                    <li><strong>Intuitive Controls:</strong>
-                        <ul>
-                            <li>Movement: WASD keys</li>
-                            <li>Aiming: Mouse</li>
-                            <li>Shooting: Left Click</li>
-                        </ul>
-                    </li>
+                    <li><strong>Classic Shooter Mechanics:</strong> Faithful recreation of the original Space Invaders gameplay.</li>
+                    <li><strong>Wave-Based Combat:</strong> Progressive difficulty with increasingly challenging alien formations.</li>
+                    <li><strong>Precise Controls:</strong> Responsive movement and shooting mechanics.</li>
+                    <li><strong>Score System:</strong> Track progress and compete for high scores.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Controls</h2>
+                <ul>
+                    <li><strong>Movement:</strong> Left/Right Arrow Keys or A/D</li>
+                    <li><strong>Shoot:</strong> Spacebar</li>
+                    <li><strong>Objective:</strong> Defeat all alien invaders</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development:</strong> Conceptualized, designed, and developed independently, showcasing proficiency in game design, programming, and asset integration.</li>
-                    <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's capabilities to implement real-time lighting effects, enemy AI behaviors, and responsive controls.</li>
-                    <li><strong>Asset Management:</strong> Curated and integrated visual and audio assets to create an immersive and cohesive game environment.</li>
+                    <li><strong>Unity 2D Development:</strong> Implemented classic arcade shooter mechanics.</li>
+                    <li><strong>Enemy AI:</strong> Created alien movement patterns and behaviors.</li>
+                    <li><strong>Collision System:</strong> Precise bullet and enemy collision detection.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>LIGHTLESS was an exploration into creating tension and atmosphere through minimalist design. The project emphasized the importance of lighting in gameplay mechanics and taught valuable lessons in balancing challenges with player engagement.</p>
+                <p>This project reinforced the importance of tight controls and satisfying feedback in arcade games. 
+                    The simple yet engaging gameplay loop demonstrates why Space Invaders remains a classic.
+                </p>
             </section>
         </div>
     </div>
@@ -124,7 +137,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
@@ -138,6 +151,6 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         ↑
     </button>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

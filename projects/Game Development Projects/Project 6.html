@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: Space Invader - Nelshan Paija</title>
-    <meta name="description" content="Space Invader - a faithful recreation of the classic Space Invader game developed by Nelshan Paija">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Run from Unknown - Nelshan Paija</title>
+    <meta name="description" content="Run from Unknown - a first-person survival horror game developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
-    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
-    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="../index.html" class="navbar__logo">
+            <a href="../../index.html" class="navbar__logo">
                 <span class="logo__text">Nelshan Paija</span>
                 <div class="characterBox">
                     <div class="character wakeup">
@@ -41,13 +44,17 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="index.html#projects" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="mailto:nelshanpaijapun@gmail.com" class="navbar__links">Contact</a>
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
                 </li>
             </ul>
         </div>
@@ -55,56 +62,61 @@
 
     <div class="project-details">
         <div class="project-header">
-            <a href="../index.html#projects" class="go-back-button">
+            <a href="../../game-development.html" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-            <img src="../images/p8.png" alt="Space Invader Game Screenshot" class="project-image">
-            <h1>Space Invader - 2D Arcade Game Clone</h1>
+            <img src="../../images/P6.png" alt="Run from Unknown Screenshot" class="project-image">
+            <h1>Run from Unknown – First-Person Survival Horror</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
                 <p><strong>Platform:</strong> PC (Web)</p>
-                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/space-invader" target="_blank" class="highlight-link">Itch.io</a></p>
+                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/run-from-unknown" target="_blank" class="highlight-link">Itch.io</a></p>
             </div>
         </div>
 
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>Space Invader is a faithful recreation of the classic arcade shooter, developed using Unity and C#. Players control a lone starfighter, tasked with defending Earth against relentless waves of descending alien invaders. The game emphasizes timing, precision, and quick reflexes, capturing the essence of the original while providing a smooth and responsive experience.</p>
+                <p>Run from Unknown is a short, first-person survival horror game that immerses players in a tense and mysterious environment. 
+                    Waking up alone in a dark, abandoned house, players must navigate through eerie corridors and solve puzzles to uncover the truth behind their predicament.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Authentic Gameplay Mechanics:</strong> Implemented classic movement and shooting mechanics to mirror the original game's challenge.</li>
-                    <li><strong>Responsive Controls:</strong>  Utilized Unity's input system to ensure precise and intuitive player movement and firing.</li>
-                    <li><strong>Dynamic Enemy Waves:</strong> Aliens descend in formations with increasing speed, intensifying the challenge as the game progresses.</li>
-                    <li><strong>Scoring System:</strong> Real-time score tracking to monitor player progress and encourage improvement.</li>
+                    <li><strong>Atmospheric Horror:</strong> Dark, abandoned house setting with eerie atmosphere.</li>
+                    <li><strong>Puzzle Elements:</strong> Environmental puzzles that reveal the story.</li>
+                    <li><strong>First-Person Exploration:</strong> Immersive exploration mechanics.</li>
+                    <li><strong>Story-Driven Gameplay:</strong> Narrative unfolds through exploration and discovery.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Controls</h2>
                 <ul>
-                    <li><strong>Move Left:</strong> A key | Left Arrow</li>
-                    <li><strong>Move Right:</strong> D key | Right Arrow</li>
-                    <li><strong>Shoot:</strong> Spacebar</li>
+                    <li><strong>Movement:</strong> WASD</li>
+                    <li><strong>Look Around:</strong> Mouse</li>
+                    <li><strong>Interact:</strong> E key</li>
+                    <li><strong>Objective:</strong> Explore and solve puzzles to escape</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development:</strong> Managed all aspects of the project, including game design, programming, and testing.</li>
-                    <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's 2D capabilities to create smooth gameplay mechanics and responsive controls.</li>
-                    <li><strong>Code Optimization:</strong> Wrote clean and efficient C# scripts to manage game logic, input handling, and collision responses.</li>
+                    <li><strong>3D Environment Design:</strong> Created immersive indoor environments.</li>
+                    <li><strong>Puzzle System:</strong> Implemented interactive puzzle mechanics.</li>
+                    <li><strong>Atmosphere Creation:</strong> Used lighting and sound for horror atmosphere.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>Recreating Space Invader provided valuable experience in understanding classic game mechanics and translating them into modern development environments. The project honed skills in 2D game development, collision detection, and user input management.</p>
+                <p>This project explored the fundamentals of 3D game development and atmospheric design. 
+                    Creating tension through environmental storytelling was a valuable learning experience.
+                </p>
             </section>
         </div>
     </div>
@@ -126,7 +138,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
@@ -140,6 +152,6 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         ↑
     </button>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

@@ -1,3 +1,327 @@
+/* ========================================================================= */
+/* Project Details Animations */
+/* ========================================================================= */
+
+/* Keyframe Animations */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Page Load Animations */
+.project-details {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.go-back-button {
+    animation: slideInFromLeft 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.project-header {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.project-image {
+    animation: scaleIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.project-header h1 {
+    animation: slideInFromRight 0.8s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+.project-meta {
+    animation: fadeInUp 0.8s ease-out 1s forwards;
+    opacity: 0;
+}
+
+.project-content {
+    animation: fadeInUp 0.8s ease-out 1.2s forwards;
+    opacity: 0;
+}
+
+/* Enhanced Go Back Button */
+.go-back-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.go-back-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(172, 50, 50, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.go-back-button:hover::before {
+    left: 100%;
+}
+
+.go-back-button:hover {
+    color: #8a2626;
+    transform: translateX(-8px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(172, 50, 50, 0.2);
+}
+
+/* Enhanced Project Image */
+.project-image {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(172, 50, 50, 0.1), transparent);
+    transition: left 0.8s ease;
+}
+
+.project-image:hover::before {
+    left: 100%;
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Project Sections */
+.project-section {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ac3232, #8a2626);
+    transition: width 0.4s ease;
+}
+
+.project-section:hover::before {
+    width: 100%;
+}
+
+.project-section:hover {
+    transform: translateX(5px);
+}
+
+.project-section h2 {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-section:hover h2 {
+    color: #8a2626;
+    transform: translateX(5px);
+}
+
+/* Enhanced List Items */
+.project-section ul li {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-section ul li::before {
+    transition: all 0.3s ease;
+}
+
+.project-section ul li:hover {
+    transform: translateX(10px);
+    color: #ac3232;
+}
+
+.project-section ul li:hover::before {
+    color: #8a2626;
+    transform: scale(1.5);
+}
+
+/* Enhanced Links */
+.highlight-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.highlight-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ac3232, #8a2626);
+    transition: width 0.3s ease;
+}
+
+.highlight-link:hover::before {
+    width: 100%;
+}
+
+.highlight-link:hover {
+    color: #8a2626;
+    transform: translateY(-2px);
+}
+
+/* Staggered Animation for Meta Information */
+.project-meta p {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.project-meta p:nth-child(1) { animation-delay: 1.1s; }
+.project-meta p:nth-child(2) { animation-delay: 1.2s; }
+.project-meta p:nth-child(3) { animation-delay: 1.3s; }
+.project-meta p:nth-child(4) { animation-delay: 1.4s; }
+
+/* Staggered Animation for Project Sections */
+.project-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.project-section:nth-child(1) { animation-delay: 1.5s; }
+.project-section:nth-child(2) { animation-delay: 1.6s; }
+.project-section:nth-child(3) { animation-delay: 1.7s; }
+.project-section:nth-child(4) { animation-delay: 1.8s; }
+.project-section:nth-child(5) { animation-delay: 1.9s; }
+
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+    .go-back-button:hover {
+        transform: translateX(-5px) scale(1.02);
+    }
+    
+    .project-image:hover {
+        transform: scale(1.01);
+    }
+    
+    .project-section:hover {
+        transform: translateX(3px);
+    }
+    
+    .project-section ul li:hover {
+        transform: translateX(5px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .go-back-button:hover {
+        transform: translateX(-3px) scale(1.01);
+    }
+    
+    .project-image:hover {
+        transform: scale(1.005);
+    }
+    
+    .project-section:hover {
+        transform: translateX(2px);
+    }
+    
+    .project-section ul li:hover {
+        transform: translateX(3px);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .project-details,
+    .go-back-button,
+    .project-header,
+    .project-image,
+    .project-header h1,
+    .project-meta,
+    .project-content,
+    .project-section,
+    .project-meta p {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .go-back-button:hover,
+    .project-image:hover,
+    .project-section:hover,
+    .project-section ul li:hover,
+    .highlight-link:hover {
+        transform: none !important;
+    }
+}
+
 .project-details {
     max-width: 1200px;
     margin: 0 auto;
@@ -119,6 +443,29 @@
     text-decoration: underline;
 }
 
+/* Large Screen Optimization */
+@media screen and (min-width: 1440px) {
+    .project-details {
+        max-width: 1400px;
+        padding: 40px 80px;
+    }
+    
+    .project-content {
+        max-width: 1000px;
+    }
+}
+
+/* Tablet Screens */
+@media screen and (max-width: 1024px) {
+    .project-details {
+        padding: 40px 60px;
+    }
+    
+    .project-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .project-details {
         padding: 80px 30px;
@@ -140,5 +487,45 @@
     .project-section p,
     .project-section ul li {
         font-size: 1rem;
+    }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+    .project-details {
+        padding: 60px 20px;
+    }
+    
+    .project-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .project-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .project-section p,
+    .project-section ul li {
+        font-size: 0.95rem;
+    }
+    
+    .go-back-button {
+        left: 20px;
+        top: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .project-details {
+        padding: 50px 15px;
+    }
+    
+    .project-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .project-section h2 {
+        font-size: 1.3rem;
     }
 } 

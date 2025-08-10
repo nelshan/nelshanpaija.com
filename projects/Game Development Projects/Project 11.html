@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: Dino Runner - Nelshan Paija</title>
-    <meta name="description" content="Dino Runner - a faithful recreation of the 2D endless runner game inspired by the classic offline dinosaur game found in Google Chrome developed by Nelshan Paija">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Block Breaker - Nelshan Paija</title>
+    <meta name="description" content="Block Breaker - a 2D arcade brick-breaker game developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
-    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
-    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="../index.html" class="navbar__logo">
+            <a href="../../index.html" class="navbar__logo">
                 <span class="logo__text">Nelshan Paija</span>
                 <div class="characterBox">
                     <div class="character wakeup">
@@ -41,13 +44,17 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="index.html#projects" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="mailto:nelshanpaijapun@gmail.com" class="navbar__links">Contact</a>
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
                 </li>
             </ul>
         </div>
@@ -55,55 +62,60 @@
 
     <div class="project-details">
         <div class="project-header">
-            <a href="../index.html#projects" class="go-back-button">
+            <a href="../../game-development.html" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-            <img src="../images/p9.png" alt="Dino Runner Game Screenshot" class="project-image">
-            <h1>Dino Runner  – 2D Endless Runner Game</h1>
+            <img src="../../images/p11.png" alt="Block Breaker Game Screenshot" class="project-image">
+            <h1>Block Breaker – Classic Arcade Game</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
                 <p><strong>Platform:</strong> PC (Web)</p>
-                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/dino" target="_blank" class="highlight-link">Itch.io</a></p>
+                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/block-breaker" target="_blank" class="highlight-link">Itch.io</a></p>
             </div>
         </div>
 
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>Dino Runner is a 2D endless runner game inspired by the classic offline dinosaur game found in Google Chrome. Developed using Unity and C#, this project replicates the engaging mechanics of the original, challenging players to navigate a pixel-art dinosaur through a treacherous prehistoric landscape filled with obstacles.</p>
+                <p>Block Breaker is a 2D arcade game developed using Unity and C#, inspired by the classic brick-breaker genre. 
+                    Players control a paddle to bounce a ball and break all the blocks on the screen.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Responsive Controls</strong> Implemented precise input handling to ensure smooth jumping and crouching mechanics.</li>
-                    <li><strong>Dynamic Obstacle Generation:</strong> Utilized procedural generation to create a variety of obstacles, enhancing replayability.</li>
-                    <li><strong>Scoring System:</strong> Developed a real-time score tracking system to monitor player progress and encourage improvement.</li>
-                    <li><strong>Optimized Performance:</strong> Ensured seamless gameplay across web platforms through efficient coding practices.</li>
+                    <li><strong>Classic Brick-Breaker Gameplay:</strong> Bounce ball with paddle to break blocks.</li>
+                    <li><strong>Physics-Based Ball Movement:</strong> Realistic ball physics and collision detection.</li>
+                    <li><strong>Level Progression:</strong> Multiple levels with increasing difficulty.</li>
+                    <li><strong>Power-ups:</strong> Various power-ups to enhance gameplay.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Controls</h2>
                 <ul>
-                    <li><strong>Jump:</strong> Press Spacebar</li>
-                    <li><strong>Crouch:</strong> Hold Left Shift</li>
+                    <li><strong>Paddle Movement:</strong> Left/Right Arrow Keys or A/D</li>
+                    <li><strong>Launch Ball:</strong> Spacebar</li>
+                    <li><strong>Objective:</strong> Break all blocks to complete the level</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development:</strong> Managed all aspects of the project, including game design, programming, and testing.</li>
-                    <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's 2D capabilities to create smooth gameplay mechanics and responsive controls.</li>
-                    <li><strong>Code Optimization:</strong> Wrote clean and efficient C# scripts to manage game logic, input handling, and collision responses.</li>
+                    <li><strong>Physics Implementation:</strong> Realistic ball and paddle physics.</li>
+                    <li><strong>Level Design:</strong> Created engaging block arrangements.</li>
+                    <li><strong>Power-up System:</strong> Implemented various gameplay enhancements.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>Recreating Dino Runner provided valuable experience in understanding classic game mechanics and translating them into modern development environments. The project honed skills in 2D game development, collision detection, and user input management.</p>
+                <p>This project demonstrated the importance of satisfying physics and responsive controls in arcade games. 
+                    The brick-breaker genre remains engaging due to its simple yet challenging mechanics.
+                </p>
             </section>
         </div>
     </div>
@@ -125,7 +137,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
@@ -139,6 +151,6 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         ↑
     </button>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

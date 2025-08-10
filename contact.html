@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nelshan Paija</title>
+    <meta name="description" content="Contact Nelshan Paija - Independent gameplay and game developer.">
+    <meta name="author" content="Nelshan Paija">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/game-dev-animation.css">
+    <link rel="stylesheet" href="css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="images/tablcon-2.PNG">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <span class="logo__text">Nelshan Paija</span>
+        <div class="characterBox">
+          <div class="character wakeup">
+            <div class="character__face"></div>
+            <div class="character__feet"></div>
+          </div>
+          <div class="character wakeup">
+            <div class="character__face"></div>
+            <div class="character__feet"></div>
+          </div>
+          <div class="character">
+            <div class="character__face"></div>
+            <div class="character__feet"></div>
+          </div>
+        </div>
+      </a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="index.html" class="navbar__links">Home</a>
+        </li>
+        <li class="navbar__item dropdown">
+          <a href="#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="game-development.html">Games</a>
+            <a href="ui-ux.html">UI/UX</a>
+          </div>
+        </li>
+        <li class="navbar__item">
+          <a href="contact.html" class="navbar__links active">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="contact__container">
+      <h1 class="contact__title">Get In Touch</h1>
+      
+      <div class="contact__grid">
+        <!-- Left Section - Contact Links -->
+        <div class="contact__links">
+          <!-- <h2>Connect With Me</h2> -->
+          <div class="contact__item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>Send me a direct email</p>
+            <a href="mailto:nelshanpaijapun@gmail.com" class="contact__link">nelshanpaijapun@gmail.com</a>
+          </div>
+          
+          <div class="contact__item">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <p>Check out my projects and code</p>
+            <a href="https://github.com/nelshan" class="contact__link" target="_blank">github.com/nelshan</a>
+          </div>
+          
+          <div class="contact__item">
+            <i class="fas fa-gamepad"></i>
+            <h3>Itch.io</h3>
+            <p>Play my game projects</p>
+            <a href="https://nelshan.itch.io/" class="contact__link" target="_blank">nelshan.itch.io</a>
+          </div>
+          
+          <div class="contact__item">
+            <i class="fab fa-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>Connect professionally</p>
+            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" class="contact__link" target="_blank">linkedin.com/in/nelshan-paija</a>
+          </div>
+        </div>
+        
+        <!-- Right Section - Contact Form -->
+        <div class="contact__form">
+          <h2>Send Me a Message</h2>
+          <form action="mailto:nelshanpaijapun@gmail.com" method="post" enctype="text/plain" onsubmit="return validateForm()">
+            <div class="form__group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form__group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+            </div>
+            
+            <div class="form__group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or inquiry..." required></textarea>
+            </div>
+            
+            <button type="submit" class="form__submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__copyright">
+      <span>Developed by Nelshan Paija</span>
+    </div>
+  
+    <div class="footer__links">
+      <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+        <span class="text">Email</span>
+      </a>
+  
+      <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+        <span class="text">GitHub</span>
+      </a>
+  
+      <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
+        <i class="fas fa-gamepad"></i>
+        <span class="text">Itch.io</span>
+      </a>            
+  
+      <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+        <span class="text">LinkedIn</span>
+      </a>
+    </div>
+  </footer>
+
+  <button id="scrollToTopBtn" class="scroll-to-top">
+    ↑
+  </button>
+  <script src="js/main.js"></script>  
+
+</body>
+</html> 

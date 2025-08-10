@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: Block Breaker - Nelshan Paija</title>
-    <meta name="description" content="Block Breaker - a faithful recreation of the classic Block Breaker game developed by Nelshan Paija">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Flappy Bird - Nelshan Paija</title>
+    <meta name="description" content="Flappy Bird Clone - a reimagined version of the classic arcade game developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
-    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
-    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="../index.html" class="navbar__logo">
+            <a href="../../index.html" class="navbar__logo">
                 <span class="logo__text">Nelshan Paija</span>
                 <div class="characterBox">
                     <div class="character wakeup">
@@ -41,13 +44,17 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="index.html#projects" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="mailto:nelshanpaijapun@gmail.com" class="navbar__links">Contact</a>
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
                 </li>
             </ul>
         </div>
@@ -55,56 +62,60 @@
 
     <div class="project-details">
         <div class="project-header">
-            <a href="../index.html#projects" class="go-back-button">
+            <a href="../../game-development.html" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-            <img src="../images/p11.png" alt="Block Breaker Game Screenshot" class="project-image">
-            <h1>Block Breaker – 2D Arcade Game Clone</h1>
+            <img src="../../images/p3.png" alt="Flappy Bird Clone Screenshot" class="project-image">
+            <h1>Flappy Bird Clone – Classic Arcade Game</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
                 <p><strong>Platform:</strong> PC (Web)</p>
-                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/pong" target="_blank" class="highlight-link">Itch.io</a></p>
+                <p><strong>Play it on:</strong> <a href="https://nelshan.itch.io/floppy-bird" target="_blank" class="highlight-link">Itch.io</a></p>
             </div>
         </div>
 
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>Block Breaker is a 2D arcade game developed using Unity and C#, inspired by the classic brick-breaker genre. Players control a paddle to bounce a ball and break all the blocks on the screen. The game challenges players' reflexes and precision, offering endless gameplay as blocks respawn upon clearance.</p>
+                <p>This Flappy Bird Clone is a reimagined version of the classic, addictive arcade game, built 
+                    using the Unity Engine and C#. This project features smooth physics-based movement, obstacles 
+                    generation, score tracking, and a simple yet addictive gameplay loop.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Classic Gameplay Mechanics:</strong> Implemented traditional brick-breaking mechanics, ensuring an authentic arcade experience.</li>
-                    <li><strong>Responsive Controls:</strong> Utilized Unity's input system to provide smooth and intuitive paddle movement.</li>
-                    <li><strong>Endless Replayability:</strong> Designed the game to respawn blocks upon clearance, allowing for continuous play and high-score pursuits.</li>
-                    <li><strong>User Interface:</strong> Developed a clean UI displaying scores and lives, enhancing user engagement.</li>
+                    <li><strong>Physics-Based Movement:</strong> Smooth and responsive bird flight mechanics.</li>
+                    <li><strong>Procedural Obstacles:</strong> Dynamically generated pipes with varying heights.</li>
+                    <li><strong>Score Tracking:</strong> Persistent high score system to encourage replayability.</li>
+                    <li><strong>Simple Controls:</strong> One-tap/click gameplay for easy accessibility.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Controls</h2>
                 <ul>
-                    <li><strong>Move Left:</strong> A Key</li>
-                    <li><strong>Move Right:</strong> D Key</li>
-                    <li><strong>Ball Launch:</strong> Spacebar key</li>
+                    <li><strong>Flap:</strong> Spacebar, Mouse Click, or Touch</li>
+                    <li><strong>Objective:</strong> Navigate through pipes without hitting obstacles</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development</strong> Managed all aspects of the project, including game design, programming, and testing.</li>
-                    <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's 2D capabilities to create smooth gameplay mechanics and responsive controls.</li>
-                    <li><strong>Code Optimization:</strong> Wrote clean and efficient C# scripts to manage game logic, input handling, and collision responses.</li>
+                    <li><strong>Unity 2D Physics:</strong> Implemented realistic gravity and collision detection.</li>
+                    <li><strong>Procedural Generation:</strong> Created dynamic obstacle spawning system.</li>
+                    <li><strong>Game State Management:</strong> Handled game over, restart, and scoring logic.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>Developing Block Breaker provided valuable experience in recreating classic game mechanics and refining user interactions. The project honed skills in 2D game development, collision detection, and user interface design.</p>
+                <p>This project reinforced the importance of simple, addictive gameplay mechanics. The one-tap control 
+                    scheme makes it accessible to all players while maintaining the challenge that makes the original so engaging.
+                </p>
             </section>
         </div>
     </div>
@@ -126,7 +137,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
@@ -140,6 +151,6 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         ↑
     </button>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

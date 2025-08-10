@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: BOXY - Nelshan Paija</title>
-    <meta name="description" content="BOXY - A 2D top-down survival shooter developed by Nelshan Paija">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Boxy - Nelshan Paija</title>
+    <meta name="description" content="BOXY - a 2D top-down shooter game developed by Nelshan Paija">
     <meta name="author" content="Nelshan Paija">
     
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project-details.css">
-    <link rel="stylesheet" href="../css/navbar-bird-animation.css">
-    <link rel="icon" type="image/png" href="../images/tablcon-2.PNG">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="../index.html" class="navbar__logo">
+            <a href="../../index.html" class="navbar__logo">
                 <span class="logo__text">Nelshan Paija</span>
                 <div class="characterBox">
                     <div class="character wakeup">
@@ -41,13 +44,17 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="index.html#projects" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="mailto:nelshanpaijapun@gmail.com" class="navbar__links">Contact</a>
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
                 </li>
             </ul>
         </div>
@@ -55,14 +62,11 @@
 
     <div class="project-details">
         <div class="project-header">
-
-            <a href="../index.html#projects" class="go-back-button">
+            <a href="../../game-development.html" class="go-back-button">
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
-
-            <img src="../images/p2.png" alt="BOXY Game Screenshot" class="project-image">
-
-            <h1>BOXY – 2D Top-Down Survival Shooter</h1>
+            <img src="../../images/p2.png" alt="BOXY Game Screenshot" class="project-image">
+            <h1>BOXY – 2D Top-Down Shooter</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
@@ -74,39 +78,45 @@
         <div class="project-content">
             <section class="project-section">
                 <h2>Overview</h2>
-                <p>BOXY is a 2D top-down survival shooter that places players in the role of a lone survivor stranded on a hostile planet. Armed with a variety of weapons, players must fend off relentless waves of enemies that grow stronger and more dangerous over time. The game features dynamic enemy behavior, challenging mini-boss encounters, and intense wave-based combat, all designed to test the player's skills and endurance.</p>
+                <p>BOXY is a 2D top-down shooter made using Unity engine and C# scripting. The game features four distinct gun types, 
+                    diverse enemies with increasing difficulty, and intense wave-based combat. I implemented dynamic enemy behavior and 
+                    challenging mini-boss encounters.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Diverse Arsenal:</strong> Four distinct gun types, each offering unique combat power.</li>
-                    <li><strong>Dynamic Enemy Behavior:</strong> Enemies become more formidable with each wave, requiring players to continuously evolve their tactics.</li>
-                    <li><strong>Challenging Mini-Bosses:</strong> Periodic mini-boss encounters that provide significant challenges and break the rhythm of standard waves.</li>
-                    <li><strong>Responsive Controls:</strong>
-                        <ul>
-                            <li><strong>Movement:</strong> W/A/S/D keys</li>
-                            <li><strong>Shooting:</strong> Left Mouse Button</li>
-                            <li><strong>Dash:</strong> Spacebar</li>
-                            <li><strong>Pause:</strong> Esc key</li>
-                        </ul>
-                    </li>
-                    
+                    <li><strong>Four Gun Types:</strong> Each weapon offers unique gameplay mechanics and strategic advantages.</li>
+                    <li><strong>Wave-Based Combat:</strong> Progressive difficulty with increasingly challenging enemy waves.</li>
+                    <li><strong>Dynamic Enemy Behavior:</strong> AI-driven enemies that adapt to player actions.</li>
+                    <li><strong>Mini-Boss Encounters:</strong> Special boss battles that test player skills.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Controls</h2>
+                <ul>
+                    <li><strong>Movement:</strong> WASD or Arrow Keys</li>
+                    <li><strong>Shoot:</strong> Mouse Click</li>
+                    <li><strong>Switch Weapons:</strong> Number Keys 1-4</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Development Highlights</h2>
                 <ul>
-                    <li><strong>Solo Development:</strong> Conceptualized, designed, and developed independently, showcasing proficiency in game design, programming, and asset integration.</li>
-                    <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's capabilities to implement real-time enemy AI behaviors, responsive controls, and dynamic combat scenarios.</li>
-                    <li><strong>Asset Management:</strong> urated and integrated visual and audio assets to create an immersive and cohesive game environment.</li>
+                    <li><strong>Unity 2D Development:</strong> Leveraged Unity's 2D capabilities for smooth gameplay.</li>
+                    <li><strong>C# Scripting:</strong> Implemented complex game mechanics and enemy AI.</li>
+                    <li><strong>Game Balance:</strong> Carefully tuned difficulty progression and weapon systems.</li>
                 </ul>
             </section>
 
             <section class="project-section">
                 <h2>Reflection</h2>
-                <p>Developing BOXY provided valuable experience in creating engaging gameplay loops and balancing difficulty progression. The project emphasized the importance of dynamic enemy design and player feedback in maintaining player engagement over extended play sessions.</p>
+                <p>This project demonstrated my ability to create engaging combat systems and implement AI-driven enemies. 
+                    The wave-based progression system provides a satisfying challenge that keeps players engaged.
+                </p>
             </section>
         </div>
     </div>
@@ -128,7 +138,7 @@
             </a>
     
             <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <img src="../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
                 <span class="text">Itch.io</span>
             </a>            
     
@@ -142,6 +152,6 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         ↑
     </button>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 
