@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nelshan Paija</title>
+    <title>Nelshan Paija Portfolio</title>
     <meta name="description" content="Portfolio site for independent gameplay and game developer Nelshan Paija.">
     <meta name="author" content="Nelshan Paija">
     
@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="css/game-dev-animation.css">
     <link rel="stylesheet" href="css/navbar-bird-animation.css">
     <link rel="icon" type="image/png" href="images/tablcon-2.PNG">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -37,17 +35,20 @@
           </div>
         </div>
       </a>
-      <div class="navbar__toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="navbar__menu">
+      
+      <!-- New Hamburger Menu -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-controls="navbar-menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <ul class="navbar__menu" id="navbar-menu">
         <li class="navbar__item">
           <a href="#site" class="navbar__links">Home</a>
         </li>
         <li class="navbar__item dropdown">
-                              <a href="#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+          <a href="#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
           <div class="dropdown-content">
             <a href="game-development.html">Games</a>
             <a href="ui-ux.html">UI/UX</a>
@@ -75,11 +76,11 @@
         </div>
  
         <h2 class="intro__tagline">I'm
-          <span class="name">Nelshan Paija</span>, a Game Developer and Programmer fueled by caffeine 
-          and a profound love of all things gaming! I am currently pursuing game development with all 
-          of my might, thus I enjoy problem-solving with code, building intuitive user interfaces, and 
-          optimizing performance to create entertaining gameplay. <strong>My goal?</strong> To create games that are as 
-          enjoyable to play as they are to design.
+          <span class="name">Nelshan Paija</span>, a Game Developer and UI/UX Designer fueled by caffeine 
+          and a profound love of tech, creativity, and gaming!. I love crafting intuitive user interfaces, 
+          solving problems with code, and creating entertaining gameplay. 
+          <strong>My goal?</strong> To create and design games that are as fun to create as they are to play, blending intuitive 
+          design with immersive, interactive experiences.
         </h2>
       </div>
       <h3 class="intro__contact">Got an interesting project? Send me a message at
@@ -156,17 +157,17 @@
         <span class="text">Email</span>
       </a>
   
-      <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
+      <a href="https://github.com/nelshan" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
         <i class="fab fa-github"></i>
         <span class="text">GitHub</span>
       </a>
   
-      <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
+      <a href="https://nelshan.itch.io/" target="_blank" rel="noopener noreferrer" title="Itch.io" aria-label="Itch.io">
         <i class="fas fa-gamepad"></i>
         <span class="text">Itch.io</span>
       </a>            
   
-      <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
         <span class="text">LinkedIn</span>
       </a>

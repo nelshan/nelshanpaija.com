@@ -31,12 +31,14 @@
                 </div>
             </a>
             
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
+                  <!-- New Hamburger Menu -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-controls="navbar-menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <ul class="navbar__menu" id="navbar-menu">
                 <li class="navbar__item">
                     <a href="index.html#site" class="navbar__links">Home</a>
                 </li>
@@ -55,12 +57,69 @@
     </nav>
 
     <div id="site">
-
         <section id="projects" class="projects">
+
             <h2 class="projects__title">UI/UX Design Projects</h2>
-            <div class="projects__container">
-                
-                <div class="project">
+
+            <a href="projects/UI UX Projects/UI_UX_Project 1.html" class="case-hero" aria-labelledby="focusflow-title">
+                <div class="case-hero__content">
+                    <div class="case-meta">Passion project | Android</div>
+                    <h1 id="focusflow-title" class="case-title">Focus Flow – To‑do list app</h1>
+                    <h2 class="case-subtitle">Product & Brand Design</h2>
+                    <p class="case-desc">A minimalist task manager built to prioritize clarity, focus, and flow.</p>
+                    <span class="project__link case-btn case-cta" aria-label="View Case Study: Focus Flow">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="label">view case study</span>
+                    </span>
+                </div>
+                <div class="case-hero__visual">
+                    <img src="images/UI UX Image/Frame 1.png" alt="Focus Flow app screens" class="case-hero__img">
+                </div>
+            </a>
+        </section>
+      
+    </div>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>Developed by Nelshan Paija</span>
+        </div>
+      
+        <div class="footer__links">
+            <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span class="text">Email</span>
+            </a>
+      
+            <a href="https://github.com/nelshan" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+                <span class="text">GitHub</span>
+            </a>
+      
+            <a href="https://nelshan.itch.io/" target="_blank" rel="noopener noreferrer" title="Itch.io" aria-label="Itch.io">
+                <i class="fas fa-gamepad"></i>
+                <span class="text">Itch.io</span>
+            </a>            
+      
+            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                <span class="text">LinkedIn</span>
+            </a>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        ↑
+    </button>
+    <script src="js/main.js"></script>  
+
+</body>
+</html> 
+
+
+
+
+<!-- <div class="project">
                     <img src="images/tablcon.PNG" alt="UI Design Project 1">
                     <h3>Game UI Design</h3>
                     <p>
@@ -124,45 +183,4 @@
                         user experiences and design intuitive navigation flows.
                     </p>
                     <a href="#" class="project__link">View Project</a>
-                </div>
-
-            </div>
-        </section>
-      
-    </div>
-
-    <footer class="footer">
-        <div class="footer__copyright">
-            <span>Developed by Nelshan Paija</span>
-        </div>
-      
-        <div class="footer__links">
-            <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-                <span class="text">Email</span>
-            </a>
-      
-            <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-                <span class="text">GitHub</span>
-            </a>
-      
-            <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
-                <i class="fas fa-gamepad"></i>
-                <span class="text">Itch.io</span>
-            </a>            
-      
-            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-                <span class="text">LinkedIn</span>
-            </a>
-        </div>
-    </footer>
-
-    <button id="scrollToTopBtn" class="scroll-to-top">
-        ↑
-    </button>
-    <script src="js/main.js"></script>  
-
-</body>
-</html> 
+                </div> -->
