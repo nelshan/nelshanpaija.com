@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Focus Flow — Case Study | Product & Brand Design</title>
+  <meta name="description" content="Focus Flow — Minimalist to-do app case study. UX/UI design, flows, prototypes and assets for portfolio." />
+
+  <!-- Google Fonts (change if you prefer another) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#4f46e5;
+      --accent-2:#06b6d4;
+      --surface:#0b1220;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --max-width:1100px;
+      --mono: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--mono);
+      background: linear-gradient(180deg,#071024 0%, #071428 60%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--max-width);margin:48px auto;padding:0 24px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 430px;
+      gap:36px;
+      align-items:center;
+      margin-bottom:36px;
+    }
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr; text-align:center}
+    }
+    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:1px;margin-bottom:12px}
+    h1{font-size:40px;margin:0 0 16px 0;line-height:1.02}
+    .sub{color:var(--muted);margin-bottom:20px}
+    .meta{
+      display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px;
+    }
+    .meta .pill{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#7c3aed);box-shadow:0 6px 18px rgba(79,70,229,0.18);color:white;text-decoration:none;font-weight:700;border:0;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+    .hero-image{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+    .hero-image img{max-width:100%;height:auto;border-radius:12px;display:block}
+
+    /* Sections */
+    section{background:transparent;padding:36px 0;border-top:1px solid rgba(255,255,255,0.02);}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .section-head h2{margin:0;font-size:20px}
+    .lead{color:var(--muted);max-width:70ch}
+
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    @media (max-width:960px){.two-col{grid-template-columns:1fr}}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02);
+    }
+    .ia{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Helvetica Neue", monospace;
+      background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted);font-size:13px;white-space:pre;
+    }
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    @media (max-width:960px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.gallery{grid-template-columns:1fr}}
+
+    .mock{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:10px;padding:10px;border:1px solid rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;
+      min-height:180px;
+    }
+    .mock img{max-width:100%;height:auto;border-radius:8px}
+
+    .specs{display:flex;flex-direction:column;gap:8px}
+    .specs .s{display:flex;gap:10px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 12px rgba(6,182,212,0.08)}
+
+    footer{margin:64px 0 120px 0;text-align:center;color:var(--muted)}
+    .muted{color:var(--muted)}
+
+    /* small helpers */
+    .subtle{color:var(--muted);font-size:14px}
+    .kpi-grid{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+    .kpi{background:rgba(255,255,255,0.02);padding:12px 14px;border-radius:10px;font-weight:700}
+    .note{background:rgba(255,255,255,0.01);padding:10px;border-radius:8px;color:var(--muted);font-size:14px}
+    a.link{color:var(--accent);text-decoration:none;font-weight:700}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <div>
+        <div class="kicker">PASSION PROJECT | ANDROID</div>
+        <h1>Focus Flow — To-do list app</h1>
+        <p class="sub">A minimalist task manager built to prioritize clarity, focus, and flow.</p>
+
+        <div class="meta">
+          <div class="pill">Product & Brand Design</div>
+          <div class="pill">Role: UX / UI / Prototyping</div>
+          <div class="pill">Tools: Figma • Illustrator</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#case-study">View case study</a>
+          <a class="btn ghost" href="#" aria-disabled="true">Prototype (placeholder)</a>
+        </div>
+
+        <div style="margin-top:18px" class="lead muted">
+          <!-- Short project one-liner / replace with your own -->
+          <!-- REPLACE: Add a 1–2 sentence summary of the app here -->
+          Focus Flow helps users stay present by simplifying task creation and prioritization — a clean app to plan your day, track time, and build focus.
+        </div>
+      </div>
+
+      <figure class="hero-image" aria-hidden="true">
+        <!-- REPLACE the image below with your hero mockup or stacked phone image -->
+        <img src="assets/hero-stack.png" alt="Focus Flow — app screens mockup (replace with your image)">
+      </figure>
+    </header>
+
+    <!-- CASE STUDY -->
+    <main id="case-study">
+      <!-- Overview -->
+      <section>
+        <div class="section-head">
+          <h2>Overview</h2>
+          <div class="subtle">Timeline • Deliverables • Status</div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <p class="lead">
+              <strong>Focus Flow</strong> is a minimalist Android task manager focused on reducing cognitive load and promoting deep work.
+              The MVP focuses on three core areas: daily planning (Today), future planning (Upcoming) and management tools (Browse + Focus timer).
+            </p>
+
+            <div style="margin-top:18px" class="card">
+              <h3 style="margin-top:0">Project Goals</h3>
+              <ul style="margin:8px 0 0 18px;color:var(--muted)">
+                <li>Design an intuitive, minimal UX for daily task flow</li>
+                <li>Speed up task creation with contextual inputs</li>
+                <li>Introduce a focus timer tied to tasks to measure time spent</li>
+                <li>Create a compact visual identity aligned with calm productivity</li>
+              </ul>
+            </div>
+
+            <div style="margin-top:16px" class="card">
+              <h3 style="margin-top:0">Research & Insights</h3>
+              <p class="muted" style="margin:8px 0 0 0">
+                <!-- REPLACE: Add your research summary or link to research docs -->
+                Conducted comparative analysis of Todoist, TickTick, and Google Tasks. Found users wanted fewer features in the main view and faster ways to add focused items.
+              </p>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card specs">
+              <div class="s"><span class="dot"></span><div><strong>Role</strong><div class="subtle">UX/UI, Prototyping, Brand</div></div></div>
+              <div class="s"><span class="dot"></span><div><strong>Platform</strong><div class="subtle">Android</div></div></div>
+              <div class="s"><span class="dot"></span><div><strong>Tools</strong><div class="subtle">Figma • Photoshop • Protopie</div></div></div>
+
+              <div style="margin-top:10px">
+                <div class="kpi-grid">
+                  <div class="kpi">Timeline: <!-- REPLACE -->4 weeks</div>
+                  <div class="kpi">Deliverables: Wireframes, UI Kit</div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px" class="note">
+                <!-- REPLACE with short status -->
+                Status: Concept & UI/UX designs complete. Prototype available for testing.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Information Architecture -->
+      <section>
+        <div class="section-head">
+          <h2>Information Architecture</h2>
+          <div class="subtle">Structure & navigation</div>
+        </div>
+
+        <div class="card ia" aria-hidden="true">
+<pre>
+Home
+ ├── Today
+ │     └── Add Task (+)
+ │           ├── Date Picker
+ │           ├── Priority Level (Low/Medium/High)
+ │           ├── Reminder
+ │           └── Category (create / pick)
+ ├── Upcoming
+ │     └── Calendar & date grouping
+ └── Browse
+       ├── Completed Tasks
+       ├── Categories
+       ├── My Projects
+       ├── Focus Timer
+       └── Settings
+</pre>
+        </div>
+      </section>
+
+      <!-- UX Flow & Screens -->
+      <section>
+        <div class="section-head">
+          <h2>UX Flow & Screens</h2>
+          <div class="subtle">Key screens, interactions and task creation flow</div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Primary flow</h3>
+          <ol style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Launch → Splash → Login (Email/Google/Facebook)</li>
+            <li>Home → Today view shows tasks for the day</li>
+            <li>User taps <strong>+</strong> to add a task → chooses date, priority, reminder and category</li>
+            <li>Start Focus timer for a task to record time spent</li>
+            <li>Completed tasks move to Completed list in Browse</li>
+          </ol>
+
+          <div style="margin-top:18px" class="gallery">
+            <!-- Replace these images with your screen exports -->
+            <figure class="mock"><img src="assets/splash.png" alt="Splash / Login screen — replace"></figure>
+            <figure class="mock"><img src="assets/today.png" alt="Today screen — replace"></figure>
+            <figure class="mock"><img src="assets/add-task.png" alt="Add task modal — replace"></figure>
+            <figure class="mock"><img src="assets/upcoming.png" alt="Upcoming calendar view — replace"></figure>
+            <figure class="mock"><img src="assets/browse.png" alt="Browse / Projects — replace"></figure>
+            <figure class="mock"><img src="assets/focus-timer.png" alt="Focus timer — replace"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design System -->
+      <section>
+        <div class="section-head">
+          <h2>Design System</h2>
+          <div class="subtle">Typography • Colors • Components</div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="card">
+              <h3 style="margin-top:0">Typography</h3>
+              <p class="muted">Inter (or prefered system font) with clear typographic scale for headings, body and labels.</p>
+
+              <h3 style="margin-top:12px">Color Palette</h3>
+              <div style="display:flex;gap:10px;margin-top:10px;align-items:center">
+                <div style="width:72px;height:48px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#7c3aed);box-shadow:0 6px 20px rgba(79,70,229,0.1)"></div>
+                <div style="width:72px;height:48px;border-radius:8px;background:var(--accent-2)"></div>
+                <div style="width:72px;height:48px;border-radius:8px;background:#0B1220"></div>
+                <div style="width:72px;height:48px;border-radius:8px;background:#111827"></div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="card">
+              <h3 style="margin-top:0">Components</h3>
+              <ul style="margin:6px 0 0 18px;color:var(--muted)">
+                <li>Primary CTA / + button (floating action)</li>
+                <li>Compact task list rows with priority chips</li>
+                <li>Calendar date-picker modal</li>
+                <li>Focus timer (start / pause / finish)</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card">
+              <h3 style="margin-top:0">UI Kit & Tokens</h3>
+              <p class="muted" style="margin:8px 0 0 0">Tokens for spacing, radius, and colors are defined and ready for handoff.</p>
+
+              <div style="margin-top:12px" class="subtle">Download (placeholder)</div>
+              <div style="margin-top:10px">
+                <a class="btn" href="#" onclick="alert('Replace with actual UI kit download link')">Download UI Kit</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Prototyping & Testing -->
+      <section>
+        <div class="section-head">
+          <h2>Prototype & Usability Testing</h2>
+          <div class="subtle">Link & findings</div>
+        </div>
+
+        <div class="card">
+          <p class="muted">
+            <!-- REPLACE: Add description of prototype and testing rounds -->
+            Built an interactive Figma prototype covering task creation, calendar selection and the focus timer. Performed early usability testing with 6 participants to validate task creation speed and visibility of priority states.
+          </p>
+
+          <div style="margin-top:12px">
+            <a class="btn" href="#" onclick="alert('Replace with your live prototype URL')">Open Prototype</a>
+            <a class="btn ghost" href="#" style="margin-left:8px">Usability notes (placeholder)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learnings & Next Steps -->
+      <section>
+        <div class="section-head">
+          <h2>Learnings & Next Steps</h2>
+          <div class="subtle">What came next</div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Key learnings</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Keep primary screens minimal — avoid presenting too many controls at once.</li>
+            <li>Users loved the quick add flow and focus timer as motivational feedback.</li>
+            <li>Providing a lightweight categorization system made tasks feel more manageable.</li>
+          </ul>
+
+          <h3 style="margin-top:12px">Next steps</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Ship an MVP Android build with cloud sync and user accounts.</li>
+            <li>Iterate on smart suggestions for scheduling based on past behavior.</li>
+            <li>Add lightweight analytics to measure focus sessions and task completion rates.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section>
+        <div class="section-head">
+          <h2>Gallery</h2>
+          <div class="subtle">High-fidelity mockups and device previews</div>
+        </div>
+
+        <div class="gallery">
+          <!-- Replace with high-res renders of your phone mockups -->
+          <figure class="mock"><img src="assets/mock-01.png" alt="Mockup 1 — replace"></figure>
+          <figure class="mock"><img src="assets/mock-02.png" alt="Mockup 2 — replace"></figure>
+          <figure class="mock"><img src="assets/mock-03.png" alt="Mockup 3 — replace"></figure>
+          <figure class="mock"><img src="assets/mock-04.png" alt="Mockup 4 — replace"></figure>
+          <figure class="mock"><img src="assets/mock-05.png" alt="Mockup 5 — replace"></figure>
+          <figure class="mock"><img src="assets/mock-06.png" alt="Mockup 6 — replace"></figure>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p class="muted">Designed by <strong><!-- REPLACE: Your Name --></strong> • <a class="link" href="#">View full portfolio</a></p>
+      <p style="margin-top:8px;color:var(--muted);font-size:13px">Want this on your site with custom colors or adapted to light theme? I can help adapt it.</p>
+    </footer>
+  </div>
+</body>
+</html>
