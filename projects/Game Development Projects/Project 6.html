@@ -77,13 +77,245 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>Run from Unknown is a short, first-person survival horror game that immerses players in a tense and mysterious environment. 
-                    Waking up alone in a dark, abandoned house, players must navigate through eerie corridors and solve puzzles to uncover the truth behind their predicament.
+                <h2>1. Introduction</h2>
+                <p>
+                    Run from Unknown is a first-person survival horror experience developed in Unity to explore the principles of atmospheric design, 
+                    environmental storytelling, and player-driven tension.
+                </p>
+                <p>
+                    The game places players in the role of an unnamed protagonist who awakens in a dark, decrepit abandoned house, unaware of how 
+                    they arrived. As they explore the decaying corridors, solve environmental puzzles, and encounter unsettling events, they 
+                    gradually piece together the truth behind their confinement. The game focuses on psychological tension and environmental 
+                    storytelling rather than direct combat, encouraging the player to survive through observation, exploration, and problem-solving.
+                </p>
+                <p>
+                    The project was developed as part of an independent study in game design and development, aiming to explore how atmosphere, 
+                    pacing, and player perception can evoke fear and curiosity within a confined, interactive space. The goal of this project 
+                    was to demonstrate proficiency in game design, programming, and production workflows, while focusing on immersion through 
+                    sensory limitation and narrative ambiguity.
+                </p>
+                <p>
+                    This case study documents the development journey — from conceptual design and technical implementation to challenges, iterations, and key insights gained during production.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The design intent behind Run from Unknown was to create a focused horror experience with an emphasis on immersion and subtle 
+                    storytelling. Instead of relying on jump scares or explicit threats, the game aims to build psychological tension through 
+                    isolation, lighting, and sound design.
+                </p>
+                <p>Players are constantly uncertain about what lurks beyond their limited flashlight beam — an intentional design choice to heighten vulnerability and curiosity.</p>
+                <p><strong>Core design goals included:</strong></p>
+                <ul>
+                    <li><strong>Immersion through Realism:</strong>  Achieve believable lighting, sound, and environmental detail.</li>
+                    <li><strong>Exploration-based gameplay:</strong> Encouraging players to interact with the environment to uncover the narrative.</li>
+                    <li><strong>Narrative Subtlety:</strong> Communicate story elements through environmental clues rather than exposition.</li>
+                    <li><strong>Minimal UI:</strong> Allowing for uninterrupted immersion and realism.</li>
+                    <li><strong>Player Vulnerability:</strong> Restrict tools and visibility to create a constant sense of exposure.</li>
+                    <li><strong>Iterative Development:</strong> Design modular systems that allow rapid testing and refinement.</li>
+                </ul>
+                <p>
+                    The game’s design philosophy was guided by the principle that “what is unseen is often more frightening than what is visible.” This concept shaped every aspect of level design and pacing.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+                <p>The development of Run from Unknown followed a prototype-first iterative workflow, emphasizing player experience testing and environmental feel.</p>
+
+                <h3>3.1 Early Concept and Mood Building</h3>
+                <p>
+                    Development began with the creation of a mood board and lighting test scene to capture the desired tone — claustrophobic interiors, subtle light flickers, and damp, decayed textures.
+                </p>
+                <p>
+                    Using Unity’s High Definition Render Pipeline (HDRP) and volumetric fog, the visual foundation established an eerie, oppressive atmosphere that guided subsequent design decisions.
+                </p>
+                <p>Art assets were developed in Blender, Substance Painter, Quixel Megascans, focusing on a grounded and decayed aesthetic. The textures and materials were deliberately desaturated to reinforce a sense of abandonment.</p>
+
+                <h3>3.2 Core Gameplay Systems</h3>
+                <ol>
+                    <li>
+                        <strong>Player Controller</strong>
+                        <ul>
+                            <li>Implemented a first-person controller with smooth movement, head-bob, and camera sway for realism.</li>
+                            <li>Added stamina-based sprinting to balance exploration and panic during chases.</li>
+                            <li>Integrated subtle breathing and heartbeat feedback to reflect player stress.</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Interaction System</strong>
+                        <ul>
+                            <li>Designed a raycast-based interaction system allowing players to open doors, collect items, and trigger narrative events.</li>
+                            <li>Implemented context-sensitive prompts with minimal on-screen UI to maintain immersion.</li>
+                            <li>Created a modular event trigger system to script environmental scares, puzzles, and story beats..</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Lighting and Visibility</strong>
+                        <ul>
+                            <li>Used dynamic lighting with limited range flashlights and flickering bulbs to create uncertainty.</li>
+                            <li>Implemented volumetric fog and post-processing effects (film grain, chromatic aberration, vignette) to reinforce mood.</li>
+                            <li>Added light-triggered events where illumination briefly reveals hidden messages or figures.</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Audio and Ambience</strong>
+                        <ul>
+                            <li>Designed a layered soundscape using Unity’s Audio Mixer and 3D spatial audio.</li>
+                            <li>Dynamic reverb zones adjust acoustics depending on room size and materials.</li>
+                            <li>Ambient drones, distant footsteps, and random creaks enhance tension even in moments of stillness.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Puzzles and Progression</strong>
+                        <ul>
+                            <li>Integrated environmental puzzles that blend organically into the setting (e.g., finding keys, aligning symbols, restoring power).</li>
+                            <li>Each puzzle is designed to momentarily relieve tension before escalating fear again — a pacing rhythm crucial to the horror genre.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Project Architecture</h3>
+                <p>There are numerous systems that contribute to the overall structure of the game, but some of the most important include the following:</p>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>System</th>
+                        <th>Purpose</th>
+                        <th>Key Features</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>PlayerController.cs</b></td>
+                        <td>Handles movement, input, and stamina management</td>
+                        <td>Smooth camera rotation, head bobbing, crouch/sprint control</td>
+                      </tr>
+                      <tr>
+                        <td><b>InteractionManager.cs</b></td>
+                        <td>Manages raycast interactions with objects</td>
+                        <td>Modular, reusable, minimal UI prompts</td>
+                      </tr>
+                      <tr>
+                        <td><b>EventManager.cs</b></td>
+                        <td>Controls scripted scares and triggers</td>
+                        <td>Uses UnityEvents for flexibility</td>
+                      </tr>
+                      <tr>
+                        <td><b>AudioManager.cs</b></td>
+                        <td>Mixes ambient layers and effects</td>
+                        <td>Supports real-time spatial adjustments</td>
+                      </tr>
+                      <tr>
+                        <td><b>LightingManager.cs</b></td>
+                        <td>Adjusts global light intensity and effects</td>
+                        <td>Supports flicker, dimming, and transitions</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>This modular architecture allowed isolated testing of each subsystem without introducing dependencies.</p>
+
+                <h3>4.2 Lighting Design</h3>
+                <p>
+                    Lighting was central to Run from Unknown’s identity. Using Unity’s real-time lighting and shadow casting, 
+                    I emphasized contrast — areas of harsh brightness adjacent to deep blackness.
+                </p>
+                <p>A flashlight system was implemented with:</p>
+                <ul>
+                    <li>Adjustable range and flicker frequency.</li>
+                    <li>Battery drain mechanic (optional).</li>
+                    <li>Soft vignette effect to simulate human eye adaptation.</li>
+                </ul>
+                <p>Additionally, a global lighting curve shifts dynamically based on story progression — as the narrative grows darker, so does the world.</p>
+
+                <h3>4.3 AI and Enemy Behavior</h3>
+                <p>The antagonist in Run from Unknown is rarely seen — a deliberate design choice. Instead of direct combat, the game features:</p>
+                <ul>
+                    <li>Sound-based proximity detection — the entity reacts to footsteps or running.</li>
+                    <li>Line-of-sight triggers — fleeting glimpses of the figure increase tension without direct confrontation.</li>
+                    <li>Chase sequences — scripted moments where the player must escape through memorized layouts.</li>
+                </ul>
+                <p>The AI system was designed using a lightweight state machine with patrol, investigate, and pursue states, adjustable via ScriptableObjects for tuning behavior difficulty.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Solutions</h2>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>Challenge</th>
+                        <th>Description</th>
+                        <th>Solution</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>Balancing Performance and Atmosphere</b></td>
+                        <td>HDRP and real-time lights caused frame drops in dark interiors.</td>
+                        <td>Optimized light culling, baked secondary lighting, and reduced reflection probe updates.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Maintaining Fear Consistency</b></td>
+                        <td>Overuse of scares reduced tension.</td>
+                        <td>Designed pacing curve — alternating silence, tension, and release phases.</td>
+                      </tr>
+                      <tr>
+                        <td><b>AI Predictability</b></td>
+                        <td>Early prototypes felt too mechanical.</td>
+                        <td>Introduced randomized patrol paths and audio cues to simulate unpredictability.</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>Through iterative testing, each system was fine-tuned to serve immersion without compromising gameplay flow.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>Testing focused on player psychology — observing how individuals reacted to darkness, pacing, and sound.</p>
+                <p>Adjustments made based on testing:</p>
+                <ul>
+                    <li>Reduced flashlight range for added suspense.</li>
+                    <li>Slowed player speed in tight corridors to amplify vulnerability.</li>
+                    <li>Added minor auditory cues to foreshadow danger instead of explicit jumpscares.</li>
+                </ul>
+                <p>This process emphasized the importance of sound timing and visual rhythm in sustaining tension.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Insights and Lessons Learned</h2>
+                <p>Developing Run from Unknown provided crucial insights into horror game design:</p>
+                <ul>
+                    <li>Fear thrives in uncertainty: Minimal visibility and sound ambiguity evoke stronger emotions than overt threats.</li>
+                    <li>Player trust is a design tool: Breaking patterns carefully creates memorable tension.</li>
+                    <li>Lighting and sound are gameplay systems, not decoration: Every flicker, echo, and silence communicates meaning.</li>
+                    <li>Iterative testing reveals emotional pacing: Continuous player observation informed the final balance of calm and chaos.</li>
+                </ul>
+                <p>These lessons reinforced the value of integrating sensory design and gameplay logic to create cohesive emotional experiences.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Future Improvements</h2>
+                <p>Potential future developments include:</p>
+                <ul>
+                    <li>Extended narrative mode with diary entries and environmental storytelling.</li>
+                    <li>Dynamic enemy AI that adapts to player behavior and sound usage.</li>
+                    <li>Procedural lighting decay system to increase long-term tension.</li>
+                    <li>Custom shader effects for visual distortion during panic moments.</li>
+                </ul>
+                <p>These improvements would elevate Run from Unknown into a more complex, reactive horror experience.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Atmospheric Horror:</strong> Dark, abandoned house setting with eerie atmosphere.</li>
@@ -110,13 +342,23 @@
                     <li><strong>Puzzle System:</strong> Implemented interactive puzzle mechanics.</li>
                     <li><strong>Atmosphere Creation:</strong> Used lighting and sound for horror atmosphere.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project explored the fundamentals of 3D game development and atmospheric design. 
-                    Creating tension through environmental storytelling was a valuable learning experience.
+                <h2>9. Conclusion</h2>
+                <p>
+                    Run from Unknown – First-Person Survival Horror stands as a compelling example of emergent atmosphere through design and technology
                 </p>
+                <p>The project demonstrates my ability to:</p>
+                <ul>
+                    <li>Develop immersive systems in Unity that merge gameplay and environment.</li>
+                    <li>Balance visual storytelling and technical performance.</li>
+                    <li>Apply iterative design and psychological insight to shape player emotion.</li>
+                </ul>
+                <p>
+                    Through Run from Unknown, I deepened my understanding of how lighting, sound, and player vulnerability combine to create meaningful fear — not through spectacle, but through imagination.
+                </p>
+                <p>This project represents both a technical achievement and a study in interactive emotional design, showcasing my growth as a game developer and storyteller.</p>
             </section>
         </div>
     </div>

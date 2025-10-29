@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wake Up Coffee - Nelshan Paija</title>
+    <meta name="description" content="Wake Up Coffee - WordPress Website Design Case Study">
+    <meta name="author" content="Nelshan Paija">
+    
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --swatch-width: 80px;
+          --swatch-height: 32px;
+          --swatch-radius: 6px;
+          --light-bg: #EADDDF;
+          --dark-bg: #54685C;
+        }
+    
+        .swatch {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: var(--swatch-width);
+          height: var(--swatch-height);
+          margin: 0 4px; /* small space between text */
+          border-radius: var(--swatch-radius);
+          font-size: 0.85rem;
+          font-weight: 600;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+          border: 1px solid rgba(0,0,0,0.06);
+          vertical-align: middle;
+        }
+    
+        .swatch.light {
+          background: var(--light-bg);
+          color: #222;
+        }
+    
+        .swatch.dark {
+          background: var(--dark-bg);
+          color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="../../index.html" class="navbar__logo">
+                <span class="logo__text">Nelshan Paija</span>
+                <div class="characterBox">
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                </div>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="navbar-menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="navbar__menu" id="navbar-menu">
+                <li class="navbar__item">
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="project-details">
+        <div class="project-header">
+            <a href="../../ui-ux.html" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <img src="../../images/UI UX Image/UI_UX_Project 2 cover.png" alt="Wake Up Coffee Screenshot" class="project-image">
+            <h1>Wake Up Coffee – WordPress Website Design Case Study</h1>
+            <div class="project-meta">
+                <p><strong>Link:</strong> <a href="https://nelshan.github.io/wakeupcoffee.wordpress.com/" target="_blank" class="highlight-link">wakeupcoffee.wordpress.com</a></p>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <section class="project-section">
+                <h2>Introduction</h2>
+                <p>
+                    Wake Up Coffee is a concept brand offering a global coffee experience— featuring brews from around the world. 
+                    The goal of the website was to create a warm, inviting, and user-friendly digital space reflecting the cozy 
+                    atmosphere of the café, while making it easy for customers to explore the menu, upcoming events, and contact details.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Design Overview</h2>
+                <p>
+                    The design features a soft, natural palette of 
+                    <span class="swatch light" role="img" aria-label="Swatch color #EADDDF" title="#EADDDF">
+                      #EADDDF
+                    </span> 
+                    and 
+                    <span class="swatch dark" role="img" aria-label="Swatch color #54685C" title="#54685C">
+                      #54685C
+                    </span>
+                    to evoke comfort and freshness. Typography blends elegance 
+                    and clarity, with “Apparel Display Light” for headings and “Applied Sans Pro Condensed” for body text. The layout emphasizes 
+                    smooth navigation, with clear sections for the menu, events, gallery, and contact.
+                </p>
+
+                <img src="../../images/UI UX Image/Home.png" alt="Wake Up Coffee Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/Contact.png" alt="Wake Up Coffee Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/Gallery.png" alt="Wake Up Coffee Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/Menu.png" alt="Wake Up Coffee Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/Events.png" alt="Wake Up Coffee Screenshot" class="project-image">
+
+            </section>
+
+            <section class="project-section">
+                <h2>Functionality</h2>
+                <p>
+                    The website includes smooth scrolling navigation, a responsive gallery, a dynamic events page, 
+                    and a simple contact form. Built with accessibility in mind, all features adjust gracefully for 
+                    mobile and desktop users.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Challenges</h2>
+                <p>
+                    The primary challenge was ensuring the website was fully responsive and visually appealing across all devices. 
+                    The design needed to be clean, user-friendly, and easy to navigate, while also maintaining a modern aesthetic. 
+                    Balancing visual appeal with usability required careful attention to color contrast, image placement, and font 
+                    sizing—each element needed to function seamlessly across various screen sizes. Achieving this balance involved 
+                    extensive testing and iterative refinement.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Reflection</h2>
+                <p>
+                    Designing and developing the Wake Up Coffee website using WordPress was a rewarding experience that strengthened 
+                    both my creative and technical skills. This project allowed me to translate a conceptual brand identity into a fully 
+                    functional, user-friendly digital platform. Working with WordPress gave me the flexibility to design a visually cohesive 
+                    site while maintaining ease of content management for future updates.
+                </p>
+
+                <p>
+                    One of the most valuable lessons I learned was how to balance aesthetic appeal with usability. I experimented with 
+                    typography, color harmony, and layout structure to create a warm, inviting feel that reflects the café’s personality. 
+                    At the same time, I focused on responsive design principles and accessibility to ensure that the website performs 
+                    smoothly across all devices.
+                </p>
+
+                <p>
+                    Throughout the process, I also became more confident in customizing WordPress themes, optimizing performance, and 
+                    improving user experience through thoughtful design decisions. Overall, this project deepened my understanding of 
+                    how design and development come together to create an engaging brand experience online — one that not only looks 
+                    good but also serves its audience effectively.
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>Developed by Nelshan Paija</span>
+        </div>
+    
+        <div class="footer__links">
+            <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span class="text">Email</span>
+            </a>
+    
+            <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+                <span class="text">GitHub</span>
+            </a>
+    
+            <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <span class="text">Itch.io</span>
+            </a>            
+    
+            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                <span class="text">LinkedIn</span>
+            </a>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        ↑
+    </button>
+    <script src="../../js/main.js"></script>
+</body>
+</html> 

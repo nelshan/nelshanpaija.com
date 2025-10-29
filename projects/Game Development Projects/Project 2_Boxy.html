@@ -77,14 +77,226 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>BOXY is a 2D top-down shooter made using Unity engine and C# scripting. The game features four distinct gun types, 
-                    diverse enemies with increasing difficulty, and intense wave-based combat. I implemented dynamic enemy behavior and 
-                    challenging mini-boss encounters.
+                <h2>1. Introduction</h2>
+                <p>
+                    BOXY – 2D Top-Down Shooter is a Unity-based action game developed to showcase technical proficiency, 
+                    design thinking, and a structured production workflow. The project was conceived as a compact yet 
+                    feature-rich experience demonstrating my capabilities in player control systems, AI design, procedural mechanics, and game polish.
+                </p>
+
+                <p>
+                    In BOXY, players navigate a minimalistic arena from a top-down perspective, controlling a cube-shaped character that must survive 
+                    waves of hostile enemies. The gameplay focuses on movement precision, shooting accuracy, and strategic positioning.
+                </p>
+
+                <p>
+                    This case study documents the full development process — from concept ideation through technical implementation and testing — emphasizing design philosophy, problem-solving, and lessons learned.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The inspiration for BOXY came from the simplicity and readability of classic arcade shooters like Geometry Wars and Asteroids, 
+                    combined with the modern emphasis on tight controls and visual clarity.
+                </p>
+                <h3>Design Objectives:</h3>
+                <ul>
+                    <li><strong>Intuitive Core Mechanics:</strong> Deliver responsive movement and shooting controls accessible to any player.</li>
+                    <li><strong>Challenging AI:</strong> Create engaging enemy behaviors that encourage dynamic player movement.</li>
+                    <li><strong>Minimalist Visuals:</strong> Use a clean, geometric art style that reinforces gameplay readability.</li>
+                    <li><strong>Scalable Architecture:</strong> Develop a flexible system architecture to easily extend features such as new weapons, enemies, or levels.</li>
+                    <li><strong>Polished Gameplay Loop:</strong> Ensure fluidity between spawning, combat, scoring, and game-over states.</li>
+                </ul>
+                <p>
+                    The overarching design philosophy centered on clarity through simplicity: stripping away unnecessary complexity to highlight tight feedback loops and satisfying combat rhythm.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The project began with a clear structural plan, dividing gameplay into core systems — Player, Enemies, Weapons, and Game Management. 
+                    Each subsystem was implemented as a modular component, allowing for efficient testing and iteration.
+                </p>
+
+                <p>
+                    A minimalist aesthetic was chosen early: solid-color shapes on a neutral background, ensuring maximum visual clarity during fast-paced play. 
+                    Early prototypes focused purely on player movement and shooting to establish the “feel” before adding combat elements.
+                </p>
+
+                <h3>3.2 Player Controls and Movement</h3>
+                <p>
+                    The player’s movement system was built around Unity’s <strong>Rigidbody2D</strong> for physics-driven control. Movement was handled via normalized input vectors, 
+                    allowing smooth diagonal motion and consistent speed in all directions. Shooting direction was decoupled from movement using independent input 
+                    axes — one for movement, another for aiming.
+                </p>
+
+                <p>
+                    Fine-tuning acceleration, deceleration, and maximum velocity became essential to achieving tight, responsive handling. 
+                    Early playtests emphasized the need for precision over speed, leading to a control model that rewarded deliberate positioning.
+                </p>
+
+                <h3>3.3 Shooting System and Weapon Design</h3>
+                <p>
+                    The weapon system was designed with flexibility in mind. Bullets were implemented as pooled prefabs, 
+                    managed by an ObjectPooler to optimize performance and minimize garbage collection overhead.
+                </p>
+                <p>
+                    Each projectile carried data for speed, damage, and lifespan. Fire rate and spread could be adjusted 
+                    to allow experimentation with different weapon archetypes (e.g., single-shot, burst fire). 
+                    This modularity supported future scalability and rapid iteration during testing.
+                </p>
+
+                <h3>3.4 Enemy AI and Behavior</h3>
+                <p>
+                    Enemy entities operated through state-driven AI scripts. Basic enemy types pursued the player using 
+                    simple steering behaviors, while more advanced variants incorporated ranged attacks or evasive patterns.
+                </p>
+                <p>
+                    Pathfinding relied on directional steering rather than grid-based navigation, maintaining lightweight
+                    computational overhead suitable for real-time performance.
+                </p>
+                <p>
+                    A wave-based spawning system controlled enemy count and pacing, gradually increasing difficulty 
+                    through frequency and enemy mix. This created a dynamic escalation curve that kept gameplay 
+                    challenging without overwhelming the player.
+                </p>
+
+                <h3>3.5 Combat and Feedback</h3>
+                <p>
+                    Combat relied heavily on instant feedback to maintain engagement. Particle bursts, hit flashes, 
+                    and screen shake were integrated to reinforce each interaction.
+                </p>
+                <p>
+                    Damage handling used a centralized HealthManager component for both player and enemy entities, 
+                    streamlining logic for damage detection and death events. Sound effects and short impact 
+                    animations were added to emphasize rhythm and reward.
+                </p>
+
+                <h3>3.6 Game Flow and UI</h3>
+                <p>The game followed a looping structure: <strong>Start → Combat → Game Over → Restart.</strong></p>
+                <p>
+                    The GameManager handled transitions between states, spawning waves, tracking score, and detecting 
+                    defeat conditions. The UI system provided score tracking, health indicators, and restart options using Unity’s Canvas and TextMeshPro.
+                </p>
+                <p>
+                    A minimalist UI layout reinforced the clean visual identity of the game, keeping player focus on movement and survival.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Architecture Overview</h3>
+                <p>The code architecture was intentionally modular and event-driven:</p>
+                <ul>
+                    <li><strong>PlayerController:</strong> Input handling, movement, and shooting.</li>
+                    <li><strong>WeaponController:</strong> Projectile instantiation, fire rate logic.</li>
+                    <li><strong>EnemyController:</strong> State-driven behavior and movement.</li>
+                    <li><strong>GameManager:</strong> Global state transitions and score tracking.</li>
+                    <li><strong>UIManager:</strong> Updates HUD elements and displays game state.</li>
+                    <li><strong>ObjectPooler:</strong> Manages reusable objects for bullets and effects.</li>
+                </ul>
+                <p>This structure allowed each system to operate independently while communicating through events, promoting scalability and maintainability.</p>
+
+                <h3>4.2 Performance Optimization</h3>
+                <p>
+                    Because numerous objects (enemies, bullets, particles) could exist simultaneously, optimization was crucial. Techniques included:
+                </p>
+                <ul>
+                    <li><strong>Object pooling</strong> for all projectiles and particle systems.</li>
+                    <li><strong>Batching sprites</strong> to minimize draw calls.</li>
+                    <li><strong>Time-based logic</strong> using Time.deltaTime to ensure frame-rate consistency.</li>
+                </ul>
+                <p>These optimizations ensured stable performance at 60 FPS even during intense combat scenarios.</p>
+
+                <h3>4.3 Procedural and Randomized Elements</h3>
+                <p>
+                    Enemy spawn locations and wave timing included controlled randomness to enhance replayability. 
+                    Randomization was balanced with constraints to avoid unfair scenarios — for example, preventing 
+                    enemies from spawning too close to the player.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Balancing Speed and Control</h3>
+                <p>
+                    Early versions suffered from overly sensitive movement, leading to imprecise aiming and player frustration. 
+                    The solution involved adjusting acceleration curves and introducing subtle drag to simulate weight, 
+                    achieving a more grounded feel.
+                </p>
+
+                <h3>5.2 Collision and Damage Accuracy</h3>
+                <p>
+                    High-speed bullets occasionally missed collision detection due to tunneling issues. 
+                    Switching projectiles to continuous collision detection and implementing hitbox-based 
+                    validation resolved inconsistencies.
+                </p>
+
+                <h3>5.3 AI Performance</h3>
+                <p>
+                    When enemy numbers increased, performance dips occurred due to redundant physics calculations. 
+                    Refactoring AI behaviors to avoid unnecessary raycasts and employing coroutine-based logic for 
+                    timed actions significantly improved stability.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>Testing followed an iterative cycle: implement → test → refine. Key insights emerged from repeated playtesting:</p>
+                <ul>
+                    <li>Player feedback emphasized the importance of distinct enemy patterns to maintain engagement.</li>
+                    <li>Balancing weapon fire rate and enemy spawn density was essential to sustain tension without fatigue.</li>
+                    <li>Small visual cues, such as enemy telegraphs and damage flashes, greatly improved gameplay readability.</li>
+                </ul>
+                <p>Incremental adjustments led to a balanced experience where difficulty scaled naturally, encouraging replayability and mastery.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The finished version of BOXY – 2D Top-Down Shooter delivered on its design objectives:</p>
+                <ul>
+                    <li>Responsive controls that prioritize player precision.</li>
+                    <li>Dynamic enemy AI that adapts to player movement.</li>
+                    <li>Clean, minimalist visuals supporting clear gameplay feedback.</li>
+                    <li>Efficient performance with optimized systems and modular code.</li>
+                    <li>Engaging combat loop emphasizing skill-based progression.</li>
+                </ul>
+                <p>The game succeeds as both a technical showcase and a creative expression of minimalist design principles within an interactive system.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>The project offered several key takeaways:</p>
+                <ul>
+                    <li><strong>Player Experience Is Systemic:</strong> Every mechanic — from input sensitivity to enemy AI — contributes to overall “game feel.”</li>
+                    <li><strong>Modular Architecture Enables Flexibility:</strong> Separating logic by responsibility allowed rapid iteration without major refactoring.</li>
+                    <li><strong>Balancing Is Continuous:</strong> Small parameter adjustments dramatically affect pacing, difficulty, and satisfaction.</li>
+                    <li><strong>Optimization Must Be Intentional:</strong> Early adoption of pooling and efficient logic prevents late-stage performance issues.</li>
+                    <li><strong>Feedback Matters:</strong> Subtle audio-visual cues are crucial for making moment-to-moment actions feel rewarding.</li>
+                </ul>
+                <p>These insights reinforced the importance of iterative design and holistic thinking in game development — balancing technical execution with experiential design.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Potential future extensions include:</p>
+                <ul>
+                    <li><strong>Expanded Weapon System:</strong> Introducing multiple weapon types and upgrade paths.</li>
+                    <li><strong>Enemy Variety:</strong> Adding bosses, ranged enemies, and pattern-based challenges.</li>
+                    <li><strong>Procedural Levels:</strong> Incorporating randomized arena layouts for replayability.</li>
+                    <li><strong>Audio Layering:</strong> Implementing adaptive background music that responds to gameplay intensity.</li>
+                    <li><strong>Persistence:</strong> Adding player progression or unlockable content to extend engagement.</li>
+                </ul>
+                <p>Each of these enhancements would build upon the existing foundation while deepening the game’s tactical and sensory depth.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Four Gun Types:</strong> Each weapon offers unique gameplay mechanics and strategic advantages.</li>
@@ -110,12 +322,19 @@
                     <li><strong>C# Scripting:</strong> Implemented complex game mechanics and enemy AI.</li>
                     <li><strong>Game Balance:</strong> Carefully tuned difficulty progression and weapon systems.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project demonstrated my ability to create engaging combat systems and implement AI-driven enemies. 
-                    The wave-based progression system provides a satisfying challenge that keeps players engaged.
+                <h2>10. Conclusion</h2>
+                <p>
+                    BOXY – 2D Top-Down Shooter represents a comprehensive exercise in both creative and technical game development. 
+                    Through its creation, I refined my skills in Unity programming, systems design, and iterative problem-solving. 
+                    The project demonstrates not only proficiency in building functional game systems but also an understanding of 
+                    how subtle design choices influence the player experience.
+                </p>
+                <p>
+                    By combining clean architecture, responsive mechanics, and deliberate aesthetic restraint, BOXY achieves a balance 
+                    between simplicity and depth — an embodiment of effective design through focus.
                 </p>
             </section>
         </div>

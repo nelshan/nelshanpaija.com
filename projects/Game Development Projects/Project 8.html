@@ -77,13 +77,229 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>Space Invader is a faithful recreation of the classic arcade shooter, developed using Unity and C#. 
-                    Players control a lone starfighter, tasked with defending Earth against relentless waves of descending alien invaders.
+                <h2>1. Introduction</h2>
+                <p>
+                    This project presents the development of Space Invaders – Classic Arcade Shooter Clone, a Unity-based recreation of 
+                    the 1978 arcade classic originally developed by Tomohiro Nishikado. The objective was to reproduce the essential 
+                    gameplay mechanics and aesthetic of the original while showcasing proficiency in game programming, system design, 
+                    and production workflow within Unity’s 2D environment.
+                </p>
+                <p>
+                    The game features dynamic enemy movement, responsive player controls, projectile-based combat, level progression, 
+                    and a scoring system that rewards accuracy and survival. The project also integrates modular scripting, efficient 
+                    object management, and an iterative design approach that balances authenticity with modern polish.
+                </p>
+                <p>
+                    Developed as a solo project, Space Invaders Clone demonstrates not only technical competence but also an 
+                    understanding of player experience, difficulty pacing, and iterative problem-solving throughout the development cycle.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The core inspiration stemmed from the enduring legacy of Space Invaders — a simple yet groundbreaking shooter 
+                    that helped define the arcade era. The minimalist structure and escalating tension of the original provided an 
+                    ideal foundation for exploring fundamental game mechanics such as movement systems, enemy behavior, 
+                    and state-based progression.
+                </p>
+                <p>The key design goals for the project were as follows:</p>
+                <ul>
+                    <li>Faithful Core Mechanics: Recreate the signature enemy wave behavior, player shooting, and scoring system.</li>
+                    <li>Smooth Controls: Deliver responsive horizontal movement and accurate shooting.</li>
+                    <li>Dynamic Difficulty: Implement progressive challenge through enemy speed, fire rate, and formation patterns.</li>
+                    <li>Modular Code Design: Structure scripts for maintainability and scalability.</li>
+                    <li>Visual Clarity and Feedback: Ensure clear communication of player actions, collisions, and outcomes.</li>
+                </ul>
+                <p>The design philosophy emphasized clarity, responsiveness, and progression. Every feature, from enemy formation speed to projectile timing, was tuned to sustain tension and reward player skill.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup and Scene Composition</h3>
+                <p>The Unity 2D template provided the foundation for the project. The scene layout included:</p>
+                <ul>
+                    <li>A player ship positioned near the bottom of the screen.</li>
+                    <li>A grid of enemy invaders arranged in multiple rows.</li>
+                    <li>Protective bunkers acting as destructible barriers.</li>
+                    <li>A UI layer displaying score, lives, and level indicators.</li>
+                </ul>
+                <p>Unity’s built-in physics and collision systems were selectively employed for simplicity, while certain interactions (like projectile-enemy collisions) were handled manually for performance and control.</p>
+
+                <h3>3.2 Player Movement and Shooting</h3>
+                <p>
+                    The player’s ship could move horizontally within screen boundaries using left and right arrow keys, 
+                    with spacebar triggering projectile firing. Movement speed was tuned through frame-independent 
+                    motion using <strong>Time.deltaTime</strong>.
+                </p>
+                <p>
+                    To prevent projectile spamming, a cooldown timer was introduced, ensuring only one active player 
+                    bullet could exist at a time — mirroring the limitation of the original Space Invaders. This design 
+                    choice encouraged precision and timing over rapid-fire mechanics.
+                </p>
+
+                <h3>3.3 Enemy Behavior and Formation System</h3>
+                <p>
+                    Enemies were organized in a hierarchical structure controlled by an Enemy Formation Manager. 
+                    This manager dictated synchronized horizontal movement for the entire formation, reversing 
+                    direction upon reaching screen boundaries and stepping downward incrementally.
+                </p>
+                <p>
+                    As the number of enemies decreased, the formation’s movement speed and attack frequency 
+                    increased, dynamically scaling difficulty. Each enemy type (e.g., basic, medium, elite) 
+                    had unique point values, creating a risk-reward balance for targeting specific rows.
+                </p>
+
+                <h3>3.4 Projectile and Collision Management</h3>
+                <p>
+                    Both player and enemy projectiles were managed through an Object Pooling System to optimize performance. 
+                    This approach avoided repeated instantiation and destruction of bullets, maintaining a stable frame 
+                    rate even during heavy fire sequences.
+                </p>
+                <p>
+                    Collision detection employed Unity’s <strong>OnTriggerEnter2D</strong> method, triggering destruction effects, 
+                    score updates, and visual feedback (e.g., brief explosion sprites).
+                </p>
+
+                <h3>3.5 Game Progression and Scoring System</h3>
+                <p>
+                    The scoring system rewarded points based on enemy type, with cumulative totals displayed in the UI. 
+                    Once all enemies were defeated, the game advanced to a new wave featuring increased speed, firing 
+                    rates, and slightly altered formation patterns.
+                </p>
+                <p>
+                    If the enemies reached the player’s defensive line or the player lost all lives, the game 
+                    entered a Game Over state with the option to restart. This loop maintained the arcade-style 
+                    replayability central to the original experience.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Code Architecture</h3>
+                <p>The project’s codebase followed a modular architecture focused on separation of concerns. The primary classes included:</p>
+                <ul>
+                    <li>PlayerController – Handles input, movement, and firing logic.</li>
+                    <li>EnemyController – Governs individual enemy behavior and interactions.</li>
+                    <li>FormationManager – Controls collective enemy motion and progression logic.</li>
+                    <li>Projectile – Defines bullet properties, collisions, and recycling via object pooling</li>
+                    <li>GameManager – Manages global game state, score tracking, and transitions.</li>
+                </ul>
+                <p>This modular design improved clarity, simplified debugging, and provided a scalable base for future features like power-ups or new enemy types.</p>
+
+                <h3>4.2 Enemy Movement and Timing System</h3>
+                <p>
+                    Enemy movement timing was coordinated using coroutines, ensuring smooth synchronized steps across the formation. 
+                    The logic adjusted movement speed based on remaining enemy count, reproducing the original’s signature pacing 
+                    where tension increases as fewer invaders remain.
+                </p>
+
+                <h3>4.3 Object Pooling</h3>
+                <p>
+                    Performance optimization was achieved through an object pooling pattern. Both player and enemy bullets were 
+                    stored in reusable lists, minimizing memory allocation spikes and garbage collection overhead. This was particularly 
+                    beneficial in scenarios with continuous firing and multiple active projectiles.
+                </p>
+
+                <h3>4.4 Visual and Audio Feedback</h3>
+                <p>Although minimalist in style, subtle effects enhanced the sense of impact and immersion:</p>
+                <ul>
+                    <li>Screen flash or sprite color shift upon enemy hit.</li>
+                    <li>Brief explosion animations upon destruction.</li>
+                    <li>Background music loop with rhythmic tempo matching the pace of gameplay.</li>
+                    <li>Distinct audio cues for shooting, hits, and movement reversals.</li>
+                </ul>
+                <p>These sensory feedback elements reinforced player engagement while maintaining the classic retro tone.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Synchronizing Enemy Movement</h3>
+                <p>
+                    A key challenge was maintaining formation integrity while allowing individual enemies to be destroyed. 
+                    Early versions caused desynchronization when enemies were removed from the hierarchy. The solution 
+                    involved decoupling position updates from the parent transform and referencing a shared movement 
+                    controller, ensuring consistent behavior regardless of which enemies remained.
+                </p>
+
+                <h3>5.2 Balancing Difficulty</h3>
+                <p>
+                    Determining appropriate difficulty scaling required multiple playtesting iterations. Initially, enemies 
+                    accelerated too abruptly, making later stages nearly impossible. By refining acceleration curves and firing 
+                    probabilities, the final system achieved a smoother, more rewarding difficulty progression.
+                </p>
+
+                <h3>5.3 Managing Projectile Collisions</h3>
+                <p>
+                    Simultaneous projectile collisions led to performance spikes during high activity. 
+                    Transitioning to object pooling and simplifying hit detection logic resolved these 
+                    issues and stabilized gameplay.
+                </p>
+            </section>
+            
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>
+                    Testing followed an iterative loop of implementation, playtesting, and tuning. Core 
+                    parameters such as player speed, bullet cooldown, and enemy drop intervals were adjusted 
+                    continuously based on play feedback and performance metrics.
+                </p>
+                <p>
+                    Through this process, the game evolved from a functional prototype to a balanced, engaging 
+                    shooter experience. Each iteration enhanced not just gameplay balance but also user experience 
+                    elements such as clarity of feedback and pacing.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>
+                    The completed Space Invaders – Classic Arcade Shooter Clone successfully replicates the 
+                    feel and challenge of the original while incorporating modern development practices. 
+                    The final game includes:
+                </p>
+                <ul>
+                    <li>Smooth, responsive player controls.</li>
+                    <li>Dynamic enemy formations with scalable difficulty.</li>
+                    <li>Optimized projectile management via object pooling.</li>
+                    <li>Functional scoring, life tracking, and wave-based progression.</li>
+                    <li>Stable performance at high activity levels.</li>
+                </ul>
+                <p>The end result is a faithful and technically robust homage to one of gaming’s foundational titles.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Learnings</h2>
+                <p>Developing this project yielded several key insights:</p>
+                <ul>
+                    <li>Complex Behavior from Simple Rules: Small, rule-based systems can create compelling dynamics when combined thoughtfully — a principle evident in the enemy movement system.</li>
+                    <li>Iteration Drives Quality: Regular testing and incremental refinement were essential in balancing difficulty and improving the feel of gameplay.</li>
+                    <li>Optimization Is Integral: Early attention to object pooling and event-driven systems prevented performance bottlenecks later in development.</li>
+                    <li>Gameplay Feel Is Multi-Faceted: A responsive experience arises from the interplay of timing, pacing, audio, and visual feedback — not just mechanics.</li>
+                </ul>
+                <p>These lessons strengthened my understanding of interactive system design, efficient programming patterns, and the art of crafting satisfying gameplay loops.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Planned or potential enhancements include:</p>
+                <ul>
+                    <li>Power-Ups: Introducing temporary weapon upgrades or shields to diversify player strategy.</li>
+                    <li>Boss Encounters: Adding periodic large-scale enemies to break the wave rhythm and introduce new challenges.</li>
+                    <li>Enhanced Visual Effects: Implementing particle systems for explosions, lighting, and background animations.</li>
+                    <li>Adaptive Music System: Modulating tempo and intensity based on remaining enemy count to heighten tension dynamically.</li>
+                    <li>Online Leaderboards: Integrating player rankings for extended replayability.</li>
+                </ul>
+                <p>
+                    Each of these features would extend the game’s depth while offering opportunities to apply advanced Unity techniques 
+                    such as state machines, UI animation, and asynchronous networking.
+                </p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Classic Shooter Mechanics:</strong> Faithful recreation of the original Space Invaders gameplay.</li>
@@ -109,12 +325,20 @@
                     <li><strong>Enemy AI:</strong> Created alien movement patterns and behaviors.</li>
                     <li><strong>Collision System:</strong> Precise bullet and enemy collision detection.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project reinforced the importance of tight controls and satisfying feedback in arcade games. 
-                    The simple yet engaging gameplay loop demonstrates why Space Invaders remains a classic.
+                <h2>10. Conclusion</h2>
+                <p>
+                    Space Invaders – Classic Arcade Shooter Clone serves as both a technical and creative exercise in reimagining a 
+                    timeless arcade experience within a modern development framework. Through disciplined design, iterative testing, 
+                    and thoughtful technical architecture, the project achieved its goals of replicating authentic gameplay while 
+                    demonstrating mastery of Unity’s 2D systems and efficient coding practices.
+                </p>
+                <p>
+                    Beyond recreating a classic, the project reinforced the importance of structured iteration, clean architecture, 
+                    and the delicate balance between precision and playability. It stands as a testament to both the enduring appeal 
+                    of simple mechanics and the power of disciplined craftsmanship in game development.
                 </p>
             </section>
         </div>

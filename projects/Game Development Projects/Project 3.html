@@ -77,14 +77,222 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>This Flappy Bird Clone is a reimagined version of the classic, addictive arcade game, built 
-                    using the Unity Engine and C#. This project features smooth physics-based movement, obstacles 
-                    generation, score tracking, and a simple yet addictive gameplay loop.
+                <h2>1. Introduction</h2>
+                <p>
+                    Flappy Bird Clone – Classic Arcade Game is a Unity-based recreation of the viral 2013 mobile hit Flappy Bird, 
+                    developed to demonstrate proficiency in 2D game mechanics, physics-based gameplay, and polished user experience design.
+                </p>
+                <p>
+                    he project’s goal was to faithfully replicate the addictive simplicity of the original game while showcasing 
+                    understanding of Unity’s 2D physics engine, input handling, object pooling, and UI systems. Beyond recreation, 
+                    the project served as a learning exercise in fine-tuning feel, difficulty balancing, and performance 
+                    optimization — all essential skills for professional game development.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The original Flappy Bird achieved its enduring appeal through minimalist design and precise physics-based mechanics. 
+                    Recreating it required a focus on accurate timing, responsive controls, and consistent difficulty progression.
+                </p>
+                <h3>Design Objectives:</h3>
+                <ul>
+                    <li><strong>Faithful Core Mechanics:</strong> Implement accurate flapping physics and obstacle patterns that capture the challenge of the original.</li>
+                    <li><strong>Polished Controls:</strong> Ensure immediate, consistent player input for fluid gameplay.</li>
+                    <li><strong>Endless Game Loop:</strong> Design a self-sustaining system for continuous play and scoring.</li>
+                    <li><strong>Performance Optimization:</strong> Maintain stable performance through object pooling and lightweight physics operations.</li>
+                    <li><strong>Clear Visual Feedback:</strong> Create an uncluttered, readable interface suitable for mobile or desktop play.</li>
+                </ul>
+                <p>The overarching design philosophy centered on simplicity, precision, and replayability — the same traits that made Flappy Bird both frustrating and irresistible.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The project was initiated in Unity’s 2D environment using orthographic camera projection for pixel-perfect visuals. 
+                    The scene was structured around three main systems: Player, Obstacles, and Game Manager.
+                </p>
+                <p>
+                    A limited color palette and simple sprites maintained the clean, cartoon-inspired aesthetic of the original. 
+                    Early development focused entirely on player control and physics feel before introducing obstacles or scoring systems.
+                </p>
+
+                <h3>3.2 Player Movement and Physics</h3>
+                <p>
+                    The core mechanic — tapping to flap — was implemented using Unity’s Rigidbody2D component. 
+                    The bird object received an upward impulse when the player pressed a designated key or 
+                    screen tap, counteracted by gravity.
+                </p>
+                <p>
+                    A key challenge was achieving natural-feeling motion: too little force resulted in sluggish 
+                    jumps; too much caused jerky motion. Through iterative tuning of the gravityScale and 
+                    jumpForce parameters, a precise balance was established.
+                </p>
+                <p>
+                    Collision detection was handled via 2D colliders, instantly triggering a “game over” state upon contact with pipes or the ground.
+                </p>
+
+                <h3>3.3 Obstacles and Level Progression</h3>
+                <p>
+                    Obstacle generation replicated the iconic pipe gaps from the original game. Pipes were instantiated at regular intervals with randomized vertical offsets to maintain variety.
+                </p>
+                <p>
+                    To ensure smooth performance, object pooling was used instead of continuous instantiation and destruction. This system recycled pipe pairs, resetting their positions once they exited the camera view.
+                </p>
+                <p>
+                    The scrolling illusion was achieved by moving the environment leftward rather than advancing the player object. This simplified camera logic and kept gameplay deterministic.
+                </p>
+
+                <h3>3.4 Scoring and Game Loop</h3>
+                <p>
+                    A trigger collider placed between each pipe pair detected when the player successfully passed through, incrementing the score. The score was displayed via Unity’s UI Text system, updated in real time.
+                </p>
+                <p>The GameManager handled key game states:</p>
+                <ul>
+                    <li><strong>Start:</strong> Waiting for the player’s first input.</li>
+                    <li><strong>Playing:</strong> Continuous gameplay with obstacle spawning.</li>
+                    <li><strong>Game Over:</strong> Freezing movement, displaying score, and offering a restart option.</li>
+                </ul>
+                <p>This loop ensured fluid transitions and minimal downtime between attempts, reinforcing the addictive “one more try” feedback cycle.</p>
+
+                <h3>3.5 Visual and Audio Feedback</h3>
+                <p>To enhance player experience, subtle animations and effects were added:</p>
+                <ul>
+                    <li>Bird rotation adjusted dynamically to match velocity direction (tilting up when flapping and down when falling).</li>
+                    <li>Background scrolling parallax created depth without performance cost.</li>
+                    <li>Sound effects provided immediate feedback for flaps, collisions, and scoring.</li>
+                </ul>
+                <p>These small details significantly increased immersion and satisfaction during repeated play.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Architecture Overview</h3>
+                <p>The game was structured into clean, modular scripts:</p>
+                <ul>
+                    <li>BirdController – Handles input, flapping mechanics, and rotation.</li>
+                    <li>PipeSpawner – Controls timing and positioning of obstacles.</li>
+                    <li>ObjectPooler – Manages reusable pipe instances for efficiency.</li>
+                    <li>GameManager – Oversees state transitions and restarts.</li>
+                    <li>UIManager – Displays score and manages UI visibility.</li>
+                </ul>
+                <p>This modular approach allowed for simple debugging and easy future modifications, such as adding new obstacles or themes.</p>
+
+                <h3>4.2 Physics and Input System</h3>
+                <p>
+                    The physics system relied on Unity’s built-in components, fine-tuned for a specific “game feel”. 
+                    Input was captured in the Update() loop to minimize delay, while flapping forces were applied in 
+                    FixedUpdate() to maintain physics stability.
+                </p>
+                <p>
+                    To maintain deterministic behavior, random number seeds were controlled to ensure 
+                    consistent obstacle spacing between sessions when needed (e.g., for testing difficulty).
+                </p>
+
+                <h3>4.3 Object Pooling and Performance</h3>
+                <p>
+                    Using object pooling for pipes and effects reduced memory allocation spikes and eliminated runtime garbage collection stutters. 
+                    The system maintained a queue of inactive pipes that were repositioned as needed, ensuring smooth, continuous gameplay even on 
+                    lower-end devices.
+                </p>
+
+                <h3>4.4 Game Balancing</h3>
+                <p>
+                    Game difficulty was tuned through careful adjustment of pipe gaps, spawn frequency, and gravity settings. 
+                    Multiple iterations tested different pacing models, eventually settling on parameters that mirrored the 
+                    original’s demanding but fair challenge curve.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Physics Tuning</h3>
+                <p>
+                    Achieving the “perfect feel” for flapping was the most critical and time-consuming challenge. 
+                    Early iterations suffered from inconsistent motion and imprecise gravity application. Through 
+                    continuous testing and frame-by-frame observation, ideal physics values were established to 
+                    replicate the signature weight and responsiveness of Flappy Bird.
+                </p>
+
+                <h3>5.2 Obstacle Spawning Errors</h3>
+                <p>
+                    Initial versions occasionally generated overlapping or unevenly spaced pipes due to timing inconsistencies. 
+                    This was resolved by implementing a timed coroutine that controlled spawn intervals independently from the 
+                    frame rate, ensuring uniform pacing.
+                </p>
+
+                <h3>5.3 Game Reset and State Management</h3>
+                <p>
+                    Restarting the game cleanly posed early issues, as active coroutines and pooled objects retained outdated states. 
+                    Refactoring the GameManager to handle centralized resets (clearing score, repositioning objects, and resetting physics) 
+                    resolved these bugs.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>
+                    Testing involved repeated play sessions to refine movement physics, collision precision, and spawn logic. 
+                    Each iteration introduced small adjustments, followed by hands-on evaluation for “feel” consistency.
+                </p>
+                <p>
+                    User testing highlighted the importance of immediate restart capability — reducing downtime after failure 
+                    significantly increased player engagement. These insights informed the final design loop, focusing on 
+                    responsiveness and continuous challenge.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The completed Flappy Bird Clone successfully achieved its design and technical goals:</p>
+                <ul>
+                    <li>Faithful replication of the original game’s physics and pacing.</li>
+                    <li>Smooth, stable performance through object pooling.</li>
+                    <li>Intuitive, immediate controls with precise input response.</li>
+                    <li>Clean, minimalist UI and clear feedback systems.</li>
+                    <li>Modular codebase suitable for extension or reskinning.</li>
+                </ul>
+                <p>
+                    The result is a fully functional, polished 2D arcade experience that captures the addictive simplicity of the original while demonstrating strong technical and design capabilities.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>Developing this project reinforced key lessons applicable across all game development disciplines:</p>
+                <ul>
+                    <li><strong>Game Feel Requires Iteration:</strong> Small adjustments to gravity, timing, or velocity dramatically alter player experience.</li>
+                    <li><strong>Simplicity Is Powerful:</strong> Focused, minimal mechanics can deliver engaging gameplay when polished thoroughly.</li>
+                    <li><strong>Code Architecture Matters:</strong> Clean separation of gameplay systems reduces debugging complexity and eases future development.</li>
+                    <li><strong>Performance Optimization Is Preventative:</strong> Early use of pooling and efficient physics setup prevents late-stage frame drops.</li>
+                    <li><strong>Polish Enhances Replayability:</strong> Visual and audio feedback elevate even simple mechanics into satisfying gameplay loops.</li>
+                </ul>
+                <p>
+                    These lessons highlight how disciplined iteration and attention to detail turn a basic concept into a cohesive and professional product.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Potential future additions include:</p>
+                <ul>
+                    <li><strong>New Themes:</strong> Seasonal or color variations to enhance replayability.</li>
+                    <li><strong>Leaderboard Integration:</strong> Online or local scoring systems for competition.</li>
+                    <li><strong>Dynamic Difficulty:</strong> Gradually increasing obstacle speed or reduced gaps for long play sessions.</li>
+                    <li><strong>Mobile Adaptation:</strong> Touch-based controls and resolution scaling for Android/iOS builds.</li>
+                    <li><strong>Soundtrack Integration:</strong> Background music and dynamic sound layering to enrich pacing.</li>
+                </ul>
+                <p>
+                    Each of these improvements could expand the scope and technical complexity of the game while maintaining its core simplicity.
+                </p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Physics-Based Movement:</strong> Smooth and responsive bird flight mechanics.</li>
@@ -109,12 +317,19 @@
                     <li><strong>Procedural Generation:</strong> Created dynamic obstacle spawning system.</li>
                     <li><strong>Game State Management:</strong> Handled game over, restart, and scoring logic.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project reinforced the importance of simple, addictive gameplay mechanics. The one-tap control 
-                    scheme makes it accessible to all players while maintaining the challenge that makes the original so engaging.
+                <h2>10. Conclusion</h2>
+                <p>
+                    The Flappy Bird Clone – Classic Arcade Game stands as a concise yet comprehensive demonstration of 2D game development proficiency. 
+                    By reconstructing a timeless mechanic from the ground up, this project showcases technical skill, design sensibility, and the 
+                    importance of iteration in achieving satisfying gameplay.
+                </p>
+                <p>
+                    Through this project, I strengthened my understanding of Unity’s physics engine, optimized runtime performance, and refined my 
+                    ability to translate abstract “feel” into tangible systems. While minimal in scope, this game encapsulates essential principles 
+                    of professional game development — clarity, responsiveness, and precision — making it a valuable addition to my portfolio.
                 </p>
             </section>
         </div>

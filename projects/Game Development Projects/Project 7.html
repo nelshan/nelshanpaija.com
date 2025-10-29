@@ -77,14 +77,240 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>This project is a faithful recreation of the classic 1981 arcade game Frogger, developed using Unity and C#. 
-                    The game challenges players to guide a frog across a busy road and a treacherous river, aiming to reach 
-                    designated safe zones while avoiding various obstacles.
+                <h2>1. Introduction</h2>
+                <p>
+                    Frogger – Classic Arcade Game Clone is a faithful recreation of the iconic 1981 arcade game Frogger, developed in Unity as 
+                    a demonstration of game design principles, programming proficiency, and production workflow discipline.
+                </p>
+                <p>
+                    The objective of the project was not only to reproduce the mechanics of the original but to modernize its 
+                    feel — maintaining the essence of the gameplay while implementing clean, scalable systems, responsive input handling, and well-structured code.
+                </p>
+                <p>
+                    This case study explores the entire development process — from concept and design philosophy to technical 
+                    implementation, challenges, and lessons learned — to illustrate how classic mechanics can be thoughtfully 
+                    recreated within a modern engine.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Philosophy</h2>
+
+                <h3>2.1 Core Idea</h3>
+                <p>
+                    The core gameplay loop of Frogger is deceptively simple: guide a frog from the bottom to the top of 
+                    the screen, avoiding hazards such as cars and water while timing jumps across moving platforms like logs or turtles.
+                </p>
+                <p>
+                    The design intent behind this clone was to capture the spirit of the original — its precision-based timing, 
+                    increasing difficulty, and rhythmic movement — while using Unity’s capabilities to refine player control, physics, and feedback.
+                </p>
+
+                <h3>2.2 Design Goals</h3>
+                <ul>
+                    <li>Faithful Recreation: Reproduce core gameplay mechanics, level structure, and scoring.</li>
+                    <li>Smooth, Responsive Controls: Implement accurate input timing and collision logic.</li>
+                    <li>Readable Visual Feedback: Ensure clarity of movement and collision detection through well-defined animations and UI indicators.</li>
+                    <li>Scalable Systems: Design flexible, modular systems to allow easy expansion or customization.</li>
+                    <li>Optimized Performance: Achieve fluid gameplay at consistent frame rates across devices.</li>
+                </ul>
+                <p>The guiding philosophy was to preserve nostalgia while elevating technical quality and user experience.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+                <p>The project followed a modular, iteration-driven workflow, starting with rapid prototyping of movement and collision logic before expanding into hazards, scoring, and visuals.</p>
+
+                <h3>3.1 Pre-production and Prototyping</h3>
+                <p>Initial work began with analyzing the original Frogger gameplay and breaking it down into core systems:</p>
+                <ul>
+                    <li>Grid-based movement</li>
+                    <li>Hazard movement (cars, logs, turtles)</li>
+                    <li>Collision and death logic</li>
+                    <li>Scoring and progression</li>
+                </ul>
+                <p>A minimalist prototype was created to validate the movement rhythm — ensuring the frog’s hop timing and spacing matched the satisfying “step” feel of the original arcade experience.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Core Systems Overview</h3>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>System</th>
+                        <th>Description</th>
+                        <th>Key Features</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>PlayerController.cs</b></td>
+                        <td>Manages frog movement and input</td>
+                        <td>Grid-based jumping, input buffering, boundary checks</td>
+                      </tr>
+                      <tr>
+                        <td><b>HazardManager.cs</b></td>
+                        <td>Controls car and log spawning/movement</td>
+                        <td>Object pooling for performance, randomized patterns</td>
+                      </tr>
+                      <tr>
+                        <td><b>CollisionHandler.cs</b></td>
+                        <td>Detects player-hazard and player-platform interactions</td>
+                        <td>Layer-based physics, water detection.</td>
+                      </tr>
+                      <tr>
+                        <td><b>GameManager.cs</b></td>
+                        <td>Handles score, lives, and level transitions</td>
+                        <td>UI integration, win/lose condition</td>
+                      </tr>
+                      <tr>
+                        <td><b>AudioManager.cs</b></td>
+                        <td>Manages sound effects and music</td>
+                        <td>Feedback for hops, deaths, and successes</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>This modular structure allowed for parallel testing and streamlined debugging.</p>
+
+                <h3>4.2 Player Movement System</h3>
+                <p>
+                    Movement was implemented on a discrete grid rather than continuous input to preserve the arcade rhythm. Each press of a movement key triggers a short, fixed hop animation and movement to the adjacent tile.
+                </p>
+                <p>Key technical details:</p>
+                <ul>
+                    <li>Input Buffering: Prevents missed hops from rapid keypresses.</li>
+                    <li>Jump Lockout: Ensures one movement per animation cycle.</li>
+                    <li>Smooth Interpolation: Lerp-based transitions instead of instantaneous jumps for modern feel.</li>
+                    <li>Camera Framing: Fixed orthographic projection to retain classic 2D perspective.</li>
+                </ul>
+
+                <h3>4.3 Hazards and Object Pooling</h3>
+                <p>The hazards (cars, logs, and turtles) were managed using a pooled object system to improve runtime efficiency and avoid costly instantiation.</p>
+                <p>Each lane operates as an independent spawner with configurable parameters:</p>
+                <ul>
+                    <li>Spawn rate and direction</li>
+                    <li>Speed variance</li>
+                    <li>Object size and collision width</li>
+                </ul>
+                <p>Object pooling drastically reduced performance overhead during extended gameplay sessions and supported easy difficulty scaling by modifying spawn intervals and speeds.</p>
+
+                <h3>4.4 Collision and Environment</h3>
+                <p>The collision system used Unity’s 2D physics layers for clarity and control:</p>
+                <ul>
+                    <li>Vehicles: Instant death on contact.</li>
+                    <li>Logs and Turtles: Allow movement if the player remains centered; falling occurs otherwise.</li>
+                    <li>Water Zones: Death if the player is not on a platform.</li>
+                </ul>
+                <p>Precise bounding box adjustments were made to ensure collisions felt fair and consistent — crucial for recreating the arcade precision of Frogger.</p>
+
+                <h3>4.5 Scoring and Progression</h3>
+                <p>The scoring system rewards:</p>
+                <ul>
+                    <li>Each successful hop forward.</li>
+                    <li>Reaching a goal zone.</li>
+                    <li>Completing a row of goals (advancing to next level).</li>
+                </ul>
+                <p>A time-based bonus encourages efficient play, mirroring the original’s challenge loop. Lives and progress persist until game over, at which point results are displayed through a custom Unity UI canvas.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Solutions</h2>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>Challenge</th>
+                        <th>Description</th>
+                        <th>Solution</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>Timing Accuracy</b></td>
+                        <td>Early builds had inconsistent hop timing due to frame dependency.</td>
+                        <td>Implemented movement based on FixedUpdate() and delta time normalization.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Collision Precision</b></td>
+                        <td>Overly sensitive hitboxes caused unfair deaths.</td>
+                        <td>Refined collider shapes and added tolerance buffers to improve fairness.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Performance Spikes</b></td>
+                        <td>Object instantiation caused frame drops during extended play.</td>
+                        <td>Adopted object pooling for hazards and environment pieces.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Difficulty Scaling</b></td>
+                        <td>The game felt too easy initially.</td>
+                        <td>Introduced incremental speed and spawn rate adjustments per level.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Player Feedback</b></td>
+                        <td>Movement felt weightless.</td>
+                        <td>Added hop animations, sound effects, and minor screen shake for tactile feedback.</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>Through iterative playtesting, each system was tuned to achieve the right mix of challenge, responsiveness, and rhythm.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Visual and Audio Design</h2>
+
+                <h3>6.1 Visuals</h3>
+                <p>
+                    The visual design adopted a modern pixel-art aesthetic — clear and colorful but slightly stylized for clarity on contemporary screens.
+                    Layers such as the road, river, and safe zones were separated into parallaxed background tiles for visual depth.
+                </p>
+
+                <h3>6.2 Audio</h3>
+                <p>Sound design emphasized feedback and nostalgia.</p>
+                <ul>
+                    <li>Classic “hop” and “splash” sound cues were recreated using synthesized audio.</li>
+                    <li>Ambient background loops (traffic noise, river flow) added life to the static scene.</li>
+                    <li>Distinct success and failure tones provided instant recognition and emotional cues.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Testing and Iteration</h2>
+                <p>User testing focused on response timing, collision accuracy, and difficulty balance.</p>
+                <p>Through multiple test sessions:</p>
+                <ul>
+                    <li>Jump input delay was reduced for tighter control.</li>
+                    <li>Hazard speeds were fine-tuned for smooth difficulty scaling.</li>
+                    <li>Visual contrast of logs and cars was enhanced for clearer readability.</li>
+                </ul>
+                <p>Feedback-driven iteration proved critical in ensuring the gameplay felt fair, satisfying, and faithful to the original arcade pacing.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Final Outcome</h2>
+                <p>The completed Frogger Clone achieved:</p>
+                <ul>
+                    <li>Faithful recreation of core gameplay mechanics.</li>
+                    <li>Optimized systems for performance and scalability.</li>
+                    <li>Responsive, rhythmic control scheme that matches the tension and satisfaction of the classic.</li>
+                    <li>A clean, modular codebase suitable for future variations or expansions.</li>
+                </ul>
+                <p>The result is a playable homage that merges retro charm with modern engineering principles.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Insights and Lessons Learned</h2>
+                <p>Developing Frogger – Classic Arcade Game Clone offered several key insights:</p>
+                <ul>
+                    <li>Classic games are masterclasses in design clarity. Simplicity demands precision.</li>
+                    <li>Iteration is essential. Subtle timing and spacing changes can drastically affect play feel.</li>
+                    <li>Optimization matters even for simple games. Efficient object pooling and clean logic prevent scaling issues.</li>
+                    <li>Modern engines require careful restraint. Recreating retro gameplay within a high-level engine requires discipline to avoid overcomplication.</li>
+                </ul>
+                <p>This project deepened my understanding of how mechanical simplicity, technical optimization, and player psychology intersect in effective game design.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Classic Gameplay:</strong> Faithful recreation of the original Frogger mechanics.</li>
@@ -110,14 +336,22 @@
                     <li><strong>Collision Detection:</strong> Precise collision handling for gameplay.</li>
                     <li><strong>Level Design:</strong> Created authentic arcade-style progression.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>Recreating this classic arcade game was a great exercise in understanding fundamental game mechanics. 
-                    The simple yet challenging gameplay demonstrates the timeless appeal of well-designed arcade games.
+                <h2>10. Conclusion</h2>
+                <p>
+                    Frogger – Classic Arcade Game Clone serves as both a technical exercise and a creative homage to one of gaming’s foundational experiences.
                 </p>
+                <p>It demonstrates my ability to:</p>
+                <ul>
+                    <li>Recreate classic gameplay mechanics with modern tools.</li>
+                    <li>Develop clean, modular Unity systems for performance and scalability.</li>
+                    <li>Apply iterative design and testing methodologies to refine user experience.</li>
+                </ul>
+                <p>Ultimately, this project reinforced that great gameplay doesn’t require complexity — it requires clarity, rhythm, and precision, all brought to life through careful engineering and thoughtful design.</p>
             </section>
+            
         </div>
     </div>
 

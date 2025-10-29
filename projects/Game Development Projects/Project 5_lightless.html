@@ -66,7 +66,7 @@
                 <i class="fas fa-arrow-left"></i> Go Back
             </a>
             <img src="../../images/p5.png" alt="LIGHTLESS Game Screenshot" class="project-image">
-            <h1>LIGHTLESS – 2D Survival Horror</h1>
+            <h1>LIGHTLESS – 2D Top-Down Survival Horror Shooter</h1>
             <div class="project-meta">
                 <p><strong>Role:</strong> Solo Developer | Designer | Programmer</p>
                 <p><strong>Engine:</strong> Unity</p>
@@ -77,16 +77,262 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>LIGHTLESS is a minimalist 2D top-down survival shooter developed in Unity. 
-                    Set in a world consumed by darkness, players must fend off relentless waves of 
-                    the undead, relying solely on a flickering light source and a single weapon. 
-                    The game's core mechanic revolves around the interplay of light and darkness, 
-                    creating a tense atmosphere where visibility is limited, and danger lurks in the shadows.
+                <h2>1. Introduction</h2>
+                <p>LIGHTLESS is a 2D top-down survival horror shooter developed in Unity to explore the interplay between atmosphere, mechanics, and player psychology.</p>
+                <p>
+                    The project serves as a demonstration of my proficiency in Unity development, including AI behavior systems, lighting design, player controls, and audio-driven immersion.
+                </p>
+                <p>
+                    The core objective of LIGHTLESS was to design a tension-driven experience where limited visibility, scarce resources, and unpredictable enemies 
+                    create a sustained sense of vulnerability and suspense — fundamental traits of the survival horror genre.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Philosophy</h2>
+
+                <h3>2.1 Core Idea</h3>
+                <p>
+                    At its heart, LIGHTLESS is about fear through limitation. Instead of relying on jump scares or scripted events, 
+                    the game uses environmental constraints and mechanical pressure to evoke dread. The player must navigate through 
+                    a dark, decaying environment with limited ammunition and a small field of vision provided by a flickering flashlight.
+                </p>
+
+                <h3>2.2 Design Goals</h3>
+                <ul>
+                    <li><strong>Immersion:</strong> Create a believable, oppressive atmosphere through lighting, sound, and pacing.</li>
+                    <li><strong>AI Unpredictability:</strong> Design enemy behavior that feels intelligent and threatening without being unfair.</li>
+                    <li><s<trong>Smooth Controls:</strong> Ensure responsive top-down aiming, shooting, and movement to support precision under pressure.</li>
+                    <li><strong>Scalability:</strong> Build modular systems suitable for future content or procedural generation.</li>
+                </ul>
+                <p>The guiding design philosophy was “less is more” — minimal UI, deliberate pacing, and strategic resource balance.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+                <p>The development of LIGHTLESS followed an iterative and modular workflow, allowing experimentation with atmosphere and mechanics in parallel.</p>
+                
+                <h3>3.1 Early Prototyping</h3>
+                <p>The first prototype focused on core controls — player movement, aiming, and shooting.</p>
+                <ul>
+                    <li>Implemented Unity’s 2D physics for movement and collision.</li>
+                    <li>Added twin-stick control support for smooth aiming (keyboard/mouse or controller).</li>
+                    <li>Integrated a basic lighting setup using Unity’s 2D Universal Render Pipeline (URP) and dynamic lights.</li>
+                </ul>
+                <p>This phase established the essential feel of the player’s movement and vision, which dictated later design choices.</p>
+
+                <h3>3.2 Core Systems</h3>
+                <p>Once the player foundation was stable, I expanded development into the following systems:</p>
+                <ol>
+                    <li>
+                        <strong>Player System</strong>
+                        <ul>
+                            <li>360° aiming and shooting using raycasts or projectile physics.</li>
+                            <li>Flashlight tied to the player’s facing direction, dynamically flickering to heighten anxiety.</li>
+                            <li>Health and stamina systems encouraging cautious exploration.</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <strong>Enemy AI</strong>
+                        <ul>
+                            <li>Implemented a finite state machine (FSM) with patrol, chase, and attack states.</li>
+                            <li>Enemies use raycast-based vision cones to detect the player through light and movemen</li>
+                            <li>Sound-based attraction mechanic: gunshots or running can draw nearby enemies.</li>
+                            <li>AI parameters (speed, aggression, vision range) adjustable via scriptable objects for fine-tuning.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Lighting and Atmosphere</strong>
+                        <ul>
+                            <li>Dynamic 2D lights simulate claustrophobic spaces.</li>
+                            <li>Global light intensity adjusts subtly based on player health or proximity to enemies.</li>
+                            <li>Occasional light flickers and power failures simulate psychological unease.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Audio System</strong>
+                        <ul>
+                            <li>Layered ambient soundscapes and procedural sound triggers (e.g., footsteps, breathing).</li>
+                            <li>Directional 2D audio cues for approaching enemies.</li>
+                            <li>Randomized sound events maintain tension even in quiet moments.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Combat and Resource System</strong>
+                        <ul>
+                            <li>Limited ammo and reloading mechanics.</li>
+                            <li>Damage feedback through screen tint and camera shake.</li>
+                            <li>Lootable containers placed strategically to balance challenge and reward.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Architecture Overview</h3>
+                <p>The project is organized around modular component scripts, enabling independent development and easy iteration.</p>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>System</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>PlayerController.cs</b></td>
+                        <td>Handles movement, rotation, shooting, stamina, and flashlight direction.</td>
+                      </tr>
+                      <tr>
+                        <td><b>EnemyAI.cs</b></td>
+                        <td>Finite state machine controlling patrol, chase, and attack behaviors.</td>
+                      </tr>
+                      <tr>
+                        <td><b>GameManager.cs</b></td>
+                        <td>Oversees global events, pause state, and scene transitions.</td>
+                      </tr>
+                      <tr>
+                        <td><b>AudioManager.cs</b></td>
+                        <td>Manages layered ambient tracks and sound effects.</td>
+                      </tr>
+                      <tr>
+                        <td><b>LightingController.cs</b></td>
+                        <td>Adjusts light intensity and flicker based on events.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <p>This modular design allowed me to tweak systems independently, which was crucial for testing horror pacing.</p>
+
+                <h3>4.2 Lighting System</h3>
+                <p>LIGHTLESS relies heavily on Unity’s 2D lighting and post-processing stack.</p>
+                <ul>
+                    <li>Each enemy and environmental element interacts with dynamic light.</li>
+                    <li>The player’s flashlight uses an animated intensity curve to simulate irregular battery behavior.</li>
+                    <li>A fog overlay shader adds depth and obscures visibility at distance.</li>
+                </ul>
+
+                <h3>4.3 AI Behavior</h3>
+                <p>The AI uses a state-based system structured around Unity’s Update() loop:</p>
+                <pre>
+                    <code class="language-csharp">
+                        switch (currentState)
+                        {
+                            case Patrol: PatrolArea(); break;
+                            case Chase: ChasePlayer(); break;
+                            case Attack: AttackPlayer(); break;
+                        }                                     
+                    </code>
+                </pre>
+                <p>Transitions between states are triggered by:</p>
+                <ul>
+                    <li>Distance to the player.</li>
+                    <li>Visibility (line of sight).</li>
+                    <li>Sound events within a detection radius.</li>
+                </ul>
+                <p>This system produces emergent, unpredictable encounters, increasing replayability and tension.</p>
+
+                <h3>4.4 Optimization</h3>
+                <p>Because multiple dynamic lights and AI agents can tax performance, several optimizations were employed:</p>
+                <ul>
+                    <li>Object pooling for projectiles and particle effects.</li>
+                    <li>Distance-based deactivation for off-screen enemies.</li>
+                    <li>Light culling masks to limit active illumination zones.</li>
+                    <li>Minimal physics calculations via simplified colliders and kinematic movement.</li>
+                </ul>
+                <p>These measures ensure smooth frame rates, even in dense or effect-heavy environments.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Solutions</h2>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>Challenge</th>
+                        <th>Description</th>
+                        <th>Solution</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>Performance Drop from Multiple Lights</b></td>
+                        <td>Too many overlapping 2D lights reduced framerate.</td>
+                        <td>Implemented light culling and adaptive light distance scaling.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Predictable AI Behavior</b></td>
+                        <td>Enemies initially followed linear patterns.</td>
+                        <td>Added probabilistic state switching to create unpredictability.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Difficulty Balancing</b></td>
+                        <td>Resource scarcity made some sections unfair.</td>
+                        <td>Introduced dynamic loot spawning based on player health and ammo.</td>
+                      </tr>
+                      <tr>
+                        <td><b>Maintaining Atmosphere</b></td>
+                        <td>Frequent gunfire broke tension pacing.</td>
+                        <td>Introduced silent melee attacks and flashlight as secondary defense tool.</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>Each challenge led to meaningful refinements that deepened the core experience.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>Testing followed a playtest–feedback–adjust cycle focused on:</p>
+                <ul>
+                    <li>Player control feel – tuning acceleration, rotation speed, and aiming precision.</li>
+                    <li>AI reaction times – adjusting sensory parameters for fair detection.</li>
+                    <li>Atmospheric pacing – balancing dark quiet sections with intense encounters.</li>
+                </ul>
+                <p>Feedback emphasized the strength of the light and sound interplay but suggested improving weapon feedback, which led to improved animations and sound layering.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The final build of LIGHTLESS delivers:</p>
+                <ul>
+                    <li>A fully functional top-down survival horror system with dynamic AI and atmosphere.</li>
+                    <li>Tense, emergent encounters driven by light, sound, and scarcity.</li>
+                    <li>Optimized performance for stable gameplay at high resolutions.</li>
+                    <li>Optimized performance for stable gameplay at high resolutions.</li>
+                </ul>
+                <p>It successfully demonstrates how technical design and creative restraint can evoke psychological tension without relying on visual excess.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>Developing LIGHTLESS provided valuable insights into both design and engineering:</p>
+                <ul>
+                    <li>Atmosphere is a System: Lighting, sound, and pacing must be treated as interacting systems, not separate layers.</li>
+                    <li>AI Design Requires Imperfection: Slight randomness and delay make enemies feel more human and unpredictable.</li>
+                    <li>Player Feedback is Emotional Feedback: Every animation, light flicker, or sound cue contributes to the player’s mental state.</li>
+                    <li>Modularity Accelerates Creativity: Building loosely coupled systems enabled rapid experimentation without technical debt.</li>
+                </ul>
+                <p>This project reinforced the importance of emergent design, where behavior and emotion arise naturally from rule-based systems.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Planned or potential enhancements include:</p>
+                <ul>
+                    <li>Narrative Integration: Introduce environmental storytelling and a progression system.</li>
+                    <li>Procedural Generation: Randomized map layouts for replayability.</li>
+                    <li>AI Evolution: Enemies that adapt based on player behavior.</li>
+                    <li>Inventory and Crafting: Deeper survival mechanics tied to exploration.</li>
+                    <li>Dynamic Sound Simulation: Real-time reverb and occlusion for immersive audio.</li>
+                </ul>
+                <p>These improvements would evolve LIGHTLESS from a mechanical prototype into a full-fledged, content-rich experience.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Light & Darkness Mechanics:</strong> Limited visibility creates tension and strategic gameplay.</li>
@@ -112,13 +358,18 @@
                     <li><strong>Game Balance:</strong> Carefully tuned difficulty progression and resource management.</li>
                     <li><strong>Performance Optimization:</strong> Efficient rendering for smooth gameplay.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project demonstrated how simple mechanics can create compelling gameplay experiences. 
-                    The light/darkness dynamic adds a unique twist to the survival shooter genre.
-                </p>
+                <h2>10. Conclusion</h2>
+                <p>LIGHTLESS – 2D Top-Down Survival Horror Shooter stands as both a technical and artistic exploration of fear, resource tension, and atmosphere.</p>
+                <p>The project showcases my ability to:</p>
+                <ul>
+                    <li>Architect robust, modular gameplay systems.</li>
+                    <li>Apply advanced lighting and AI techniques in Unity.</li>
+                    <li>Iterate creatively through testing, feedback, and problem-solving.</li>
+                </ul>
+                <p>Through LIGHTLESS, I deepened my understanding of how technical precision and creative restraint combine to craft emotionally resonant gameplay — an essential skill in modern game development.</p>
             </section>
         </div>
     </div>

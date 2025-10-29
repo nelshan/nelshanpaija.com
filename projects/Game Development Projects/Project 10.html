@@ -77,14 +77,237 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>Skullgun is a simple top-down shooter where you must survive endless waves of enemies. 
-                    Armed with auto-firing projectiles, you'll move and eliminate foes while trying to stay alive. 
-                    Each wave increases the number of enemies. Just simple mechanics, quick gameplay, and non-stop action—perfect for a short session.
+                <h2>1. Introduction</h2>
+                <p>
+                    Skullgun is a Unity-based top-down shooter developed as a demonstration of proficiency in core game development principles, 
+                    including gameplay programming, system design, and production workflows. The project’s aim was to build a compact but 
+                    engaging arcade-style experience focused on survival, responsiveness, and flow.
+                </p>
+                <p>
+                    In Skullgun, the player controls a lone character armed with an auto-firing weapon, tasked with surviving as long as possible 
+                    against continuous waves of enemies. Each wave escalates the difficulty by increasing enemy count and aggression, creating a 
+                    tight gameplay loop centered on quick decision-making and spatial awareness.
+                </p>
+                <p>
+                    The game was developed independently as a showcase of my ability to design, implement, and polish gameplay systems using 
+                    Unity’s 2D framework and C#. It also served as an exploration of iterative development and how simple mechanics can deliver 
+                    replayable, high-tempo action when tuned carefully.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Philosophy</h2>
+                <p>
+                    The concept of Skullgun emerged from the desire to explore how minimalist mechanics can produce compelling gameplay through 
+                    tight controls, reactive feedback, and balanced progression. Instead of emphasizing complex systems or visuals, the focus was 
+                    on feel, flow, and player clarity.
+                </p>
+
+                <h3>Design Goals:</h3>
+                <ul>
+                    <li>Immediate Playability: Quick sessions with minimal setup — “jump in and play” design.</li>
+                    <li>Endless Challenge: Progressive difficulty through enemy scaling rather than fixed levels.</li>
+                    <li>Fluid Controls: Responsive player movement optimized for keyboard input.</li>
+                    <li>Simple Core Loop: Move, dodge, and survive — creating sustained tension and engagement.</li>
+                    <li>Polished Feedback: Clear hit effects, readable enemy behavior, and dynamic difficulty pacing.</li>
+                </ul>
+                <p>
+                    The game takes inspiration from classic arcade shooters and modern minimalist survival titles like 
+                    Vampire Survivors and Geometry Wars, but with a personal twist emphasizing control responsiveness and gameplay rhythm.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The development began in Unity using a 2D top-down template. The player, enemies, bullets, and 
+                    environmental boundaries were implemented using simple sprite-based assets. Initial focus was placed 
+                    on establishing the core movement and shooting mechanics before expanding into wave management 
+                    and difficulty progression.
+                </p>
+                <p>
+                    Early prototyping involved testing different camera scales, movement speeds, and bullet fire rates 
+                    to find a balance between control precision and visual clarity. Once the base mechanics felt 
+                    satisfying, secondary systems such as scoring, wave management, and UI were layered on top.
+                </p>
+
+                <h3>3.2 Core Gameplay Systems</h3>
+                <ol>
+                    <li>
+                        <strong>Player Movement and Controls</strong>
+                        <p>
+                            The player character uses a dual-axis input system for movement, driven by Unity’s <strong>Input.GetAxisRaw()</strong>
+                            method for smooth and responsive directional control. Movement speed and acceleration were fine-tuned 
+                            to create a sense of fluid motion without inertia, ensuring immediate responsiveness during combat.
+                        </p>
+                    </li>
+
+                    <li>
+                        <strong>Auto-Firing Weapon System</strong>
+                        <p>
+                            The shooting system operates automatically at a fixed rate, eliminating manual aiming or firing to 
+                            maintain constant action. The bullets are instantiated at timed intervals and move forward along the 
+                            player’s facing direction. Each projectile includes collision detection to destroy enemies upon contact.
+                        </p>
+                        <p>
+                            This design decision simplified input while amplifying focus on positioning and survival, 
+                            making gameplay more about strategy in movement than precision shooting.
+                        </p>
+                    </li>
+
+                    <li>
+                        <strong>Enemy AI and Wave System</strong>
+                        <p>
+                            Enemies spawn in waves around the perimeter of the play area, moving toward the player’s position 
+                            using simple steering behavior. Each wave incrementally increases:
+                        </p>
+                        <ul>
+                            <li>The number of spawned enemies.</li>
+                            <li>Their movement speed and aggression radius.</li>
+                        </ul>
+                        <p>
+                            A central WaveManager script controls the progression logic, automatically triggering new waves after 
+                            the previous one is cleared. This creates an endless survival loop where tension builds naturally as 
+                            the player endures longer sessions.
+                        </p>
+                    </li>
+
+                    <li>
+                        <strong>Scoring and Progression</strong>
+                        <p>
+                            The scoring system is time- and kill-based. Each defeated enemy contributes to the score, encouraging 
+                            continuous engagement. There are no level breaks or menus between waves — maintaining uninterrupted momentum.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 System Architecture</h3>
+                <p>The project was structured using modular, object-oriented scripts for maintainability:</p>
+                <ul>
+                    <li>PlayerController – Handles player input, movement, and facing direction.</li>
+                    <li>WeaponSystem – Manages projectile spawning and firing rate.</li>
+                    <li>EnemyAI – Controls enemy pathfinding and attack behaviors.</li>
+                    <li>WaveManager – Spawns enemies and tracks game progression.</li>
+                    <li>GameManager – Oversees scoring, state transitions, and restarts.</li>
+                </ul>
+                <p>Each component interacted through controlled public interfaces, reducing dependency and simplifying debugging.</p>
+
+                <h3>4.2 Enemy Behavior and Pathfinding</h3>
+                <p>
+                    Enemy movement was implemented using a straightforward vector-based approach rather than Unity’s full NavMesh system to maintain performance and simplicity. Enemies continuously calculate a direction vector toward the player and adjust their velocity accordingly.
+                </p>
+                <p>
+                    To avoid clustering and maintain visual clarity, a minor random offset was applied to movement vectors, producing slightly organic movement patterns without introducing full AI complexity.
+                </p>
+
+                <h3>4.3 Projectile and Collision Logic</h3>
+                <p>
+                    Projectiles used <strong>Rigidbody2D</strong> components with <strong>OnTriggerEnter2D()</strong> detection to handle hits. Upon collision with an enemy, the bullet is 
+                    destroyed, and the enemy’s health is reduced or removed. To prevent overdraw and memory buildup, a simple object pooling 
+                    system was introduced, reusing inactive bullet instances rather than instantiating new ones each time.
+                </p>
+                <p>This approach significantly improved runtime efficiency and reduced garbage collection spikes — particularly noticeable during higher enemy counts.</p>
+
+                <h3>4.4 Game Loop and Difficulty Scaling</h3>
+                <p>The game operates under a simple yet robust loop:</p>
+                <ul>
+                    <li>Spawn new enemies according to the current wave number.</li>
+                    <li>Allow the player to fight until all enemies are destroyed.</li>
+                    <li>Increase wave number and repeat.</li>
+                </ul>
+                <p>
+                    Difficulty progression is controlled through a linear scaling curve, modifying spawn count and movement speed based on wave index. These adjustments were carefully tuned to create a gradual increase in tension without sudden difficulty spikes.
+                </p>
+
+                <h3>4.5 UI and Feedback Systems</h3>
+                <p>The user interface displays the current wave, player score, and survival time. Hit feedback is conveyed through:</p>
+                <ul>
+                    <li>Flash effects on enemy damage.</li>
+                    <li>Brief screen shake upon player hit.</li>
+                    <li>Subtle particle bursts on enemy death.</li>
+                </ul>
+                <p>These feedback layers were implemented to enhance player immersion and reward moment-to-moment actions without cluttering the visual field.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Balancing Difficulty Curves</h3>
+                <p>
+                    Initial testing revealed inconsistent pacing — early waves were too slow, while later waves became nearly impossible. By introducing incremental scaling functions and fine-tuning enemy spawn intervals, the game achieved a smoother difficulty progression that maintained engagement without overwhelming the player.
+                </p>
+
+                <h3>5.2 Performance Optimization</h3>
+                <p>During prolonged sessions, performance dropped due to excessive object instantiation. Implementing object pooling for bullets and enemies reduced frame stutter and ensured stability even in late-game waves.</p>
+
+                <h3>5.3 Maintaining Gameplay Readability</h3>
+                <p>
+                    As enemy counts increased, visual clutter risked obscuring the player. Adjustments to color contrast, sprite scaling, and hit effects improved readability, helping players navigate chaos without confusion.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h3>6. Iteration and Testing</h3>
+                <p>Testing was iterative and feedback-driven. Each new build focused on a specific refinement goal — for instance:</p>
+                <ul>
+                    <li>Build 1: Core movement and shooting feedback.</li>
+                    <li>Build 2: Wave system and scaling.</li>
+                    <li>Build 3: Visual feedback, effects, and optimization.</li>
+                </ul>
+                <p>
+                    Playtesting emphasized feel — how satisfying movement, shooting, and survival felt over short sessions. Observations guided incremental changes to firing rate, enemy spawn frequency, and camera boundaries.
+                </p>
+                <p>
+                    This iterative workflow mirrored real-world production methodology: small, testable improvements layered over a solid foundation.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The finished version of Skullgun delivers an engaging, fast-paced survival shooter experience characterized by:</p>
+                <ul>
+                    <li>Smooth and responsive movement.</li>
+                    <li>Endless wave progression and adaptive challenge.</li>
+                    <li>Visually clear and rewarding combat feedback.</li>
+                    <li>Stable performance across sessions.</li>
+                </ul>
+                <p>
+                    Though minimalist by design, Skullgun achieves depth through pacing, control precision, and iteration-driven refinement — proving that simplicity, when executed thoughtfully, can yield compelling gameplay.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>Developing Skullgun reinforced several important lessons about designing and implementing action-based gameplay:</p>
+                <ul>
+                    <li>Player Feel Is Paramount: Technical correctness matters less than how the game feels. Responsiveness and feedback define player satisfaction.</li>
+                    <li>Small Systems, Strong Core: A simple, solid gameplay loop offers far more longevity than numerous underdeveloped features.</li>
+                    <li>Iterative Development Works: Frequent testing and small adjustments yield higher-quality results than large, infrequent overhauls.</li>
+                    <li>Optimization Early Saves Time: Object pooling and minimal physics complexity ensured scalability and smooth performance from the start.</li>
+                </ul>
+                <p>These takeaways extend beyond this project, influencing how I approach system design, testing, and player experience in future games.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Potential directions for future development include:</p>
+                <ul>
+                    <li>Power-Up System: Introducing collectible upgrades (e.g., speed boosts, spread shots).</li>
+                    <li>Enemy Variety: Adding ranged enemies or mini-bosses to diversify combat flow.</li>
+                    <li>Procedural Arenas: Randomized environments to enhance replay value.</li>
+                    <li>Audio and Sound Design: Integrating adaptive music and dynamic sound cues to reinforce intensity.</li>
+                    <li>Leaderboards: Tracking high scores to encourage competition.</li>
+                </ul>
+                <p>These enhancements would expand gameplay depth while maintaining the project’s minimalist identity.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Auto-Firing Combat:</strong> Continuous projectile system for intense action.</li>
@@ -110,12 +333,18 @@
                     <li><strong>Wave Management:</strong> Created dynamic enemy spawning system.</li>
                     <li><strong>Performance Optimization:</strong> Efficient rendering for smooth action gameplay.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project focused on creating immediate, satisfying gameplay with minimal complexity. 
-                    The auto-firing mechanic allows players to focus on movement and positioning rather than aiming.
+                <h2>10. Conclusion</h2>
+                <p>
+                    Skullgun – Top-Down Shooter exemplifies the effectiveness of focused design and disciplined iteration in game development. Built in Unity using straightforward systems, it demonstrates strong technical execution, clean architectural thinking, and a refined understanding of player experience.
+                </p>
+                <p>
+                    The project not only achieved its objective as a proof of proficiency in game programming and design but also deepened my appreciation for balancing simplicity with depth. Through its creation, I honed my ability to design scalable systems, optimize gameplay flow, and approach creative challenges through structured, iterative problem-solving.
+                </p>
+                <p>
+                    Ultimately, Skullgun stands as a testament to how minimalism, responsiveness, and thoughtful iteration can combine to produce engaging, replayable gameplay experiences.
                 </p>
             </section>
         </div>

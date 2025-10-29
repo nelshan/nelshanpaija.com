@@ -77,15 +77,259 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>A simple implementation of Conway's Game of Life in Unity. This cellular automaton 
-                    devised by John Conway in 1970, simulates the evolution of cells based on simple rules, 
-                    resulting in complex patterns. Conway's Game of Life is a well-known example of a 
-                    zero-player game, meaning that once initialized, the system evolves autonomously.
+                <h2>1. Introduction</h2>
+                <p>
+                    Conway’s Game of Life – Cellular Automaton is a Unity-based interactive simulation that visualizes the emergent behavior of 
+                    cellular automata as defined by mathematician John Conway.
+                </p>
+                <p>
+                    This project was developed to explore simulation design, optimization techniques, and procedural content generation in Unity.
+                    By implementing the Game of Life ruleset using object pooling, dynamic grid generation, and real-time UI feedback, the project 
+                    demonstrates proficiency in system architecture, performance management, and visual data representation.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Objectives</h2>
+                <p>
+                    The Game of Life is a zero-player game that evolves based on an initial state and a set of deterministic rules. 
+                    Each cell in a grid can be alive or dead, and its fate in the next generation depends on the number of living neighbors it has.
+                </p>
+                <p>
+                    The objective of this Unity project was to create a scalable, efficient, and visually intuitive version of this simulation 
+                    that runs smoothly at high resolutions while remaining interactive and informative.
+                </p>
+
+                <h3>Key Project Goals:</h3>
+                <ul>
+                    <li><strong>Accurate Rule Implementation:</strong> Faithfully apply Conway’s four rules to determine cell survival, death, or reproduction.</li>
+                    <li><strong>Optimized Rendering:</strong> Use an object pooling system to manage thousands of cell objects efficiently.</li>
+                    <li><strong>Dynamic Visualization:</strong> Represent live and dead cells through real-time sprite rendering.</li>
+                    <li><strong>User Interaction:</strong> Include basic input (restart, play/pause) and on-screen information such as generation count and population.</li>
+                    <li><strong>Readable, Modular Code:</strong> Create clean, extensible scripts suitable for future experiments in cellular automata.</li>
+                </ul>
+                <p>
+                    The emphasis was on clarity and scalability — creating a foundation for future extensions like alternate automaton rules, color-coding systems, or user-drawn initial states.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 System Overview</h3>
+                <p>The simulation is composed of three primary components:</p>
+                <ul>
+                    <li><strong>Cell.cs</strong> Defines individual cell behavior and appearance.</li>
+                    <li><strong>GameOfLife.cs</strong> Manages grid initialization, rule updates, pooling, and simulation state.</li>
+                    <li><strong>GameUI.cs</strong> (Prototype) Handles UI and user control logic for start, pause, and reset.</li>
+                </ul>
+                <p>
+                    This modular design ensures a clear separation between visualization, simulation logic, and user interface.
+                </p>
+
+                <h3>3.2 Grid Initialization</h3>
+                <p>At startup, the program initializes a two-dimensional array of cells (Cell[,] grid) with configurable width and height.</p>
+                <p>
+                    Each grid position has a random 30% chance of starting as alive. Live cells are obtained from a pre-allocated pool rather than dynamically instantiated — a key optimization decision for performance.
+                </p>
+                <p>
+                    The camera is automatically positioned and scaled to ensure the entire grid remains visible regardless of dimensions:
+                </p>
+                <pre>
+                    <code class="language-CSharp">
+                        Camera.main.transform.position = new Vector3(0, 0, -10);
+                        Camera.main.orthographicSize = (height * cellSize) / 2f;
+                    </code>
+                </pre>
+                <p>This ensures visual consistency even when the grid resolution is changed.</p>
+
+                <h3>3.3 Conway’s Rules Implementation</h3>
+                <p>The <strong>core algorithm</strong> runs at a fixed time interval (0.1 seconds) via <strong>InvokeRepeating</strong>.</p>
+                <p>Each update performs the following sequence:</p>
+                <ol>
+                    <li>
+                        <strong>Neighbor Counting:</strong>
+                        <p>For each cell, the program counts its eight surrounding neighbors using a doubleloop over the offset range <code>(-1, 1)</code>.</p>
+                    </li>
+                    
+                    <li>
+                        <strong>Rule Evaluation:</strong>
+                        <p>The simulation applies Conway’s rules:</p>
+                        <ul>
+                            <li>Any live cell with 2 or 3 neighbors survives.</li>
+                            <li>Any dead cell with exactly 3 neighbors becomes alive.</li>
+                            <li>All other cells die or remain dead.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>State Transition:</strong>
+                        <p>The new generation is stored in a secondary 2D array (<code>nextGen</code>) beforeapplying the updates to the grid.</p>
+                    </li>
+                </ol>
+                <p>This approach ensures <strong>synchronous updates</strong>, maintaining correct simulation behavior.</p>
+
+                <h3>3.4 Object Pooling System</h3>
+                <p>
+                    With potentially over <strong>20,000 cells</strong> on screen, naïve object creation and destruction each frame would quickly degrade performance.
+                </p>
+                <p>To solve this, the project uses a custom object pooling system implemented via a <strong>Queue<Cell>:</strong></p>
+                <ul>
+                    <li>At startup, poolSize (e.g., 5000) inactive cells are pre-instantiated.</li>
+                    <li>When a cell becomes alive, it’s dequeued and positioned.</li>
+                    <li>When a cell dies, it’s deactivated and enqueued back to the pool.</li>
+                </ul>
+                <pre>
+                    <code class="language-CSharp">
+                        Cell GetCellFromPool(int x, int y) {
+                            Cell cell = cellPool.Dequeue();
+                            cell.transform.position = position;
+                            cell.gameObject.SetActive(true);
+                            return cell;
+                        }                        
+                    </code>
+                </pre>
+                <p>This drastically reduces garbage collection spikes and ensures smooth frame rates — a key factor when rendering large-scale automata.</p>
+
+                <h3>3.5 Visualization and Feedback</h3>
+                <p>The Cell class handles only visual state:</p>
+                <pre>
+                    <code class="language-CSharp">
+                        public void SetState(bool state) {
+                            spriteRenderer.color = state ? Color.white : Color.black;
+                        }                                            
+                    </code>
+                </pre>
+                <p>This clean separation allows for easy stylistic updates (e.g., color gradients for aging cells).</p>
+                <p>Additionally, the <strong>GameOfLife</strong> script updates a <strong>UI text element</strong> in real time:</p>
+                <pre>
+                    <code class="language-makefile">
+                        Generation: <count>
+                        Population: <current live cells>                                                                     
+                    </code>
+                </pre>
+                <p>This turns the simulation into an educational tool by displaying meaningful metrics about system evolution and entropy over time.</p>
+
+                <h3>3.6 User Interaction</h3>
+                <p>Although primarily automatic, the simulation allows limited input for control:</p>
+                <ul>
+                    <li><strong>Press R</strong> – Randomizes and restarts the grid with a new seed.</li>
+                    <li><strong>Start/Pause</strong>(planned in GameUI) – Toggles simulation activity.</li>
+                </ul>
+                <p>This minimal interactivity supports experimentation while preserving the integrity of the automated evolution process.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Architecture</h2>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>Component</th>
+                        <th>Role</th>
+                        <th>Key Features</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>Cell.cs</b></td>
+                        <td>Visual unit class</td>
+                        <td>Sprite-based rendering, binary alive/dead state</td>
+                      </tr>
+                      <tr>
+                        <td><b>GameOfLife.cs</b></td>
+                        <td>Simulation core</td>
+                        <td>Grid management, rule computation, pooling, statistics</td>
+                      </tr>
+                      <tr>
+                        <td><b>GameUI.cs</b></td>
+                        <td>User interface prototype</td>
+                        <td>Start/pause toggle (future feature), info display</td>
+                      </tr>
+                      <tr>
+                        <td><b>UnityEngine &amp; UI</b></td>
+                        <td>Framework</td>
+                        <td>Physics-less rendering, performance control, camera scaling</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <p>The architecture is designed to be <strong>data-driven</strong> — simulation logic depends only on grid data, not object hierarchy, ensuring scalability and maintainability.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Solutions</h2>
+
+                <h3>5.1 Performance Bottlenecks</h3>
+                <p>Early versions instantiated thousands of cells directly in the scene, resulting in stutter and frame drops.</p>
+                <p><strong>Solution:</strong> Introduced an <strong>object pooling system</strong> that recycles cells efficiently.</p>
+
+                <h3>5.2 Edge Handling</h3>
+                <p>Out-of-bounds array access occurred during neighbor checking near grid edges.</p>
+                <p><strong>Solution:</strong> Implemented boundary checks before counting neighbors:</p>
+                <pre>
+                    <code class="language-CSharp">
+                        if (nx >= 0 && ny >= 0 && nx < width && ny < height)                                          
+                    </code>
+                </pre>
+                
+                <h3>5.3 Synchronization Artifacts</h3>
+                <p>Updating the grid in place led to “ripple errors” where changes propagated incorrectly within the same frame.</p>
+                <p><strong>Solution:</strong> Used a <strong>double-buffer</strong> system (<strong>grid</strong> and <strong>nextGen</strong>) to separate current and next states before applying updates.</p>
+
+                <h3>5.4 Restart Consistency</h3>
+                <p>Restarting the simulation left old cells active on screen.</p>
+                <p><strong>Solution:</strong> Added a <strong>RestartGame()</strong> method that cleanly resets the grid, pool, and counters before reinitializing.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>Testing involved adjusting:</p>
+                <ul>
+                    <li>Grid size (<strong>width</strong>, <strong>height</strong>) for scalability.</li>
+                    <li>Pool size (<strong>poolSize</strong>) for memory efficiency.</li>
+                    <li>Time step (<strong>TimeInterval</strong>) to balance speed and visibility.</li>
+                </ul>
+                <p>Each test iteration measured frame rate consistency and verified correct application of Conway’s rules (e.g., still lifes, oscillators, gliders).</p>
+                <p>Iterations also validated the population counter</strong>, confirming accurate tracking of live cell counts across generations.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The finished simulation successfully:</p>
+                <ul>
+                    <li>Runs efficiently with over <strong>20,000 active cells</strong> on screen.</li>
+                    <li>Displays smooth evolution cycles without frame lag.</li>
+                    <li>Provides informative metrics (generation, population).</li>
+                    <li>Demonstrates modular, maintainable Unity C# code.</li>
+                    <li>Creates a visually engaging and educational tool for procedural systems.</li>
+                </ul>
+                <p>The final product effectively bridges <strong>mathematical logic</strong> and <strong>visual interaction</strong>, highlighting the elegance of emergent complexity from simple rules.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>Key takeaways from the development process include:</p>
+                <ul>
+                    <li><strong>Optimization is Crucial in Simulation Design:</strong> Even simple logic becomes performance-heavy at large scales; preemptive pooling prevents later performance crises.</li>
+                    <li><strong>Data Separation Simplifies Debugging:</strong> Maintaining visual and logical states independently makes iteration faster and less error-prone.</li>
+                    <li><strong>Readable Architecture Encourages Extensibility:</strong> Modular code allows easy adaptation for other cellular automata like Langton’s Ant or Wireworld.</li>
+                    <li><strong>Emergence as a Design Principle:</strong> Simple, deterministic rules can produce unexpectedly rich and organic patterns — a powerful lesson in both art and computation.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Planned or potential enhancements include:</p>
+                <ul>
+                    <li><strong>UI Expansion:</strong> Add sliders to adjust speed, density, and grid size in real time.</li>
+                    <li><strong>User Drawing Mode</strong> Allow players to paint live/dead cells interactively.</li>
+                    <li><strong>Pattern Library:</strong> Load predefined structures (e.g., gliders, pulsars, ships)</li>
+                    <li><strong>Color Mapping:</strong> Represent cell age or activity frequency through gradients.</li>
+                    <li><strong>GPU Optimization:</strong> Offload computations to shaders for real-time high-resolution grids.</li>
+                </ul>
+                <p>These extensions would transform the project into a fully interactive laboratory for procedural simulation and emergent behavior study.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Classic Rules:</strong> Implements the original Conway's Game of Life rules.</li>
@@ -112,12 +356,21 @@
                     <li><strong>Grid System:</strong> Created an efficient 2D grid for cell management.</li>
                     <li><strong>Performance Optimization:</strong> Implemented efficient cell state calculations.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project demonstrated the beauty of simple rules creating complex emergent behavior. 
-                    It's fascinating how basic mathematical rules can generate such intricate and unpredictable patterns.
+                <h2>10. Conclusion</h2>
+                <p>Conway’s Game of Life – Cellular Automaton serves as both a technical showcase and a conceptual exploration.</p>
+                <p>It demonstrates how a timeless algorithm can be translated into a modern, optimized, and interactive experience through Unity.</p>
+                <p>Through the development of this project, I strengthened my understanding of:</p>
+                <ul>
+                    <li>Efficient memory and object management.</li>
+                    <li>Algorithmic simulation of autonomous systems.</li>
+                    <li>The interplay between mathematics, visualization, and software design.</li>
+                </ul>
+                <p>
+                    This project stands as a compelling example of my ability to design, optimize, and communicate complex systems 
+                    with clarity and precision — an essential skillset in both game development and interactive simulation design.
                 </p>
             </section>
         </div>

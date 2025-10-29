@@ -77,14 +77,228 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>This project is a faithful recreation of the classic Pong game, developed to demonstrate proficiency 
-                    in Unity and fundamental game development principles. The game features two-player local multiplayer, 
-                    responsive paddle controls, realistic ball physics, and a scoring system where the first player to reach 10 points wins.
+                <h2>1. Introduction</h2>
+                <p>This project presents the development of a faithful recreation of the classic Pong arcade game, implemented in 
+                    Unity as a demonstration of core game development principles. The goal was to build a simple yet technically 
+                    sound two-dimensional game that accurately captures the mechanics, look, and feel of the original Pong while 
+                    showcasing proficiency in Unity, C#, and game design fundamentals.
+                </p>
+                <p>
+                    Developed as a solo project, this clone features local two-player gameplay, responsive paddle movement, realistic 
+                    ball physics, dynamic collision responses, and a scoring system where the first player to reach ten points wins. 
+                    The project emphasizes clean architecture, modular scripting, and a smooth, polished play experience reflective of 
+                    strong foundational skills in both technical and design aspects of game development.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>The inspiration for this project came from the original Pong released by Atari in 1972 — one of the earliest and 
+                    most iconic video games in history. Its minimalist design and simple yet engaging gameplay make it an ideal 
+                    candidate for demonstrating understanding of interactive systems, physics, and player feedback within a controlled scope.
+                </p>
+                <p>The primary design goals for this project were:</p>
+                <ul>
+                    <li><strong>Faithful Recreation:</strong> Replicate the visual simplicity and mechanics of the original Pong while ensuring modern responsiveness.</li>
+                    <li><strong>Local Two-Player Mode:</strong> Enable two users to play simultaneously using the same keyboard.</li>
+                    <li><strong>Realistic Physics:</strong> Implement consistent and natural ball motion using Unity’s 2D physics system.</li>
+                    <li><strong>Clean Game Loop:</strong> Create a well-structured system for scoring, resetting rounds, and detecting victory conditions.</li>
+                    <li><strong>Polished Feel:</strong> Achieve smooth input, fair collision detection, and clear visual communication through the user interface.</li>
+                </ul>
+                <p>By focusing on these goals, the project aimed to balance authenticity with modern implementation practices and provide a foundation for future feature expansion.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The project was initiated in Unity using the 2D template. The scene was composed of a camera centered on a playfield defined by 
+                    static colliders representing the top and bottom walls. The core interactive elements included two paddles, a ball, and a 
+                    UI system for displaying scores.
+                </p>
+                <p>
+                    The initial step was to define object layers and tag key entities to facilitate collision handling and scoring detection. 
+                    A simple, monochrome color palette was chosen to evoke the original arcade aesthetic.
+                </p>
+
+                <h3>3.2 Paddle Movement</h3>
+                <p>
+                    Each paddle was assigned a dedicated controller script to handle vertical movement based on player input. 
+                    Player One used the “W” and “S” keys, while Player Two used the Up and Down arrow keys. Input was processed 
+                    per frame, and movement was clamped to prevent paddles from leaving the visible play area.
+                </p>
+                <p>
+                    The responsiveness of paddle controls was a critical factor. Early tests revealed the importance of 
+                    frame-independent movement, achieved through the use of <strong>Time.deltaTime</strong> to ensure consistent behavior 
+                    across varying frame rates.
+                </p>
+
+                <h3>3.3 Ball Physics</h3>
+                <p>
+                    The ball’s motion was driven by Unity’s <strong>Rigidbody2D</strong> component, utilizing velocity rather than position updates to 
+                    maintain realistic interactions. When launched, the ball’s direction and speed were randomized within controlled 
+                    limits to introduce variety.
+                </p>
+                <p>
+                    Collision handling was primarily physics-driven, with reflection logic applied based on the collision normal. 
+                    This created a natural bounce effect against paddles and walls. To simulate skill-based gameplay, the angle of 
+                    reflection was slightly influenced by the paddle’s movement direction at the moment of contact, allowing skilled 
+                    players to “aim” their shots.
+                </p>
+
+                <h3>3.4 Scoring System and Game Loop</h3>
+                <p>
+                    Two invisible colliders positioned beyond each paddle acted as scoring zones. When the ball entered one, 
+                    a point was awarded to the opposing player. The <strong>ScoreManager</strong> class maintained player scores and triggered 
+                    round resets by repositioning the ball and reinitializing its velocity.
+                </p>
+                <p>
+                    Once a player reached ten points, the match concluded, and a victory message was displayed on the UI. 
+                    A simple restart option allowed players to begin a new game seamlessly, reinforcing a continuous play loop.
+                </p>
+
+                <h3>3.5 User Interface</h3>
+                <p>
+                    The UI design emphasized clarity and simplicity. The current score for each player was displayed prominently 
+                    at the center of the screen. The game over screen featured a single winner message and a restart prompt. Unity’s 
+                    Canvas system was used for text and overlays, maintaining pixel-perfect alignment across resolutions.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+                
+                <h3>4.1 Architecture Overview</h3>
+                <p>The project followed a modular script architecture, with key components divided as follows:</p>
+                <ul>
+                    <li><strong>Players:</strong> Handles player input, movement boundaries, and speed adjustment.</li>
+                    <li><strong>BallMovement:</strong> Manages velocity, collisions, and trajectory calculations.</li>
+                    <li><strong>ScoreManager:</strong> Oversees scoring, win conditions, and game resets.</li>
+                    <li><strong>UIManager:</strong> Updates score displays and manages end-game messages.</li>
+                </ul>
+                <p>Each script maintained a single responsibility, improving code readability and reducing coupling between systems.</p>
+
+                <h3>4.2 Collision Handling and Ball Reflection</h3>
+                <p>
+                    The ball’s interaction system was designed to replicate real-world reflection behavior without introducing excessive randomness. The collision response used the following logic:
+                </p>
+                <ul>
+                    <li>Retrieve the collision normal using <strong>collision.contacts[0].normal</strong>.</li>
+                    <li>Calculate the reflection vector using <strong>Vector2.Reflect()</strong>.</li>
+                    <li>Adjust ball velocity to maintain constant speed while reflecting direction.</li>
+                </ul>
+                <p>This ensured consistent and predictable bounces while still allowing for dynamic play based on paddle motion.</p>
+
+                <h3>4.3 Input System and Control Responsiveness</h3>
+                <p>
+                    Unity’s default Input Manager was used to capture keyboard input for both players. 
+                    To ensure responsiveness, paddle movement calculations were performed in <strong>Update()</strong> 
+                    with physics updates handled separately in <strong>FixedUpdate()</strong>.
+                </p>
+                <p>A key design decision was to limit maximum paddle speed to maintain control precision while preserving the competitive pace of gameplay.</p>
+
+                <h3>4.4 Game State Management</h3>
+                <p>
+                    The <strong>ScoreManager</strong> script served as the central authority for transitioning between game states (active round, scoring, game over). When a point was scored, the following sequence occurred:
+                </p>
+                <ul>
+                    <li>Increment score for the correct player.</li>
+                    <li>Check for win condition (first to ten).</li>
+                    <li>If no win, reset ball and continue play; if win, display results and pause ball movement.</li>
+                </ul>
+                <p>This structure ensured a consistent and controlled gameplay cycle, preventing unexpected behaviors between rounds.</p>
+
+                <h3>4.5 Performance Considerations</h3>
+                <p>
+                    Although a lightweight project, optimization practices were followed. Object references were cached to 
+                    reduce calls to <strong>FindObjectOfType</strong>, and unnecessary physics calculations were minimized by disabling 
+                    rigidbody simulation during reset states. The final build maintained a consistent 60 frames per 
+                    second across tests.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Collision Accuracy</h3>
+                <p>
+                    A recurring challenge was ensuring precise collision responses between the ball and paddle edges. In early iterations, 
+                    the ball occasionally slipped through paddle colliders at high speeds. The issue was mitigated by:
+                </p>
+                <ul>
+                    <li>Enabling Continuous Collision Detection on the ball’s Rigidbody2D.</li>
+                    <li>Increasing the physics update rate for critical collision checks.</li>
+                    <li>Reducing ball acceleration per hit to prevent physics instability.</li>
+                </ul>
+
+                <h3>5.2 Gameplay Balance</h3>
+                <p>
+                    Fine-tuning ball speed and paddle responsiveness required extensive testing. Too slow, and the game lacked excitement; 
+                    too fast, and control accuracy suffered. Through incremental adjustments, an optimal balance was achieved that rewarded 
+                    player skill without overwhelming reaction time.
+                </p>
+
+                <h3>5.3 Code Maintainability</h3>
+                <p>
+                    During development, an early monolithic design led to difficulty managing interdependent game elements. 
+                    Refactoring into a component-based structure improved maintainability and allowed for potential 
+                    scalability, such as adding an AI opponent or advanced UI systems in the future.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>
+                    Testing involved multiple rounds of local playtesting to evaluate control feel, collision behavior, and pacing. Observations guided iterative improvements:
+                </p>
+                <ul>
+                    <li>Adjusted ball launch speed variance for fairness.</li>
+                    <li>Smoothed paddle acceleration to avoid abrupt movement.</li>
+                    <li>Added reset delays between rounds for clarity and pacing.</li>
+                </ul>
+                <p>
+                    These iterations led to a polished and predictable play experience aligned with the project’s goals.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The completed Pong clone successfully met its design and technical objectives. It offers:</p>
+                <ul>
+                    <li>Local two-player gameplay with intuitive controls.</li>
+                    <li>Physically consistent ball motion and reliable collision feedback.</li>
+                    <li>A simple yet polished user interface with clear scoring and win conditions.</li>
+                    <li>Stable performance across builds and frame rates.</li>
+                </ul>
+                <p>The game captures the essence of the original Pong while demonstrating modern implementation discipline within Unity’s 2D environment.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Learnings</h2>
+                <p>Developing this project reinforced several key insights:</p>
+                <ul>
+                    <li><strong>Fundamentals Matter:</strong> Even a minimal game like Pong requires precise attention to physics, timing, and user input to feel satisfying.</li>
+                    <li><strong>Clean Code Architecture:</strong> Component-based design ensures flexibility and clarity, especially as projects scale.</li>
+                    <li><strong>Gameplay Feel Is Technical:</strong> Achieving responsive, enjoyable gameplay is as much about physics tuning and feedback as visual design.</li>
+                    <li><strong>Iteration Is Essential:</strong> Frequent testing and parameter refinement are crucial for balancing challenge and playability.</li>
+                </ul>
+                <p>These lessons are directly transferable to larger, more complex projects, particularly in managing interactive systems and maintaining strong player feedback loops.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Possible extensions include:</p>
+                <ul>
+                    <li><strong>AI Opponent:</strong> Implementing a single-player mode using predictive ball tracking and adjustable difficulty levels.</li>
+                    <li><strong>Enhanced Visuals:</strong> Adding background animations, particle effects, or retro CRT-style filters.</li>
+                    <li><strong>Audio Feedback:</strong> Incorporating paddle hit sounds, scoring tones, and background ambience.</li>
+                    <li><strong>Online Multiplayer:</strong> Exploring Unity’s Netcode for GameObjects to support networked gameplay.</li>
+                </ul>
+                <p>These features would further enrich the experience while providing additional opportunities to demonstrate advanced Unity capabilities.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Two-Player Local Multiplayer:</strong> Engage in head-to-head matches with intuitive controls.</li>
@@ -109,12 +323,19 @@
                     <li><strong>Unity Engine Utilization:</strong> Leveraged Unity's 2D capabilities to create smooth gameplay mechanics and responsive controls.</li>
                     <li><strong>Code Optimization:</strong> Wrote clean and efficient C# scripts to manage game logic, input handling, and collision responses.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project served as an excellent exercise in understanding the core mechanics of game development. Recreating a classic 
-                    game like Pong allowed for a focus on refining gameplay elements and ensuring a polished user experience.
+                <h2>10. Conclusion</h2>
+                <p>
+                    The Pong – 2D Arcade Game Clone served as both a technical exercise and a personal exploration of gameplay fundamentals. 
+                    Through the development of this project, I deepened my understanding of Unity’s physics engine, refined my programming 
+                    architecture skills, and learned how subtle design decisions impact player experience.
+                </p>
+                <p>
+                    While small in scope, the project embodies key principles of game development: clarity, responsiveness, and iterative refinement. 
+                    It stands as a demonstration of practical skill in creating interactive, well-structured, and enjoyable gameplay experiences — a 
+                    foundation for more complex and ambitious game development endeavors.
                 </p>
             </section>
         </div>

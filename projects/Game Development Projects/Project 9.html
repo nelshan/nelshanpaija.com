@@ -77,13 +77,239 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>Dino Runner is an endless runner game inspired by Chrome's dinosaur game, developed using Unity and C#. 
-                    Players control a dinosaur character that must jump over obstacles and avoid enemies in an endless desert landscape.
+                <h2>1. Introduction</h2>
+                <p>
+                    Dino Runner – Endless Runner Game Clone is a Unity-based recreation of the classic browser game popularly 
+                    known as “Chrome Dino.” The project was developed as a technical and creative exercise to demonstrate core 
+                    competencies in game design, programming, and production workflows within a 2D environment.
+                </p>
+                <p>
+                    The game features a procedurally generated endless track, responsive player controls, dynamic obstacle 
+                    spawning, score tracking, and progressive difficulty scaling. It was developed as a solo project with 
+                    the goal of showcasing both technical mastery of Unity’s tools and an understanding of player experience design.
+                </p>
+                <p>
+                    This case study outlines the complete development process, from conceptualization to implementation and refinement. 
+                    It also examines key challenges, design decisions, and lessons learned throughout the project, providing an 
+                    in-depth look at the workflow behind creating a polished, endlessly replayable 2D game.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The inspiration for Dino Runner came from the minimalist yet addictive “No Internet” game integrated into the Google 
+                    Chrome browser. Its simplicity, scalability, and tight gameplay loop made it an ideal subject for replication and expansion within Unity.
+                </p>
+                <p>The primary design goals for this project were:</p>
+                <ul>
+                    <li>Faithful Recreation: Capture the look, pacing, and feel of the original Chrome Dino while building all systems from scratch.</li>
+                    <li>Endless Procedural Gameplay: Implement a continuous scrolling world with procedurally spawned obstacles.</li>
+                    <li>Responsive Controls: Deliver tight, reliable jumping mechanics that reward timing and precision.</li>
+                    <li>Difficulty Scaling: Introduce gradual increases in speed and challenge to maintain long-term engagement.</li>
+                    <li>Clean, Modular Architecture: Develop reusable, well-documented scripts following solid game development practices.</li>
+                </ul>
+                <p>These goals guided both the design philosophy and technical structure of the project, emphasizing clarity, control, and maintainability.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The project was created in Unity using the 2D template. The game world consisted of a static camera focused on a 
+                    horizontally scrolling environment. Key components included the player character, ground tiles, obstacle prefabs, 
+                    and a dynamic background layer to simulate depth.
+                </p>
+                <p>
+                    Initial tasks included setting up sprite assets, defining collision layers, and configuring physics parameters to 
+                    ensure predictable interactions. Early prototypes focused on getting basic jumping and gravity behaviors feeling 
+                    responsive and natural.
+                </p>
+
+                <h3>3.2 Player Movement and Physics</h3>
+                <p>
+                    The PlayerController script governed the character’s movement and jump mechanics. Input detection used Unity’s 
+                    Input System to capture key presses and apply vertical force via the Rigidbody2D component. Jump behavior was 
+                    refined through extensive playtesting to balance jump height, duration, and gravity scale for maximum responsiveness.
+                </p>
+                <p>
+                    A grounded detection system, implemented using raycasts, ensured that the player could only jump while touching the 
+                    ground, preventing unintended multi-jumps. To enhance player feedback, a simple animation cycle was introduced to 
+                    simulate running motion, and a subtle squash-and-stretch effect added visual dynamism to jumps.
+                </p>
+
+                <h3>3.3 World Generation and Scrolling System</h3>
+                <p>
+                    The endless environment was achieved by implementing a tile recycling system. Instead of spawning infinite terrain, 
+                    ground tiles moved leftward at a constant rate, and once off-screen, they were repositioned to the right side of the 
+                    scene. This created the illusion of continuous motion without performance overhead.
+                </p>
+                <p>
+                    Obstacle spawning was handled by a Spawner script, which instantiated objects such as cacti or flying enemies at 
+                    randomized intervals and positions. Object pooling was employed to efficiently reuse obstacles, minimizing 
+                    instantiation costs during gameplay.
+                </p>
+
+                <h3>3.4 Scoring and Difficulty Scaling</h3>
+                <p>
+                    A GameManager controlled game flow, score calculation, and difficulty progression. The player’s score increased 
+                    over time based on distance traveled, and game speed incrementally increased at regular score thresholds to elevate challenge.
+                </p>
+                <p>
+                    A simple yet effective feedback system was added to enhance player motivation: the background color subtly shifted 
+                    as the score increased, creating visual variation and signaling progress subconsciously.
+                </p>
+
+                <h3>3.5 Game Loop and UI</h3>
+                <p>
+                    The UI displayed the current score and high score using Unity’s Canvas system. On collision with an obstacle, the 
+                    game transitioned into a “Game Over” state, halting motion and displaying replay options. The player could restart 
+                    immediately with a single key press, maintaining flow and engagement.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Core Architecture</h3>
+                <p>The game was designed using a modular architecture with clear script responsibilities:</p>
+                <ul>
+                    <li>PlayerController: Handles input, physics, and animation.</li>
+                    <li>GroundScroller: Manages background and ground tile recycling.</li>
+                    <li>ObstacleSpawner: Controls timing and placement of obstacles using an object pool.</li>
+                    <li>GameManager: Oversees game states, score tracking, and difficulty scaling.</li>
+                    <li>UIManager: Updates score display and manages restart transitions.</li>
+                </ul>
+                <p>This modularity ensured clean separation of logic and made debugging or feature additions straightforward.</p>
+                
+                <h3>4.2 Physics and Movement Logic</h3>
+                <p>
+                    The player’s jump system was physics-driven, using a constant upward impulse upon input and controlled 
+                    fall speed through gravity scaling. Key parameters like jump force and gravity were tuned to achieve 
+                    responsive yet challenging gameplay.
+                </p>
+                <p>
+                    To prevent inconsistent physics behavior at varying frame rates, all physics-related operations were 
+                    handled in <strong>FixedUpdate()</strong>. The result was smooth and predictable character motion that felt satisfying and fair.
+                </p>
+
+                <h3>4.3 Procedural Generation and Object Pooling</h3>
+                <p>
+                    To simulate endless variety, obstacles were randomly selected from a pool of prefabs with slight variations in 
+                    spacing and type. Object pooling prevented performance spikes by recycling inactive obstacles instead of creating new ones
+                </p>
+                <p>
+                    The system was designed for extensibility — additional obstacle types or environmental elements could easily 
+                    be added without rewriting the spawning logic.
+                </p>
+
+                <h3>4.4 Game State and UI Management</h3>
+                <p>
+                    Game states (playing, paused, game over) were managed through a central GameManager using simple enumerations. 
+                    Transitions between states were triggered by collision events and input checks.
+                </p>
+                <p>
+                    UI updates occurred in real-time, with scores updated per frame and high scores saved using Unity’s 
+                    <strong>PlayerPrefs</strong> for persistence between sessions.
+                </p>
+
+                <h3>4.5 Optimization and Testing</h3>
+                <p>
+                    Performance optimization focused on maintaining high frame rates on both desktop and mobile builds. 
+                    Object pooling, sprite batching, and disabling unnecessary physics calculations ensured efficient 
+                    memory usage and consistent performance.
+                </p>
+                <p>
+                    Testing involved iterative play sessions to calibrate difficulty progression and collision sensitivity. 
+                    Edge cases — such as overlapping obstacles or false game-over triggers — were identified and resolved 
+                    through systematic debugging.
+                </p>
+            </section>
+            
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Maintaining Gameplay Feel</h3>
+                <p>
+                    A significant challenge was replicating the precise “feel” of the original Chrome Dino game. 
+                    Small differences in jump force or acceleration drastically affected playability. This was 
+                    addressed through incremental tuning and player feedback, focusing on responsiveness and smoothness.
+                </p>
+
+                <h3>5.2 Balancing Difficulty Progression</h3>
+                <p>
+                    Early iterations either ramped up difficulty too quickly or too slowly. A dynamic scaling curve 
+                    based on time rather than score was implemented, producing a smoother progression that kept 
+                    players engaged for longer runs.
+                </p>
+
+                <h3>5.3 Collision Accuracy</h3>
+                <p>
+                    Ensuring accurate collision detection between the player and obstacles required careful collider 
+                    setup and testing. Using polygon colliders for detailed shapes and adjusting their offsets prevented 
+                    unfair hits and improved player trust in the mechanics.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Iteration and Playtesting</h2>
+                <p>
+                    The game underwent multiple iterations to refine player experience. Early prototypes focused on core mechanics, 
+                    while later builds emphasized polish and feedback.
+                </p>
+                <p>Playtesting led to key improvements:</p>
+                <ul>
+                    <li>Adjusted jump height and timing for better control.</li>
+                    <li>Introduced a short grace period at game start to prevent instant collisions.</li>
+                    <li>Added subtle acceleration to create a sense of increasing challenge.</li>
+                    <li>Enhanced visual feedback through background color transitions and simple animations.</li>
+                </ul>
+                <p>This iterative approach ensured the game evolved toward a balanced and enjoyable experience.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>The final version of Dino Runner successfully met its design and technical objectives:</p>
+                <ul>
+                    <li>Smooth, consistent, and responsive controls.</li>
+                    <li>Seamless endless world generation with efficient object pooling.</li>
+                    <li>Progressive difficulty and dynamic feedback systems.</li>
+                    <li>Lightweight, scalable codebase suitable for future extensions.</li>
+                </ul>
+                <p>
+                    The game delivers a polished and replayable experience that effectively demonstrates mastery 
+                    of Unity’s 2D systems, procedural generation techniques, and iterative design principles.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>Developing Dino Runner provided valuable insights into both the technical and creative dimensions of game development:</p>
+                <ul>
+                    <li>Simplicity Requires Precision: Minimalist designs demand exacting polish; small imperfections are easily noticeable.</li>
+                    <li>Procedural Systems Demand Structure: Robust pooling and spawn logic are essential for maintaining both performance and gameplay integrity.</li>
+                    <li>Iteration Drives Quality: Frequent testing and refinement are critical to achieving satisfying game feel.</li>
+                    <li>Balance Between Art and Engineering: Every technical choice — from jump physics to UI transitions — impacts player experience.</li>
+                </ul>
+                <p>
+                    These lessons reinforced best practices in modular design, physics-based gameplay tuning, and structured iteration cycles, all of which are applicable to future, larger-scale projects.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Future development directions include:</p>
+                <ul>
+                    <li>Additional Environments: Introduce new biome themes or weather effects to enhance visual diversity.</li>
+                    <li>Power-ups and Collectibles: Add temporary invincibility, score multipliers, or other mechanics for increased variety.</li>
+                    <li>AI-Driven Difficulty: Implement adaptive difficulty that responds to player performance.</li>
+                    <li>Mobile Optimization: Enhance touch controls and UI scaling for mobile platforms.</li>
+                </ul>
+                <p>These improvements would extend the game’s depth and demonstrate further technical and creative evolution.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Endless Gameplay:</strong> Infinite procedurally generated obstacles and challenges.</li>
@@ -108,12 +334,15 @@
                     <li><strong>Physics Implementation:</strong> Realistic jumping mechanics and collision detection.</li>
                     <li><strong>Performance Optimization:</strong> Efficient rendering for smooth endless gameplay.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project demonstrated the appeal of simple, addictive gameplay mechanics. The endless runner format 
-                    provides a perfect balance of challenge and accessibility that keeps players engaged.
+                <h2>10. Conclusion</h2>
+                <p>
+                    Dino Runner – Endless Runner Game Clone exemplifies a complete, end-to-end game development process encompassing design, programming, iteration, and optimization. Through this project, I strengthened my understanding of Unity’s 2D toolset, object pooling systems, and physics-based control design.
+                </p>
+                <p>
+                    The project also reinforced the value of iterative development — building, testing, and refining until gameplay feels both fair and rewarding. The final product stands as a concise yet technically rich demonstration of my ability to translate design intent into an engaging, polished interactive experience.
                 </p>
             </section>
         </div>

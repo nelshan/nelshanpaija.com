@@ -77,13 +77,210 @@
 
         <div class="project-content">
             <section class="project-section">
-                <h2>Overview</h2>
-                <p>Block Breaker is a 2D arcade game developed using Unity and C#, inspired by the classic brick-breaker genre. 
-                    Players control a paddle to bounce a ball and break all the blocks on the screen.
+                <h2>1. Introduction</h2>
+                <p>
+                    Block Breaker – Classic Arcade Game Clone is a Unity-based project developed to showcase proficiency in game design, programming, and 
+                    production workflows. The game draws inspiration from the timeless Breakout and Arkanoid series, where players control a paddle to 
+                    bounce a ball and destroy a field of blocks.
+                </p>
+                <p>
+                    This project was undertaken as a technical and creative exercise to demonstrate mastery of 2D physics simulation, collision systems, 
+                    object management, and game loop architecture, while also emphasizing player feedback, visual clarity, and iterative refinement.
+                </p>
+                <p>
+                    Developed independently, the project implements polished controls, responsive physics, dynamic level progression, and a complete scoring 
+                    and UI system. It represents a blend of faithful recreation and thoughtful modernization—capturing the addictive simplicity of the 
+                    original while leveraging Unity’s flexibility to enhance presentation and performance.
                 </p>
             </section>
 
             <section class="project-section">
+                <h2>2. Concept and Design Goals</h2>
+                <p>
+                    The core concept behind Block Breaker was to recreate the satisfying rhythm and precision-based challenge of the arcade originals within a clean, modern framework. The project’s design goals included:
+                </p>
+                <ul>
+                    <li>Faithful Recreation: Recreate the original Breakout mechanics using modern Unity tools.</li>
+                    <li>Smooth Player Controls: Implement fluid paddle movement responsive to player input.</li>
+                    <li>Dynamic Physics: Ensure realistic ball reflection and block destruction behavior.</li>
+                    <li>Progressive Challenge: Introduce multiple block layers and increasing difficulty.</li>
+                    <li>Cohesive Presentation: Deliver clean visuals, readable UI, and responsive feedback through animation and sound.</li>
+                </ul>
+                <p>
+                    The design philosophy was centered on clarity and responsiveness: each player action should produce immediate, satisfying feedback. This guiding principle informed all aesthetic, mechanical, and technical decisions throughout development.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>3. Development Process</h2>
+
+                <h3>3.1 Project Setup</h3>
+                <p>
+                    The development process began with a dedicated Unity 2D project setup. The scene hierarchy was organized around core elements: the paddle, ball, blocks, and UI manager. Prefabs were created for reusability—especially for blocks and level layouts.
+                </p>
+                <p>
+                    The initial step involved defining object layers and tags to streamline collision filtering and object interactions. Early prototypes focused on establishing basic movement and collision responses before integrating UI or scoring elements.
+                </p>
+
+                <h3>3.2 Paddle and Ball Mechanics</h3>
+                <p>
+                    The paddle’s movement system was implemented using Unity’s Input System for horizontal input detection. Motion was updated in <strong>Update()</strong> with clamping to prevent the paddle from leaving screen bounds. Paddle responsiveness was tuned using frame-independent movement  (<strong>Time.deltaTime</strong>) to ensure smooth gameplay across all frame rates.
+                </p>
+                <p>
+                    The ball mechanics represented the core gameplay loop. Using a <strong>Rigidbody2D</strong> component, the ball’s trajectory was governed by velocity vectors and reflection angles. Upon collision with the paddle, the bounce angle was slightly influenced by the paddle’s movement direction, adding depth to control and rewarding skilled play.
+                </p>
+                <p>
+                    Special attention was given to maintaining consistent ball speed throughout gameplay. An upper and lower velocity limit prevented erratic motion while sustaining the arcade pacing.
+                </p>
+
+                <h3>3.3 Block System</h3>
+                <p>
+                    Blocks were modular prefabs, each with configurable hit points and color-coded durability levels (e.g., one-hit, two-hit, and indestructible blocks). The system allowed for flexible level design and incremental difficulty scaling.
+                </p>
+                <p>
+                    When the ball collided with a block, collision events triggered block destruction (or damage), score updates, and optional visual effects. Blocks were managed by a LevelManager script responsible for detecting when all blocks were cleared, signaling progression to the next stage or game completion.
+                </p>
+
+                <h3>3.4 Scoring and UI</h3>
+                <p>A minimalistic UI displayed current score, remaining lives, and level progression. The scoring logic incremented points based on block type and difficulty.</p>
+                <p>The GameManager class handled state transitions: starting the game, losing a life, and resetting the ball after each fall. When all lives were depleted, the UI displayed a game over message and a restart option.</p>
+                <p>The focus on clarity ensured that players could intuitively understand their progress and performance at any time.</p>
+
+                <h3>3.5 Visual and Audio Design</h3>
+                <p>
+                    Visual elements adopted a clean, geometric style consistent with the arcade aesthetic. The color palette emphasized contrast between background, blocks, and ball for optimal readability.
+                </p>
+                <p>
+                    Sound effects for paddle hits, block breaks, and life loss were integrated to enhance player feedback and engagement. Optional particle effects were added to create a satisfying sense of impact without cluttering the screen.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>4. Technical Implementation</h2>
+
+                <h3>4.1 Architecture Overview</h3>
+                <p>The project followed a modular, component-based structure to promote maintainability and scalability. Key scripts included:</p>
+                <ul>
+                    <li>PaddleController – Handles player input and boundary movement.</li>
+                    <li>BallController – Manages velocity, collision detection, and reflection logic.</li>
+                    <li>Block – Defines block health, destruction events, and visual feedback.</li>
+                    <li>GameManager – Controls game state, lives, score, and round resets.</li>
+                    <li>LevelManager – Loads and tracks block arrangements per level.</li>
+                </ul>
+                <p>Each script was designed with single-responsibility principles, reducing dependencies and simplifying debugging.</p>
+
+                <h3>4.2 Collision Detection and Reflection</h3>
+                <p>
+                    Unity’s 2D physics system was leveraged for realistic collision handling. Reflection logic followed the physical principle of equal angle rebound, with adjustments for paddle velocity to simulate “spin.”
+                </p>
+                <p>An example approach used the following logic:</p>
+                <ul>
+                    <li>Detect collision normal vector using <strong>collision.contacts[0].normal</strong>.</li>
+                    <li>Apply <strong>Vector2.Reflect()</strong> to compute new trajectory.</li>
+                    <li>Normalize the result and multiply by a constant speed value to maintain pacing.</li>
+                </ul>
+                <p>This ensured consistent, natural reflections that felt both predictable and skill-based.</p>
+
+                <h3>4.3 Object Pooling and Performance</h3>
+                <p>
+                    To optimize performance, especially during later levels with numerous block interactions, object pooling was implemented for particle effects and temporary UI elements.
+                </p>
+                <p>
+                    By reusing objects instead of instantiating and destroying them repeatedly, the project maintained a stable frame rate and minimized garbage collection spikes during intense gameplay.
+                </p>
+                <h3>4.4 Game State Management</h3>
+                <p>
+                    Game states (Active, Paused, Game Over, Next Level) were managed via enumerations within the GameManager. This centralized system controlled when inputs were processed, when the ball launched, and when UI overlays appeared.
+                </p>
+                <p>Transitions between states were intentionally kept smooth and unobtrusive to preserve immersion.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>5. Challenges and Problem-Solving</h2>
+
+                <h3>5.1 Collision Precision</h3>
+                <p>
+                    During early testing, ball reflections occasionally behaved unpredictably, particularly when colliding near paddle edges or corners of blocks. These inconsistencies were resolved by:
+                </p>
+                <ul>
+                    <li>Switching from discrete to continuous collision detection on the ball’s <strong>Rigidbody2D</strong>.</li>
+                    <li>Adjusting physics material properties (bounciness and friction).</li>
+                    <li>Fine-tuning collision normals to prevent shallow-angle deflections.</li>
+                </ul>
+
+                <h3>5.2 Balancing Difficulty</h3>
+                <p>
+                    Ensuring an enjoyable challenge curve required multiple iterations. Early builds were either too easy (with predictable ball trajectories) or too punishing (due to extreme bounce angles).
+                </p>
+                <p>
+                    Through testing and feedback, the paddle width, ball speed progression, and block layouts were balanced to achieve a satisfying difficulty gradient that encouraged replayability.
+                </p>
+
+                <h3>5.3 Code Scalability</h3>
+                <p>
+                    As features were added—like power-ups and additional block types—the original prototype code became increasingly complex. Refactoring into a component-driven architecture and employing ScriptableObjects for block data resolved redundancy and improved flexibility for future expansion.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>6. Testing and Iteration</h2>
+                <p>Development followed an iterative cycle of prototyping, playtesting, and refinement. Key milestones included:</p>
+                <ul>
+                    <li>Prototype Build: Core ball-paddle physics and single-layer block system.</li>
+                    <li>Alpha Build: Added UI, scoring, and multi-hit blocks.</li>
+                    <li>Beta Build: Implemented multiple levels, sound, and polish.</li>
+                </ul>
+                <p>
+                    Frequent playtesting sessions focused on responsiveness, pacing, and feedback clarity. Each iteration addressed both technical bugs and subtle “feel” adjustments, such as paddle speed tuning and ball trajectory smoothing.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>7. Final Outcome</h2>
+                <p>
+                    The final Block Breaker clone delivers a cohesive, fully playable experience that captures the spirit of its arcade inspiration while showcasing modern design practices.
+                </p>
+                <p>Key features include:</p>
+                <ul>
+                    <li>Responsive paddle controls and consistent ball physics.</li>
+                    <li>Multiple block types with progressive difficulty.</li>
+                    <li>Score tracking, lives system, and level progression.</li>
+                    <li>Smooth UI transitions and satisfying audiovisual feedback.</li>
+                    <li>Optimized performance through object pooling and efficient scripting.</li>
+                </ul>
+                <p>The game was successfully built and tested on desktop platforms, achieving stable performance and intuitive playability.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>8. Insights and Lessons Learned</h2>
+                <p>
+                    This project provided valuable insights into both technical game engineering and iterative design methodology. Key takeaways include:
+                </p>
+                <ul>
+                    <li>System Modularity Is Crucial: A well-structured architecture simplifies debugging and feature extension.</li>
+                    <li>Player Feel Is Central: Subtle tuning in speed, timing, and physics can transform a simple mechanic into engaging gameplay.</li>
+                    <li>Iteration Drives Quality: Regular testing and incremental refinement lead to smoother, more polished outcomes.</li>
+                    <li>Visual and Audio Feedback Reinforce Engagement: Immediate feedback enhances immersion and player satisfaction.</li>
+                </ul>
+                <p>
+                    Beyond technical competence, the project underscored the creative process of transforming a simple mechanical concept into a refined, enjoyable experience through systematic iteration.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>9. Future Improvements</h2>
+                <p>Potential enhancements for future versions include:</p>
+                <ul>
+                    <li>Power-Ups: Introducing multi-ball, paddle expansion, or laser shots.</li>
+                    <li>Level Editor: Allowing players to design and share custom block layouts.</li>
+                    <li>Advanced Visuals: Incorporating particle effects, shaders, and parallax backgrounds.</li>
+                    <li>Mobile Port: Adapting controls for touch-based gameplay.</li>
+                    <li>Online Leaderboards: Encouraging competition and replayability.</li>
+                </ul>
+                <p>These features would extend the project’s longevity and demonstrate advanced Unity skills such as networking, serialization, and UI design.</p>
+            </section>
+
+            <!-- <section class="project-section">
                 <h2>Key Features</h2>
                 <ul>
                     <li><strong>Classic Brick-Breaker Gameplay:</strong> Bounce ball with paddle to break blocks.</li>
@@ -109,12 +306,15 @@
                     <li><strong>Level Design:</strong> Created engaging block arrangements.</li>
                     <li><strong>Power-up System:</strong> Implemented various gameplay enhancements.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section class="project-section">
-                <h2>Reflection</h2>
-                <p>This project demonstrated the importance of satisfying physics and responsive controls in arcade games. 
-                    The brick-breaker genre remains engaging due to its simple yet challenging mechanics.
+                <h2>10. Conclusion</h2>
+                <p>
+                    The Block Breaker – Classic Arcade Game Clone exemplifies the fusion of technical skill, design intuition, and iterative craftsmanship. Through deliberate focus on physics precision, responsive controls, and polished feedback, the project successfully recreates the timeless fun of arcade block-breaking gameplay within a modern development framework.
+                </p>
+                <p>
+                    This project strengthened both my understanding of Unity’s 2D systems and my ability to manage production workflows from concept to polish. It stands as a demonstration of my capacity to design, implement, and refine interactive experiences that balance technical excellence with engaging playability.
                 </p>
             </section>
         </div>
