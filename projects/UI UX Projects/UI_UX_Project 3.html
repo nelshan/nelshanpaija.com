@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library App - Nelshan Paija</title>
+    <meta name="description" content="Book Library App - Mobile app design case study, Designing a cozy mobile library where people can read, share, and recommend books to one another.">
+    <meta name="author" content="Nelshan Paija">
+    
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="../../index.html" class="navbar__logo">
+                <span class="logo__text">Nelshan Paija</span>
+                <div class="characterBox">
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                </div>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="navbar-menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="navbar__menu" id="navbar-menu">
+                <li class="navbar__item">
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="project-details">
+        <div class="project-header">
+            
+            <a href="../../ui-ux.html" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+
+            <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/Book Library App Projet Cover.png" alt="BookNest UI cover Screenshot" class="project-image">
+            <h1>BookNest: A Cozy Digital Library Experience</h1>
+        
+        </div>
+
+        <div class="project-content">
+            <section class="project-section">
+                <p>
+                    BookNest is a mobile library application designed to create a cozy and engaging reading environment for book lovers. 
+                    The app enables users to read, share, and recommend books effortlessly while fostering a sense of community among 
+                    readers. The project focused on crafting a user-friendly, visually soothing interface that simplifies book discovery 
+                    and enhances reading engagement through personalized recommendations and social interactions.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Problem Statement</h2>
+                <p>
+                    In today’s digital reading landscape, readers often face fragmented and impersonal experiences. Many reading apps 
+                    are either overly commercialized or too minimal, missing the warmth and community of a real library. Users struggle 
+                    with cluttered interfaces, unreliable recommendation systems, and limited opportunities for genuine social connection.
+                    At the same time, book lovers grapple with busy schedules, constant digital distractions, and an overwhelming abundance 
+                    of choices. Traditional bookstores and libraries rarely offer the personalized guidance or interactive features that 
+                    make reading more engaging and meaningful. For new readers—or anyone seeking trusted recommendations from friends and 
+                    fellow enthusiasts—discovering the right book can feel like a challenge rather than a joy. The goal, therefore, was to 
+                    design an app that feels warm, intuitive, and community-driven—one that transforms reading from a solitary activity into 
+                    a shared, enriching experience.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Opportunity</h2>
+                <p>While analyzing other library and book-reading apps such as Goodreads, Libby, and Wattpad, we observed several gaps:</p>
+                <ul>
+                    <li>Overwhelming interfaces and poor hierarchy of information.</li>
+                    <li>Weak integration of social features like book clubs or peer recommendations.</li>
+                    <li>Limited personalization and context-based book suggestions.</li>
+                    <li>Lack of visual warmth or emotional connection with users.</li>
+                </ul>
+                <p>These insights presented an opportunity to design BookNest — an app that merges the simplicity of digital reading with the comfort of a cozy, community-driven space.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Project Goals</h2>
+                <ul>
+                    <li>Simplify the user experience of discovering, reading, and sharing books.</li>
+                    <li>Build an emotionally warm, cohesive visual identity for digital reading.</li>
+                    <li>Encourage social interactions through book clubs, shared shelves, and recommendations.</li>
+                    <li>Implement smart, personalized book suggestions based on user behavior.</li>
+                    <li>Create a seamless user journey with minimal friction from discovery to reading.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>User-Research</h2>
+                <p><strong>Research Methods:</strong></p>
+                <ul>
+                    <li>Surveys: Conducted with 80 participants to understand reading habits and digital behaviors.</li>
+                    <li>User Interviews: 12 in-depth interviews with avid readers aged 18–45.</li>
+                    <li>Usability Testing: Two rounds of prototype testing with 10 users per round.</li>
+                </ul>
+
+                <p><strong>Key Insights:</strong></p>
+                <ul>
+                    <li>Users want aesthetic and peaceful interfaces that reduce visual fatigue.</li>
+                    <li>Personalized recommendations and reading streaks motivate engagement.</li>
+                    <li>Many readers miss the community aspect—discussing or recommending books to friends.</li>
+                    <li>70% of participants said they’d use an app that combines reading with social connection.</li>
+                </ul>
+            </section>
+            
+            <section class="project-section">
+                <h2>Competitive/Market Analysis</h2>
+                <br>
+                <table border="1" cellspacing="0" cellpadding="8">
+                    <thead style="background-color: #f2f2f2;">
+                      <tr>
+                        <th>App</th>
+                        <th>Strengths</th>
+                        <th>Weaknesses</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Goodreads</td>
+                        <td>Huge database, strong community</td>
+                        <td>Outdated UI, cluttered navigation</td>
+                      </tr>
+                      <tr>
+                        <td>Libby (by OverDrive)</td>
+                        <td>Library integration, free books</td>
+                        <td>Functional but visually cold</td>
+                      </tr>
+                      <tr>
+                        <td>Wattpad</td>
+                        <td>Creative writing community</td>
+                        <td>Limited for professional book readers</td>
+                      </tr>
+                      <tr>
+                        <td>Blinkist</td>
+                        <td>Quick summaries, clean interface</td>
+                        <td>Not for traditional book lovers</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <p><strong>BookNest’s Differentiation:</strong></p>
+                  <p>A visually soothing, community-oriented platform combining the functionality of Libby, the engagement of Goodreads, and the modern UI simplicity of Blinkist.</p>
+                  
+            </section>
+
+            <section class="project-section">
+                <h2>Personas & User Journeys</h2>
+
+                <p><strong>Persona 1: Emma – The Avid Reader</strong></p>
+                <ul>
+                    <li><strong>Age:</strong> 28</li>
+                    <li><strong>Profession:</strong> Content Writer</li>
+                    <li><strong>Goals:</strong> Discover new books easily, maintain a digital reading list, connect with like-minded readers.</li>
+                    <li><strong>Pain Points</strong> Overwhelming interfaces, lack of personal touch, hard-to-find niche genres.</li>
+                </ul>
+                <br>
+                <p><strong>Persona 2: David – The Casual Reader</strong></p>
+                <ul>
+                    <li><strong>Age:</strong> 34</li>
+                    <li><strong>Profession:</strong> Software Engineer</li>
+                    <li><strong>Goals:</strong> Read occasionally, get trusted recommendations, and share book reviews.</li>
+                    <li><strong>Pain Points</strong> Feels lost in large libraries, limited time for browsing.</li>
+                </ul>
+                <br>
+                <p><strong>User Journey Example (Emma):</strong></p>
+                <ul>
+                    <li>Opens BookNest to check today’s reading streak.</li>
+                    <li>Gets a personalized recommendation based on recent reads.</li>
+                    <li>Adds the book to her shelf.</li>
+                    <li>Joins a reading club to discuss the title.</li>
+                    <li>Shares a review with friends and recommend Book to each others.</li>
+                </ul>
+                <br>
+                <p><strong>Pain Points Addressed:</strong></st></p>
+                <ul>
+                    <li>Simplified book discovery → Reduced cognitive load.</li>
+                    <li>Social features → Increased engagement and retention.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Design Process and Solutions</h2>
+                <h2>Ideation</h2>
+                <p>Explored multiple layout options through sketches and Crazy 8s sessions. Prioritized features: Book discovery, shared shelves, discussion threads, and streaks.</p>
+
+                <h2>Information Architecture</h2>
+                <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/BookNest information architecture (IA) sitemap.png" alt="BookNest UI cover Screenshot" class="project-image">
+
+                <h2>User Flows</h2>
+                <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/BookNest UserFlow sitemap.png" alt="BookNest UI cover Screenshot" class="project-image">
+
+            </section>
+
+            <!-- <section class="project-section">
+                <h2>Wireframes</h2>
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Slash Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Continue with Email Butten Frame.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Signup Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/sign up Verification.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Complete use Profile.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Login Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Home Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Upcoming Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Settings Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Completed Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ My List Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ My List Screen [Personal List].png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Add Task Frame 1 Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Priority Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Clander Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Hours Reminder Overlay Flow 1.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Minute Reminder Overlay Flow 2.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Create new List Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Add Project.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+            </section>
+
+            <section class="project-section">
+                <h2>Color Palette</h2>
+                <img src="../../images/UI UX Image/FocusFlow Color Palette.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+            </section> -->
+
+            <section class="project-section">
+                <h2>Final Designs Prototype</h2>
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/mPDduqxqdcyuCc0hXB9QNz/Book-Library--App--BookNest?node-id=333-2229&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=333%3A2376&embed-host=share" allowfullscreen></iframe>
+            </section>
+            <section class="project-section">
+                <h2>Reflection</h2>
+                <p>
+                    Designing BookNest was an exploration into how digital experiences can recreate the warmth, comfort, and sense of discovery 
+                    found in a physical reading environment. The challenge was to merge functionality with feeling — to make reading and organizing 
+                    books online not just efficient, but emotionally fulfilling.
+                </p>
+
+                <p>
+                    Throughout the process, I learned how deeply visual and interaction design choices influence emotional engagement. 
+                    Early prototypes focused heavily on library management features, but user interviews revealed that readers craved a sense 
+                    of place and personal connection to their digital shelves. This insight shifted the design direction toward a more 
+                    atmospheric, cozy aesthetic — using warm tones, soft textures, and subtle motion to evoke the calm of a quiet reading nook. 
+                    Usability testing underscored the importance of balancing aesthetic charm with clarity. While the visual theme invited users in, 
+                    ensuring accessibility and easy navigation kept them immersed. Iterating on typography, color contrast, and hierarchy helped create 
+                    an experience that was both inviting and usable.
+                </p>
+
+                <p>
+                    One key takeaway was that designing for emotional resonance requires empathy at every stage — from research to micro-interactions. 
+                    Small details, like personalized reading recommendations or the animation of a “page turn,” became powerful ways to make users feel 
+                    connected to their digital library. If I were to continue developing BookNest, I’d love to explore community features — such as book 
+                    clubs or shared reading rooms — to extend the feeling of coziness into a social dimension. Additionally, integrating features for mindful 
+                    reading habits, like focus modes or reading reflections, could deepen user engagement over time. Ultimately, BookNest reminded me that 
+                    good design goes beyond usability; it’s about crafting experiences that resonate emotionally. Creating a cozy digital library isn’t just 
+                    about storing books — it’s about nurturing a space where stories, memories, and moments of calm can thrive.
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>Developed by Nelshan Paija</span>
+        </div>
+    
+        <div class="footer__links">
+            <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span class="text">Email</span>
+            </a>
+    
+            <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+                <span class="text">GitHub</span>
+            </a>
+    
+            <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <span class="text">Itch.io</span>
+            </a>            
+    
+            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                <span class="text">LinkedIn</span>
+            </a>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        ↑
+    </button>
+    <script src="../../js/main.js"></script>
+</body>
+</html> 
