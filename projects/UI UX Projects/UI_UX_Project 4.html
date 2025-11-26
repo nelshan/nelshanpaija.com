@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upay – Unified Payment App - Nelshan Paija</title>
+    <meta name="description" content="Upay – Unified Payment & Top-Up App - case study, Designing a streamlined finance app built to centralize top-ups, payments, and balance management through a clean, intuitive, and secure mobile experience.">
+    <meta name="author" content="Nelshan Paija">
+    
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/project-details.css">
+    <link rel="stylesheet" href="../../css/navbar-bird-animation.css">
+    <link rel="icon" type="image/png" href="../../images/tablcon-2.PNG">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://t.contentsquare.net/uxa/25c09d361a5ae.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="../../index.html" class="navbar__logo">
+                <span class="logo__text">Nelshan Paija</span>
+                <div class="characterBox">
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character wakeup">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                    <div class="character">
+                        <div class="character__face"></div>
+                        <div class="character__feet"></div>
+                    </div>
+                </div>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="navbar-menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="navbar__menu" id="navbar-menu">
+                <li class="navbar__item">
+                    <a href="../../index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item dropdown">
+                    <a href="../../index.html#projects" class="navbar__links">Projects <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../../game-development.html">Games</a>
+                        <a href="../../ui-ux.html">UI/UX</a>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="../../contact.html" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="project-details">
+        <div class="project-header">
+            
+            <a href="../../ui-ux.html" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+
+            <h1>Upay – Unified Payments and Top-Ups</h1>
+            <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/Upay App Projet Cover.png" alt="Upay UI cover Screenshot" class="project-image">
+        </div>
+
+        <div class="project-content">
+            <section class="project-section">
+                <p>
+                    Upay is a modern digital payment app designed to simplify how users manage their financial tasks by 
+                    centralizing payments, transfers, and wallet management into one unified ecosystem. This 4-week solo 
+                    project focuses on building an intuitive and efficient UI/UX experience under tight design constraints. 
+                    Final UI designs are showcased in later sections.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Project Overview</h2>
+                <p>
+                    Upay (Unified Pay) began as an exploration into Nepal’s rapidly evolving digital finance landscape—a 
+                    pace already shaped by established players like Khalti and eSewa. These apps are widely used and offer 
+                    an extensive range of services, yet through competitive analysis and UX audits, I noticed a consistent 
+                    pattern: despite their features, users often felt overwhelmed by dense interfaces, cluttered navigation, 
+                    and a lack of clarity when completing everyday financial tasks. Even simple actions like topping up mobile 
+                    balance or paying electricity bills sometimes took more steps than necessary. This insight became the foundation 
+                    for Upay: a fresh opportunity to rethink what a clean, intuitive, and unified payment experience could look like.
+                </p>
+                <p>
+                    A key insight emerged early on: people don’t necessarily want more features—they want smoother, clearer, 
+                    and faster paths to the features they use every day. They want to send money without hesitation, find the 
+                    right biller instantly, understand where to manage their wallet balance, and navigate the app without visual 
+                    fatigue. This understanding shaped every aspect of Upay’s design. The home dashboard was simplified to 
+                    highlight balance and quick actions. Payments were reorganized into clean, scannable categories. Wallet 
+                    management became more transparent with clearer entry points and a stronger hierarchy. And all key flows were 
+                    streamlined to minimize cognitive load and keep the experience predictable.
+                </p>
+                <p>
+                    Throughout the project, I iterated on these ideas repeatedly, refining layouts, reducing steps, and strengthening 
+                    visual hierarchy until the experience felt cohesive and intuitive. By the end of the design sprint, Upay had 
+                    transformed into a unified financial product—a concept familiar in function, but reimagined in clarity and 
+                    usability. The result is an app that addresses real user frustrations found in existing solutions while delivering 
+                    a smoother, more modern, and more structured payment experience.
+                </p>
+
+            </section>
+
+            <section class="project-section">
+                <h2>Exploration / Discovery</h2>
+
+                <h1>Competitive Analysis</h1>
+                <p>
+                    To understand how Upay could differentiate itself, I analyzed popular payment apps: Paytm, Cash App, Venmo, Google Pay, and PhonePe. 
+                    The goal was to identify usability strengths, common pain points, and opportunities to create a unified, intuitive payment experience.
+                </p>
+                <p><strong>Findings:</strong></p>
+                <ul>
+                    <li><strong>Cluttered Dashboards:</strong> Many apps show too many options upfront, overwhelming users and making it hard to locate core tasks like sending money or paying bills.</li>
+                    <li><strong>Fragmented Task Flows:</strong> Users often need to navigate through multiple screens to complete simple actions such as bill payments or recharges.</li>
+                    <li><strong>Inconsistent Visual Hierarchy:</strong> Critical actions (balance check, quick transfer) are not always prominent, causing confusion and slower task completion.</li>
+                    <li><strong>Limited Customization</strong> Few apps allow users to personalize their quick actions or dashboard layout according to usage patterns.</li>
+                    <li><strong>Strong Security Communication:</strong> Apps like Cash App and Google Pay excel at displaying security and trust signals, which increases user confidence.</li>
+                    <li><strong>Social & Microtransactions:</strong> Venmo emphasizes peer-to-peer social payments, but lacks a comprehensive utility payment system.</li>
+                </ul>
+
+                <p><strong>Opportunity for Upay:</strong></p>
+                <p>
+                    Design a <strong>clean</strong> and <strong>unified interface</strong> that prioritizes frequent tasks, integrates wallet management, provides clear feedback and security cues, and offers a single hub for all payment types.
+                </p>
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h1>Key Feature Comparison</h1>
+                <table style="width:100%; border-collapse:collapse; margin:20px 0; font-family:Arial, sans-serif;">
+                    <style>
+                        .check { color: green; font-weight: bold; }
+                        .cross { color: red; font-weight: bold; }
+                        .warning { color: orange; font-weight: bold; }
+                        table, th, td { border: 1px solid black; }
+                        th, td { padding: 10px; text-align: center; }
+                        th { background-color: #f2f2f2; }
+                    </style>
+                
+                    <thead>
+                        <tr>
+                            <th>Feature / App</th>
+                            <th>Paytm</th>
+                            <th>Cash App</th>
+                            <th>Venmo</th>
+                            <th>Google Pay</th>
+                            <th>PhonePe</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        <tr>
+                            <td>Mobile Top-Up / Recharge</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Peer-to-Peer Money Transfer</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Bill Payments (Utilities, Taxes)</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Wallet / In-App Balance</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Micro-loans / Short-Term Lending</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Donation & Charity Payments</td>
+                            <td class="check">✔</td>
+                            <td class="cross">✘</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Cross-Platform Card Support</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Clear Quick Actions / Navigation</td>
+                            <td class="warning">⚠</td>
+                            <td class="warning">⚠</td>
+                            <td class="cross">✘</td>
+                            <td class="check">✔</td>
+                            <td class="warning">⚠</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Security & Trust Signals</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                            <td class="check">✔</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>✔ = Yes</strong>, <strong>✘ = No</strong>, <strong>⚠ = Partially Supported</strong></p>
+                <h3>Insights:</h3>
+                <ul>
+                    <li>Upay uniquely combines all essential features (utilities, micro-loans, donations) in one unified app.</li>
+                    <li>A simplified navigation model addresses clutter issues found in competitors.</li>
+                    <li>Quick actions and a clean dashboard reduce task completion time.</li>
+                    <li>Strong focus on security and usability builds trust, similar to top-performing apps.</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+
+                <h1>Personas</h1>
+                <p>
+                    To design Upay effectively, I created two primary personas based on market assumptions and industry data: a busy working professional managing 
+                    multiple responsibilities and a student handling frequent small transactions. These personas emphasized the need for speed, clarity, and convenience, 
+                    which guided key design decisions, such as prioritizing quick actions on the home screen and simplifying the bottom navigation structure.
+                </p>
+
+                <br>
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Persona 1: Busy Working Professional</h3>
+                <p><strong>Name:</strong> Priya Sharma</p>
+                <p><strong>Age:</strong> 29</p>
+                <p><strong>Occupation:</strong> Marketing Manager</p>
+                <p><strong>Location:</strong> Bangalore, India</p>
+                <p><strong>Background:</strong> Priya is a full-time marketing manager who juggles multiple responsibilities at work and home. She frequently pays utility bills, recharges her mobile, and transfers money to family and friends. She values efficiency and clarity in financial apps.</p>
+                <h3>Goals:</h3>
+                <ul>
+                  <li>Complete everyday payments quickly without navigating multiple apps.</li>
+                  <li>Keep track of recent transactions and balances easily.</li>
+                  <li>Have a secure and reliable app for all financial tasks.</li>
+                </ul>
+                <h3>Frustrations / Pain Points:</h3>
+                <ul>
+                  <li>Existing apps are cluttered and confusing.</li>
+                  <li>Difficult to find frequently used features quickly.</li>
+                  <li>Slow or multi-step payment processes.</li>
+                </ul>
+                <h3>Design Implications:</h3>
+                <ul>
+                  <li>Quick actions on the Home screen for frequent payments.</li>
+                  <li>Clear navigation and a prominent balance display.</li>
+                  <li>Simple, clean interface reducing cognitive load.</li>
+                </ul>
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+                <br>
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Persona 2: University Student / Young Adult</h3>
+                <p><strong>Name:</strong> Rahul Mehta</p>
+                <p><strong>Age:</strong> 21</p>
+                <p><strong>Occupation:</strong> University Student</p>
+                <p><strong>Location:</strong> Delhi, India</p>
+                <p><strong>Background:</strong> Rahul is a tech-savvy student who frequently makes small transactions such as paying for meals, data packs, or peer-to-peer transfers with friends. He values speed, simplicity, and mobile convenience.</p>
+                <h3>Goals:</h3>
+                <ul>
+                  <li>Send and receive money instantly with minimal effort.</li>
+                  <li>Access multiple payment categories in one app.</li>
+                  <li>Avoid errors and stay informed about balances and transactions.</li>
+                </ul>
+              
+                <h3>Frustrations / Pain Points:</h3>
+                <ul>
+                  <li>Too many screens and clicks to complete simple transactions.</li>
+                  <li>Confusing UI in apps designed for older demographics.</li>
+                  <li>Lack of a unified hub for managing different payment types.</li>
+                </ul>
+              
+                <h3>Design Implications:</h3>
+                <ul>
+                  <li>Easy-to-scan Home screen with recent transactions.</li>
+                  <li>QR code scanning and micro-loan/money transfer features.</li>
+                  <li>Streamlined payment flows optimized for quick use.</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+                
+                <h1>User Experience Audit (UX Audit)</h1>
+                <p>
+                    To inform Upay’s design, I conducted a UX audit of popular payment apps like Paytm, Google Pay, 
+                    Cash App, Venmo, and PhonePe, identifying common usability issues such as overwhelming dashboards, 
+                    confusing terminology, and buried payment categories. These insights helped shape Upay’s minimalistic 
+                    design and clear categorization of payments for a more unified, intuitive user experience.
+                </p>
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Audit Findings</h3>
+                <p><strong>1. Dashboard Overload</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Most apps display too many features and promotions upfront.</li>
+                    <li><strong>Impact:</strong> Users struggle to locate key actions like “Send Money” or “Pay Bills.”</li>
+                    <li><strong>Opportunity for Upay:</strong> Introduce a minimalist dashboard with only essential quick actions visible.</li>
+                </ul>
+
+                <br>
+
+                <p><strong>2. Buried Payment Categories</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Utilities, donations, and other payment categories are often hidden behind multiple menus.</li>
+                    <li><strong>Impact:</strong> Increased task completion time and user frustration.</li>
+                    <li><strong>Opportunity for Upay:</strong> Implement clearly categorized, scrollable payment sections on a single screen.</li>
+                </ul>
+                
+                <br>
+                
+                <p><strong>3. Confusing Terminology</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Terms like “Top-up,” “Recharge,” “Wallet Balance” vary across apps.</li>
+                    <li><strong>Impact:</strong> Users may hesitate or make mistakes due to unfamiliar labels.</li>
+                    <li><strong>Opportunity for Upay:</strong> Use consistent, user-friendly labels throughout the app (e.g., “Add Funds” instead of “Top-up”).</li>
+                </ul>
+                
+                <br>
+                
+                <p><strong>4. Multi-Step Flows</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Actions such as bill payment or fund transfer often require 3–5 unnecessary steps.</li>
+                    <li><strong>Impact:</strong> Slower task completion and higher likelihood of abandonment.</li>
+                    <li><strong>Opportunity for Upay:</strong> Streamline flows into 2–3 steps max for frequent actions.</li>
+                </ul>
+                <p><strong>5. Inconsistent Feedback & Security Signals</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Some apps provide minimal confirmation or unclear progress indicators.</li>
+                    <li><strong>Impact:</strong> Users feel uncertain about whether transactions succeeded.</li>
+                    <li><strong>Opportunity for Upay:</strong> Include instant confirmation messages, progress indicators, and clear security cues to build trust.</li>
+                </ul>
+                
+                <br>
+                
+                <p><strong>6. Navigation Confusion</strong></p>
+                <ul>
+                    <li><strong>Observation:</strong> Many apps use icon-only bottom navigation or nested menus.</li>
+                    <li><strong>Impact:</strong> Users struggle to understand where to find certain features.</li>
+                    <li><strong>Opportunity for Upay:</strong> Use labeled tabs with icons and a consistent four-tab structure: Home, Payments, Wallet, Profile.</li>
+                </ul>
+
+                <br>
+                
+                <h3>Key Takeaways for Upay</h3>
+                <ul>
+                    <li>Prioritize clarity and simplicity in the UI.</li>
+                    <li>Design a single, unified hub for the most frequent tasks.</li>
+                    <li>Use clear, consistent labels and visible feedback.</li>
+                    <li>Streamline multi-step flows to reduce friction.</li>
+                    <li>Ensure navigation is intuitive and actions are discoverable.</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+
+                <h1>Task Analysis</h1>
+                <p>
+                    Mapping out core tasks, such as: paying bills, sending money, and scanning QR codes, 
+                    through detailed task analysis helped break down each action into step-by-step flows, 
+                    revealing friction points and opportunities to eliminate unnecessary steps. These insights 
+                    directly shaped the streamlined user flows for payments and wallet management.
+                </p>
+                <h3>Core Tasks Analyzed:</h3>
+                <p><strong>1. Sending Money to Another User</strong></p>
+                <ul>
+                    <li>Steps: Open app → Navigate to “Send Money” → Select recipient → Enter amount → Confirm → Transaction complete.</li>
+                    <li>Optimization: Reduce confirmation screens; pre-fill frequent recipients for faster access.</li>
+                </ul>
+
+                <br>
+
+                <p><strong>2. Paying Utility Bills</strong></p>
+                <ul>
+                    <li>Steps: Open app → Navigate to Payments → Select Utility → Enter details → Confirm payment → Receipt generated.</li>
+                    <li>Optimization: Group utilities on a single scrollable screen; allow one-tap access to frequently used billers.</li>
+                </ul>
+
+                <br>
+
+                <p><strong>3. Mobile Recharge / Top-Up</strong></p>
+                <ul>
+                    <li>Steps: Open app → Navigate to Payments → Select Mobile Recharge → Enter number → Select plan → Confirm → Recharge complete.</li>
+                    <li>Optimization: Auto-detect mobile operator; pre-fill last used numbers and plans for faster completion.</li>
+                </ul>
+
+                <br>
+
+                <p><strong>4. Scanning QR Codes</strong></p>
+                <ul>
+                    <li>Steps: Open app → Tap “Scan QR” → Align camera → Confirm payment → Transaction complete.</li>
+                    <li>Optimization: Place QR scan shortcut on Home screen; minimize steps to payment confirmation.</li>
+                </ul>
+
+                <br>
+
+                <p><strong>5. Adding Funds to Wallet</strong></p>
+                <ul>
+                    <li>Steps: Open app → Navigate to Wallet → Select “Add Funds” → Choose payment method → Enter amount → Confirm → Balance updated.</li>
+                    <li>Optimization: Store preferred payment methods; one-tap top-up from Home screen.</li>
+                </ul>
+
+                <br>
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Insights from Task Analysis:</h3>
+                <ul>
+                    <li>High-frequency tasks should require 2–3 steps at most.</li>
+                    <li>Frequently used recipients, billers, and payment methods should be pre-filled or accessible from shortcuts.</li>
+                    <li>Streamlined flows reduce user friction and increase overall app efficiency.</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+
+                <h1>Journey Mapping</h1>
+                <p>
+                    The end-to-end journey map was a critical tool used to visualize the entire user experience, spanning from the initial 
+                    app login through to payment confirmation. This map not only outlined key user touchpoints but also highlighted the 
+                    emotional journey, pinpointing both pain points and moments of friction. By mapping the user's emotions at each stage, 
+                    the journey map revealed opportunities for design improvements and helped the team identify where users might feel uncertain 
+                    or frustrated, particularly during the payment process. In response to these insights, design adjustments were made, such as 
+                    adding clear labels, intuitive instructions, and visual confirmation elements to ensure a smoother, more reassuring 
+                    experience. While many journey maps were created during this project, this particular one stands out for its 
+                    comprehensive approach and its ability to address emotional friction and enhance overall user satisfaction.
+                </p>
+                
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Persona: Priya Sharma (Busy Working Professional)</h3>
+                <table border="1" cellspacing="0" cellpadding="8">
+                    <thead>
+                      <tr>
+                        <th>Stage</th>
+                        <th>User Actions</th>
+                        <th>Touchpoints</th>
+                        <th>User Emotions</th>
+                        <th>Pain Points</th>
+                        <th>Opportunities</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1. Launch &amp; Login</td>
+                        <td>Open Upay app</td>
+                        <td>Splash screen, Login/Sign-up</td>
+                        <td>Curious, neutral</td>
+                        <td>Confusion if multiple login options</td>
+                        <td>Use clear login options with labels, add biometric login for speed</td>
+                      </tr>
+                      <tr>
+                        <td>2. Dashboard/Home</td>
+                        <td>View balance, recent transactions, notifications</td>
+                        <td>Home screen, quick actions</td>
+                        <td>Interested, slightly anxious about errors</td>
+                        <td>Overloaded dashboards in other apps</td>
+                        <td>Prioritize essential info, quick actions for high-frequency tasks</td>
+                      </tr>
+                      <tr>
+                        <td>3. Send Money</td>
+                        <td>Tap “Send Money” → Select recipient → Enter amount → Confirm</td>
+                        <td>Quick Action button, Recipient list, Payment confirmation</td>
+                        <td>Neutral → Confident</td>
+                        <td>Multi-step flows in other apps cause hesitation</td>
+                        <td>Streamline flow to 2–3 steps, pre-fill frequent recipients</td>
+                      </tr>
+                      <tr>
+                        <td>4. Bill Payment</td>
+                        <td>Navigate to Payments → Select category → Enter bill details → Confirm</td>
+                        <td>Payments tab, Payment categories</td>
+                        <td>Neutral → Slight stress</td>
+                        <td>Hidden biller options or too many screens</td>
+                        <td>Categorize payments clearly, show frequently used billers first</td>
+                      </tr>
+                      <tr>
+                        <td>5. Wallet Top-Up</td>
+                        <td>Navigate to Wallet → Select “Add Funds” → Enter amount → Confirm</td>
+                        <td>Wallet screen, Linked payment methods</td>
+                        <td>Confident</td>
+                        <td>Complexity when linking multiple cards</td>
+                        <td>Save preferred payment methods, allow one-tap top-up from Home</td>
+                      </tr>
+                      <tr>
+                        <td>6. QR Code Payment</td>
+                        <td>Tap “Scan QR” → Align code → Confirm payment</td>
+                        <td>Home screen shortcut, QR scanner</td>
+                        <td>Excited → Satisfied</td>
+                        <td>Delays if scanner not accessible</td>
+                        <td>Place QR shortcut on Home, reduce confirmation steps</td>
+                      </tr>
+                      <tr>
+                        <td>7. Confirmation &amp; Feedback</td>
+                        <td>Receive payment confirmation</td>
+                        <td>Success screen, notifications</td>
+                        <td>Relieved, happy</td>
+                        <td>Lack of clear confirmation in other apps</td>
+                        <td>Add visual confirmation, notifications, and summary of transaction</td>
+                      </tr>
+                    </tbody>
+                </table>
+                
+                <br>
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Key Insights:</h3>
+                <ul>
+                    <li>Users want speed and clarity at every stage.</li>
+                    <li>High-frequency actions (send money, recharge, pay bills) must be accessible in 2–3 taps.</li>
+                    <li>Visual feedback and confirmation cues reduce anxiety and increase trust.</li>
+                    <li>Personalized elements (frequent recipients, preferred billers, saved payment methods) improve efficiency.</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+                
+                <h1>Usability Testing</h1>
+                <p>
+                    Even without access to real users, I conducted internal usability testing using heuristic evaluations and 
+                    informal walkthroughs to identify issues such as button misplacement, unclear flow transitions, and other 
+                    friction points and interaction inefficiencies, which informed refinement of the Upay prototypes.
+                </p>
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>Methodology</h3>
+
+                <h3>1. Heuristic Evaluation</h3>
+                <p>I evaluated the prototype against Nielsen’s 10 Usability Heuristics, focusing on:</p>
+            </section>
+
+
+            <section class="project-section">
+                <h2>Design Process and Solutions</h2>
+                <h1>Ideation</h1>
+                <p>Explored multiple layout options through sketches and Crazy 8s sessions. Prioritized features: Book discovery, shared shelves, discussion threads, and streaks.</p>
+
+                <h2>Information Architecture</h2>
+                <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/BookNest information architecture (IA) sitemap.png" alt="BookNest UI cover Screenshot" class="project-image">
+
+                <h2>User Flows</h2>
+                <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/BookNest UserFlow sitemap.png" alt="BookNest UI cover Screenshot" class="project-image">
+
+            </section>
+
+            <!-- <section class="project-section">
+                <h2>Wireframes</h2>
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Slash Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Continue with Email Butten Frame.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Signup Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/sign up Verification.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Complete use Profile.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Login Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Home Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Upcoming Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Settings Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Completed Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ My List Screen.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ My List Screen [Personal List].png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Add Task Frame 1 Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Priority Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Clander Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Hours Reminder Overlay Flow 1.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Minute Reminder Overlay Flow 2.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Create new List Overlay.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+                <img src="../../images/UI UX Image/FocusFlow UI Wireframes & Prototyping/Browse Screen_ Add Project.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+            </section>
+
+            <section class="project-section">
+                <h2>Color Palette</h2>
+                <img src="../../images/UI UX Image/FocusFlow Color Palette.png" alt="FocusFlow UI cover Screenshot" class="project-image">
+            </section> -->
+
+            <section class="project-section">
+                <h2>Final Designs Prototype</h2>
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/mPDduqxqdcyuCc0hXB9QNz/Book-Library--App--BookNest?node-id=333-2229&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=333%3A2376&embed-host=share" allowfullscreen></iframe>
+            </section>
+            
+            <section class="project-section">
+                <h2>Reflection</h2>
+                <p>
+                    Designing BookNest was an exploration into how digital experiences can recreate the warmth, comfort, and sense of discovery 
+                    found in a physical reading environment. The challenge was to merge functionality with feeling — to make reading and organizing 
+                    books online not just efficient, but emotionally fulfilling.
+                </p>
+
+                <p>
+                    Throughout the process, I learned how deeply visual and interaction design choices influence emotional engagement. 
+                    Early prototypes focused heavily on library management features, but user interviews revealed that readers craved a sense 
+                    of place and personal connection to their digital shelves. This insight shifted the design direction toward a more 
+                    atmospheric, cozy aesthetic — using warm tones, soft textures, and subtle motion to evoke the calm of a quiet reading nook. 
+                    Usability testing underscored the importance of balancing aesthetic charm with clarity. While the visual theme invited users in, 
+                    ensuring accessibility and easy navigation kept them immersed. Iterating on typography, color contrast, and hierarchy helped create 
+                    an experience that was both inviting and usable.
+                </p>
+
+                <p>
+                    One key takeaway was that designing for emotional resonance requires empathy at every stage — from research to micro-interactions. 
+                    Small details, like personalized reading recommendations or the animation of a “page turn,” became powerful ways to make users feel 
+                    connected to their digital library. If I were to continue developing BookNest, I’d love to explore community features — such as book 
+                    clubs or shared reading rooms — to extend the feeling of coziness into a social dimension. Additionally, integrating features for mindful 
+                    reading habits, like focus modes or reading reflections, could deepen user engagement over time. Ultimately, BookNest reminded me that 
+                    good design goes beyond usability; it’s about crafting experiences that resonate emotionally. Creating a cozy digital library isn’t just 
+                    about storing books — it’s about nurturing a space where stories, memories, and moments of calm can thrive.
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>Developed by Nelshan Paija</span>
+        </div>
+    
+        <div class="footer__links">
+            <a href="mailto:nelshanpaijapun@gmail.com" target="_blank" title="Email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span class="text">Email</span>
+            </a>
+    
+            <a href="https://github.com/nelshan" target="_blank" title="GitHub" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+                <span class="text">GitHub</span>
+            </a>
+    
+            <a href="https://nelshan.itch.io/" target="_blank" title="Itch.io" aria-label="Itch.io">
+                <img src="../../images/itchio.svg" alt="Itch.io" style="width: 20px; height: 16.8px;">
+                <span class="text">Itch.io</span>
+            </a>            
+    
+            <a href="https://www.linkedin.com/in/nelshan-paija-57a843322/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                <span class="text">LinkedIn</span>
+            </a>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        ↑
+    </button>
+    <script src="../../js/main.js"></script>
+</body>
+</html> 
