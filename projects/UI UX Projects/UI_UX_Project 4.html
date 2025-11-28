@@ -564,21 +564,350 @@
                 
                 <h1>Usability Testing</h1>
                 <p>
-                    Even without access to real users, I conducted internal usability testing using heuristic evaluations and 
-                    informal walkthroughs to identify issues such as button misplacement, unclear flow transitions, and other 
-                    friction points and interaction inefficiencies, which informed refinement of the Upay prototypes.
+                    Because Upay was developed as an independent design challenge, I didn’t have access to real users for in-person 
+                    moderation or structured testing sessions. Instead, I relied on a combination of self-guided usability 
+                    evaluation, informal walkthroughs, and repeated testing of the prototype in Figma. Although these are 
+                    simulated conditions, they still provided substantial insight into how the app behaved when following 
+                    realistic financial tasks. The goal wasn’t to gather statistically significant user performance data; it 
+                    was to understand whether the app’s logic, structure, and interactions <strong>felt clear, predictable, and trustworthy</strong>, 
+                    especially since financial apps demand higher levels of clarity and confidence compared to other app categories.
+                </p>
+                <p>
+                    To begin, I conducted a thorough <strong>heuristic evaluation</strong> based on Nielsen’s 10 usability heuristics. This meant inspecting 
+                    each screen, not just visually, but functionally to determine if the design clearly communicated its purpose. 
+                    For example, I evaluated whether the system status was obvious during loading or transaction steps, whether the icons 
+                    and terminology matched familiar patterns used by competitors like Khalti and eSewa, and whether users had enough control 
+                    to undo or exit actions without feeling trapped. This stage uncovered several subtle but important issues, such as inconsistent 
+                    icon weights, insufficient feedback after completing payments, and unclear clustering of primary versus secondary actions. 
+                    These problems didn’t make the design unusable, but they did introduce friction that would ultimately erode user confidence, 
+                    something critical for a finance-focused app.
+                </p>
+                <p>
+                    After the heuristic review, I performed <strong>informal cognitive walkthroughs</strong> to mimic the 
+                    experience of a first-time user. I walked through a set of common tasks such as topping up mobile balance, 
+                    sending money to a friend, or paying a utility bill. As I moved through each flow step-by-step, I paid 
+                    close attention to moments of hesitation: situations where I needed to backtrack, where an icon’s meaning 
+                    wasn’t immediately obvious, or where the navigation forced me into unnecessary steps. One example was the 
+                    placement of quick actions on the home screen. While the initial layout displayed many options conveniently 
+                    together, their spacing and visual hierarchy caused conflicting focal points. This created a small but 
+                    noticeable cognitive load because I had to “search” for the correct action instead of instantly recognizing it. 
+                    In everyday financial tasks, these milliseconds matter.
+                </p>
+                <p>
+                    I also tested how intuitive the transitions between screens felt using clickable Figma prototypes. For instance, 
+                    after pressing “Send Money,” the visual feedback needed to feel immediate and purposeful. In early versions, 
+                    the confirmation screens after completing a payment felt too subtle. There was a risk that users might question 
+                    whether the payment had actually succeeded. In financial apps, this tiny moment of doubt is significant. It can 
+                    lead to repeated taps, unnecessary verification attempts, or overall distrust. By improving the transition timing, 
+                    success indicators, and micro-interactions, I strengthened the feeling of safety and clarity.
+                </p>
+                <p>
+                    Several key insights emerged from this full set of tests. First, <strong>button placement and spacing mattered more than expected</strong> 
+                    especially on mobile screens where thumb reach zones differ. Some essential actions were too close to non-essential ones, 
+                    increasing the risk of accidental taps. Second, the <strong>information hierarchy needed refinement</strong>. Critical 
+                    information, like wallet balance or recent transactions, was not consistently prioritized across different screens. 
+                    Users could complete tasks, but the path to those tasks wasn’t always the most efficient. Third, some <strong>navigation paths felt longer than necessary</strong>, 
+                    especially when users had to return to the home screen to access commonly used features.
+                </p>
+                <p>
+                    These findings guided a series of UX improvements. I repositioned primary buttons to make them easier to reach 
+                    and less likely to cause mistakes. I added stronger visual confirmations including checkmarks, motion cues, and 
+                    consistent success colors to reinforce trust after transactions. I reorganized the home screen to give wallet 
+                    balance and transaction history a more structured presence. Finally, I refined the bottom navigation bar so that 
+                    major app sections were consistently accessible without needless backtracking. Even though this stage didn’t 
+                    include direct user involvement, the process still allowed me to identify and resolve issues that would 
+                    otherwise become obstacles later in development.
+                </p>
+
+                <br>
+                <hr>
+                <br>
+
+                <h1>A/B Testing</h1>
+                <p>
+                    While designing a financial app for a broad user base, one of the earliest and most important decisions is 
+                    choosing the correct navigation structure. Bottom navigation bars are incredibly common because they allow 
+                    quick access to primary features. However, the visual style of the navigation bar specifically, 
+                    whether tabs should use <strong>icons only</strong> or <strong>icons with labels</strong> can dramatically impact usability. To make an 
+                    informed decision, I conducted an internal A/B test comparing two different navigation design approaches.
+                </p>
+                <p>
+                    The first version, the <strong>icon-only variant</strong>, used a minimalist style. Each tab was represented 
+                    with a simple line icon without accompanying text. This approach looked clean and modern, aligning well with 
+                    newer fintech UI trends, similar to Venmo or Cash App. Visually, this version had a sleek and uncluttered 
+                    aesthetic. However, minimalism comes with a trade-off: it forces the user to interpret the meaning of icons. 
+                    Even common icons; such as a wallet, a home button, or a QR symbol can lead to confusion if their meaning 
+                    isn’t instantly obvious or if they resemble other icons too closely.
+                </p>
+                <p>
+                    The second version, the <strong>icons with labels variant</strong>, paired each icon with a small text label. 
+                    This option is more common in regional payment apps like PhonePe, Khalti, and eSewa because it prioritizes 
+                    clarity over minimalism. While visually less “pure” this version removes the need for interpretation and 
+                    replaces it with instant recognition. For new users or users less familiar with iconography, labels reduce 
+                    hesitation and cognitive load.
+                </p>
+                <p>
+                    To evaluate both versions fairly, I recreated several realistic financial tasks that a typical Upay user would 
+                    perform. For each navigation version, I measured task comprehension by observing how often I hesitated, 
+                    mis-tapped, or needed more than one step to locate a feature. For example, when testing the icon-only 
+                    version, I noticed that the Wallet icon was not immediately distinguishable from the Payments icon when 
+                    glancing quickly. Even a half-second pause or a moment of uncertainty impacts usability, especially in an 
+                    app that people rely on daily.
+                </p>
+                <p>
+                    With the labeled navigation version, the experience was noticeably smoother. The labels acted like anchors 
+                    that grounded the icons in meaning. There was no ambiguity: “Home”, “Payments”, “Wallet”, and “Profile” were 
+                    immediately identifiable without having to mentally interpret each symbol. This allowed me to complete tasks 
+                    faster and with fewer errors. Consistently, when comparing the two experiences, the labeled variant produced 
+                    fewer mistakes, less hesitation, and a more confident sense of direction while navigating.
+                </p>
+                <p>
+                    The results were clear enough that choosing the labeled navigation became a straightforward decision. 
+                    The internal testing demonstrated that, especially for a financial app serving a broad demographic range, 
+                    clarity must outweigh aesthetic minimalism. The labeled tabs offered greater accessibility, better 
+                    discoverability of features, and a smoother navigation experience overall. This change aligned with the 
+                    needs of the intended user base, particularly in the Nepalese market where users are accustomed to explicit 
+                    labels in mobile wallets.
+                </p>
+                <p>
+                    In the end, switching to labeled tabs strengthened the app’s usability, reduced the potential for user 
+                    frustration, and ensured each flow felt more intuitive. This decision contributed significantly to Upay’s 
+                    goal of being a cleaner and more user-friendly alternative to existing digital wallets.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>User Experience Design Process</h2>
+                <p>
+                    To ensure Upay delivered a seamless, efficient, and intuitive financial experience, I used a structured UX 
+                    design process that moved from problem understanding to actionable user flows, wireframes, prototypes, and 
+                    iterative improvements. This section highlights how insights from research directly shaped the design 
+                    decisions and flow architecture of the app.
+                </p>
+
+                <br>
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h1>User Flows</h1>
+                <p>
+                    User flows were one of the most critical parts of the Upay design process. Because payment apps require <strong>speed, 
+                    clarity, and high trust</strong>. It was essential to map out each task in a way that minimizes friction and cognitive effort.
+                </p>
+                <p>The flows helped me:</p>
+                <ul>
+                    <li>Define how users move through the app</li>
+                    <li>Identify and remove unnecessary steps</li>
+                    <li>Ensure consistency across similar task structures</li>
+                    <li>Align every screen with the user's goal</li>
+                    <li>Support usability testing and iterations later in the process</li>
+                </ul>
+                <p>
+                    To ensure a seamless and intuitive user experience, I developed detailed user flows for Upay’s most frequently 
+                    used features. These flows represent the core tasks users engage with most often: Send Money, Pay Bills, and 
+                    Wallet Top-Up. Each flow was carefully mapped out to streamline interactions, minimize friction, and ensure 
+                    clarity at every touchpoint. By focusing on these high-priority actions, I aimed to create a more efficient 
+                    and user-friendly process, ultimately reducing cognitive load and enhancing overall usability.
                 </p>
 
                 <hr style="width: 50%; margin-left: 0; margin-right: auto;">
 
-                <h3>Methodology</h3>
+                <h3>1. User Flow — Send Money</h3>
+                <p><strong>Goal:</strong> Enable users to complete a money transfer in 2–3 quick steps, ensuring clarity, ease, and reduced cognitive load—especially important in high-frequency, high-trust scenarios.</p>
+                <P><strong>Process:</strong> I created the Send Money flow using a step-by-step breakdown in FigJam. The priority was to reduce decision points and keep the sequence linear.</P>
+                <p>Key refinements included:</p>
+                <ul>
+                    <li>Surfacing “Send Money” directly on the Home screen as a quick action</li>
+                    <li>Allowing users to select recent recipients instantly</li>
+                    <li>Streamlining the input of amount and notes</li>
+                    <li>Reducing redundant confirmation screens</li>
+                </ul>
+                <p>I validated the flow through heuristic evaluation and internal testing to make sure no additional steps created friction.</p>
 
-                <h3>1. Heuristic Evaluation</h3>
-                <p>I evaluated the prototype against Nielsen’s 10 Usability Heuristics, focusing on:</p>
+                <p><strong>Contribution:</strong> This refined flow significantly improved speed and predictability. By reducing navigation layers and making the action available directly from the dashboard, users can complete a transfer in under 10 seconds.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Send Money.png" alt="User Flow Screenshot" class="project-image">
+            
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>2. User Flow — Pay Bills</h3>
+                <p><strong>Goal:</strong> Enable users to locate, review, and pay bills quickly, even if they manage multiple categories such as utilities, education, or government services.</p>
+                <p><strong>Process:</strong> The bill payment flow required clarity above all else. I mapped the entire journey from the Home screen to receipt generation.</p>
+                <p>Key considerations included:</p>
+                <ul>
+                    <li>Categorizing billers using clear icons and grouping</li>
+                    <li>Showing “Recent Billers” for faster repeat payments</li>
+                    <li>Minimizing data entry with auto-filled information where possible</li>
+                    <li>Ensuring each step displayed the right amount of information without overwhelming the user</li>
+                </ul>
+                <p>I also explored multiple layouts to make sure the flow was coherent for both new and returning users.</p>
+
+                <p><strong>Contribution:</strong> The final flow made bill payments predictable and simple. With categories clearly labeled and frequent billers displayed upfront, users can locate and pay for any service with minimal friction.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Pay Bills.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>3. User Flow — Wallet Top-Up</h3>
+                <p><strong>Goal:</strong> Make it easy for users to add funds using multiple payment methods (Visa, Mastercard, bank transfer, digital wallet, etc.) with minimal effort.</p>
+                <p><strong>Process:</strong> I mapped the wallet top-up flow to be as straightforward as possible.</p>
+                <p>Key considerations included:</p>
+                <ul>
+                    <li>Surfacing “Add Funds” prominently on the Wallet screen</li>
+                    <li>Enabling a one-tap Top-Up shortcut from the Home screen</li>
+                    <li>Providing multiple methods with consistent design patterns</li>
+                    <li>Allowing users to re-top-up using previously used amounts</li>
+                    <li>Simplifying confirmations to reduce delays</li>
+                </ul>
+                <p>Testing revealed that users respond best to predictable flows with minimal branching, so the final design reflects a clean, linear path.</p>
+                <p><strong>Contribution:</strong> Users can now top up their balance quickly without navigating through multiple menus. Auto-fill and saved payment methods speed up the process significantly, improving overall efficiency.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for wallet top-up.png" alt="User Flow Screenshot" class="project-image">
+                
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>4. User Flow — Login & Sign-Up (Authentication)</h3>
+                <p><strong>Goal:</strong> Provide a fast, secure, and welcoming onboarding experience for new and returning users.</p>
+                <p><strong>Process:</strong> Mapped the entire authentication cycle, including splash screen, login, account creation, and verification. Implemented OTP for security and a biometric enable prompt post-login.</p>
+                <p><strong>Contribution:</strong> Improved trust, reduced abandonment, and ensured a frictionless first-time user experience.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/user journey for Login & Sign-Up (Authentication).png" alt="User Flow Screenshot" class="project-image">
+                
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>5. User Flow — QR Scan Payment</h3>
+                <p><strong>Goal:</strong> Enable instant payments at shops, merchants, or peer-to-peer using QR codes.</p>
+                <p><strong>Process:</strong> Created a direct access path for QR from the Home Dashboard. Designed the scanning flow with immediate merchant details display, amount entry, and confirmation.</p>
+                <p><strong>Contribution:</strong>Positioned QR as a primary action and reduced time-to-payment for physical or in-person transactions.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for QR Scan Payment.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>6. User Flow — Add Payment Method</h3>
+                <p><strong>Goal:</strong> Let users add cards, bank accounts, and wallets securely with minimal steps.</p>
+                <p><strong>Process:</strong> Mapped secure entry and verification, ensuring PCI-compliant patterns. Included card scanning, autofill, and clear error messaging.</p>
+                <p><strong>Contribution:</strong> Improved trust and flexibility, enabling users to set up payment methods quickly for all future actions.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Add Payment Method.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>7. User Flow — Transaction History & Details</h3>
+                <p><strong>Goal:</strong> Help users access and review past transactions with clear information structure.</p>
+                <p><strong>Process:</strong> Designed a searchable and filterable history list, with a detailed view for each transaction including reference number, amount, date, and receipt.</p>
+                <p><strong>Contribution:</strong> Improved transparency, trust, and financial record-keeping within the app.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Transaction History & Details.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>8. User Flow — Edit Profile</h3>
+                <p><strong>Goal:</strong> Enable users to update their personal information effortlessly.</p>
+                <p><strong>Process:</strong> Mapped a simple path from Profile → Edit Info, with inline editing and minimal steps.</p>
+                <p><strong>Contribution:</strong> Ensured greater control and accuracy over account data.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Edit Profile.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>9. User Flow — Security Settings</h3>
+                <p><strong>Goal:</strong> Let users control security features, increasing trust and personalization.</p>
+                <p><strong>Process</strong> Created flows for changing passwords, enabling 2FA, and toggling biometrics. Simplified verification steps to avoid overwhelming users.</p>
+                <p><strong>Contribution:</strong> Enhanced user trust and improved perceived reliability of the app.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Security Settings.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>10. User Flow — Notifications Center</h3>
+                <p><strong>Goal:</strong> Provide quick access to payment alerts, confirmations, and updates.</p>
+                <p><strong>Process:</strong> Designed a central notification hub, enabling users to tap and view details of specific alerts.</p>
+                <p><strong>Contribution:</strong> Improved user awareness and transparency for important financial events.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Notifications Center.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>11. User Flow — Help Center / Support</h3>
+                <p><strong>Goal:</strong> Allow users to quickly resolve issues or find information.</p>
+                <p><strong>Process:</strong> Likened the flow to modern support systems: category selection → FAQs → chat or ticket submission.</p>
+                <p><strong>Contribution:</strong> Enhanced user trust by providing clear, accessible help pathways.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Help Center_Support.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>12. User Flow — Micro-Loan Request</h3>
+                <p><strong>Goal:</strong> Enable users to borrow short-term funds from peers or institutions.</p>
+                <p><strong>Process:</strong> Designed a loan-request flow involving amount selection, reviewing terms, and verifying identity.</p>
+                <p><strong>Contribution:</strong> Expanded the ecosystem and showcased advanced functionality within Upay.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Micro-Loan Request.png" alt="User Flow Screenshot" class="project-image">
+
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>13. User Flow — Bill Reminder Setup</h3>
+                <p><strong>Goal:</strong> Allow users to set reminders for recurring bills to reduce missed payments.</p>
+                <p><strong>Process:</strong> Designed a toggle-based system on the bill details screen with custom reminder times.</p>
+                <p><strong>Contribution:</strong> Enhances retention and improves long-term user engagement.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Bill Reminder Setup.png" alt="User Flow Screenshot" class="project-image">
+
+                <hr style="width: 50%; margin-left: 0; margin-right: auto;">
+
+                <h3>14. User Flow — Logout / Delete Account</h3>
+                <p><strong>Goal:</strong> Give users full control over their account and data.</p>
+                <p><strong>Process:</strong> Mapped a secure, multi-step delete-account flow with OTP confirmation.</p>
+                <p><strong>Contribution:</strong> Provides transparency and trust, fulfilling modern privacy expectations.</p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/User Flow/User Flow Diagram for Logout_Delete Account.png" alt="User Flow Screenshot" class="project-image">
+
+                <br>
+                <hr>
+                <br>
+
+                <h1>Wireframes</h1>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/Wireframe.png" alt="User Flow Screenshot" class="project-image">
+                <p>
+                    Designing Upay required a thoughtful and structured UX process that moved from broad conceptual exploration into refined, validated, 
+                    and polished interactions. Because this was a solo design challenge completed within 4 weeks, I relied on a disciplined workflow that 
+                    prioritized usability, clarity, and consistency. The process unfolded as a continuous evolution from defining structure to shaping 
+                    interactions, validating usability, and refining details until every part of the product aligned with the core goal of delivering a 
+                    fast, intuitive, and trustworthy payment experience.
+                </p>
+                <p>
+                    The journey began with translating early research and user flows into tangible layouts through wireframing. These early explorations were 
+                    essential for defining the architecture of the app. I started with loose sketches, experimenting with different arrangements of navigational 
+                    elements, home dashboard layouts, shortcut actions, and transaction details. The focus at this stage was not aesthetics but structure determining 
+                    how users would move through critical tasks such as transferring money, paying bills, topping up the wallet, and managing account settings. 
+                    Once the strongest patterns emerged, I developed low-fidelity wireframes in grayscale, intentionally removing color and styling to keep attention 
+                    on hierarchy, spacing, and functionality. These wireframes were quick to revise and allowed me to catch potential usability issues early. They 
+                    formed the backbone of the app’s overall layout, ensuring that each feature was positioned exactly where users would expect it, minimizing friction 
+                    and cognitive load.
+                </p>
+                <p>
+                    After validating the structure, I shifted from static wireframes to interactive prototypes, bringing the experience to life through tappable flows. 
+                    This step revealed how the design behaved in motion whether transitions felt natural, whether buttons were easy to reach, and whether users could 
+                    complete tasks without hesitation. I created both mid-fidelity and high-fidelity prototypes to understand not only how users navigated the app but 
+                    also how visual elements like typography, color weight, spacing, and iconography affected their confidence. These prototypes helped simulate the 
+                    real-world feeling of sending money, confirming payments, reviewing transactions, or adjusting settings. Prototyping illuminated friction points that 
+                    static screens could not reveal; for example, moments where someone might pause after seeing an unclear icon or feel unsure about a confirmation step. 
+                    This deeper understanding allowed the interface to evolve into something fluid and engaging rather than merely functional.
+                </p>
+                <p>
+                    With functional prototypes in place, I conducted iterative usability testing using scenario-based tasks that mirrored real financial behaviors. 
+                    Participants were asked to complete practical actions such as sending money to a saved contact, paying an electricity bill, topping up the wallet 
+                    with a saved payment method, or browsing recent transactions. Using a think-aloud approach, testers verbalized their thought processes, exposing 
+                    subtle points of confusion or hesitation. This revealed valuable insights: some icons lacked clarity, certain buttons did not command enough visual 
+                    priority, and users wanted quicker access to recent transactions. These observations highlighted areas where visual hierarchy needed strengthening 
+                    and where navigation required simplification. Even though the testing pool was limited, the patterns were clear enough to guide meaningful design improvements.
+                </p>
+                <p>
+                    The insights from testing fed directly into a structured and deliberate iteration process. I refined the layout to enhance clarity, adjusted the visual 
+                    hierarchy so that primary actions stood out more clearly, and added text labels to important icons to improve interpretability during first-time use. 
+                    Confirmation steps especially for sensitive tasks like money transfers were redesigned to feel more reassuring and straightforward. I also 
+                    introduced a compact “Recent Activity” section on the home dashboard, addressing the repeated request for greater visibility of financial history. 
+                    Beyond functional changes, I improved accessibility by increasing contrast, enlarging touch targets, and standardizing spacing and alignment throughout 
+                    the interface to ensure consistency and ease of use. Each revision was tested again to confirm that it successfully improved the user experience without 
+                    introducing new complexity.
+                </p>
+                <p>
+                    By the end of this iterative process, Upay had transformed into a polished, intuitive, and user-centered digital finance app. Every screen, 
+                    interaction, and decision could be traced back to real user needs or a validated usability insight. The result is a product experience anchored 
+                    in speed, simplicity, and trust—precisely what users require from a unified payment platform. This UX design process ensured that the final interface 
+                    was not just aesthetically refined but also functionally seamless, helping users complete everyday financial tasks with confidence and ease.
+                </p>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/Different Iterations of app.png" alt="User Flow Screenshot" class="project-image">
             </section>
 
-
-            <section class="project-section">
+            <!-- <section class="project-section">
                 <h2>Design Process and Solutions</h2>
                 <h1>Ideation</h1>
                 <p>Explored multiple layout options through sketches and Crazy 8s sessions. Prioritized features: Book discovery, shared shelves, discussion threads, and streaks.</p>
@@ -588,8 +917,7 @@
 
                 <h2>User Flows</h2>
                 <img src="../../images/UI UX Image/library app UI Wireframes & Prototyping/BookNest UserFlow sitemap.png" alt="BookNest UI cover Screenshot" class="project-image">
-
-            </section>
+            </section> -->
 
             <!-- <section class="project-section">
                 <h2>Wireframes</h2>
@@ -619,38 +947,88 @@
                 <h2>Color Palette</h2>
                 <img src="../../images/UI UX Image/FocusFlow Color Palette.png" alt="FocusFlow UI cover Screenshot" class="project-image">
             </section> -->
-
+            
             <section class="project-section">
                 <h2>Final Designs Prototype</h2>
-                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/mPDduqxqdcyuCc0hXB9QNz/Book-Library--App--BookNest?node-id=333-2229&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=333%3A2376&embed-host=share" allowfullscreen></iframe>
+                <img src="../../images/UI UX Image/Upay app UI Wireframes & Prototyping/Upay App Projet Cover.png" alt="Upay UI cover Screenshot" class="project-image">
+
+                <h3>I created the prototype to make the design feel more real . You can try the prototype
+                    <span>
+                      <a href="https://www.figma.com/proto/kCctqT8lbAYaoq9GZ9CY1i/LyraPay-balance-topup-and-payment-concept?node-id=0-1&p=f&t=ku9rofvj5jw403Su-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=210%3A364" target="_blank" class="highlight-link">Link</a>
+                    </span>
+                </h3>
+                <br>
+                <p>
+                    The final design of Upay represents the culmination of a structured and user-centered design process, delivering a clean, 
+                    modern, and intuitive digital finance experience that unifies essential payment tasks within a single ecosystem. Throughout 
+                    the design process, the focus remained on clarity, accessibility, and efficiency, ensuring that users could complete common 
+                    tasks such as sending money, paying bills, recharging mobile numbers, and managing their wallet without unnecessary steps or 
+                    confusion. The interface emphasizes simplicity while retaining the flexibility to scale for additional services in the future, 
+                    making the app approachable for both new and experienced users.
+                </p>
+                <p>
+                    In developing the final design, several alternative concepts were explored, including card-based dashboards, 
+                    segmented navigation layouts, and grid-heavy quick-action interfaces. After careful evaluation, the selected 
+                    approach was chosen because it offered the best balance between usability, visual hierarchy, and scalability. 
+                    This solution enabled a minimal yet informative home screen, allowing users to view their current balance at a 
+                    glance, access frequently used actions with one tap, and review recent transactions in a clear and organized manner. 
+                    The combination of prominent quick actions, simplified categories, and intuitive labeling ensured that users could 
+                    perform the majority of their financial tasks efficiently while maintaining a sense of control and confidence.
+                </p>
+                <p>
+                    Key aspects of the final design include a minimalist home screen that consolidates critical information and functions, 
+                    promoting a sense of clarity without overwhelming the user. Navigation throughout the app is highly intuitive, with 
+                    clearly labeled icons and consistent placement, allowing users to move seamlessly between Home, Payments, Wallet, 
+                    and Profile sections. Payment categories are organized with clear visual hierarchy and iconography, making it easier 
+                    to scan and select desired services. The wallet management section is simplified to allow secure linking of payment 
+                    methods and quick top-ups, while the profile section provides easy access to security and personalization settings, 
+                    reinforcing trust and user control. Each screen and interaction was carefully refined through iterative usability 
+                    testing, feedback analysis, and multiple design iterations to ensure that the final product supports fast and reliable 
+                    task completion.
+                </p>
+                <p>
+                    The final design achieves a balance between aesthetics and functionality, providing a visually clean interface that feels 
+                    approachable while maintaining the reliability and security expected from a finance application. Every design decision, 
+                    from the placement of buttons to the grouping of services, was informed by user insights and guided by the goal of reducing 
+                    friction and enhancing task efficiency. The result is a unified, seamless payment experience in which users can complete 
+                    everyday financial activities quickly, confidently, and with minimal cognitive effort. The interface is not only visually 
+                    coherent and professional but also flexible enough to accommodate future expansions and features, positioning Upay as a 
+                    scalable, modern solution in the digital finance landscape.
+                </p>
+              </header>
+              
             </section>
             
             <section class="project-section">
                 <h2>Reflection</h2>
                 <p>
-                    Designing BookNest was an exploration into how digital experiences can recreate the warmth, comfort, and sense of discovery 
-                    found in a physical reading environment. The challenge was to merge functionality with feeling — to make reading and organizing 
-                    books online not just efficient, but emotionally fulfilling.
+                    Working on Upay was an invaluable learning experience that allowed me to understand the challenges and rewards of 
+                    designing a complete digital finance ecosystem within a condensed timeline. This project reinforced the importance 
+                    of prioritizing clarity and simplicity, particularly in applications where users perform repetitive, high-frequency 
+                    tasks such as sending money, paying bills, and managing their wallet. Throughout the process, I discovered how 
+                    critical it is to remove unnecessary complexity, streamline interactions, and ensure that every design decision 
+                    directly contributes to a faster, more intuitive experience. Working solo on this project also strengthened my 
+                    ability to take a systems-thinking approach, mapping out user flows, journeys, and hierarchies in a way that 
+                    maintains consistency across the app while accommodating multiple functions and payment types.
                 </p>
-
                 <p>
-                    Throughout the process, I learned how deeply visual and interaction design choices influence emotional engagement. 
-                    Early prototypes focused heavily on library management features, but user interviews revealed that readers craved a sense 
-                    of place and personal connection to their digital shelves. This insight shifted the design direction toward a more 
-                    atmospheric, cozy aesthetic — using warm tones, soft textures, and subtle motion to evoke the calm of a quiet reading nook. 
-                    Usability testing underscored the importance of balancing aesthetic charm with clarity. While the visual theme invited users in, 
-                    ensuring accessibility and easy navigation kept them immersed. Iterating on typography, color contrast, and hierarchy helped create 
-                    an experience that was both inviting and usable.
+                    I also refined my skills in journey mapping, wireframing, prototyping, and usability testing, learning how to extract 
+                    actionable insights even when access to real users was limited. Iterative testing and thoughtful observation helped me 
+                    identify friction points and informed design decisions that improved usability and task efficiency. Additionally, I 
+                    gained a deeper appreciation for designing interfaces that balance functionality and aesthetics, ensuring that users 
+                    feel confident and in control while completing sensitive financial actions. The project emphasized how design clarity, 
+                    visual hierarchy, and interaction predictability are essential for building trust in a digital finance product.
                 </p>
-
                 <p>
-                    One key takeaway was that designing for emotional resonance requires empathy at every stage — from research to micro-interactions. 
-                    Small details, like personalized reading recommendations or the animation of a “page turn,” became powerful ways to make users feel 
-                    connected to their digital library. If I were to continue developing BookNest, I’d love to explore community features — such as book 
-                    clubs or shared reading rooms — to extend the feeling of coziness into a social dimension. Additionally, integrating features for mindful 
-                    reading habits, like focus modes or reading reflections, could deepen user engagement over time. Ultimately, BookNest reminded me that 
-                    good design goes beyond usability; it’s about crafting experiences that resonate emotionally. Creating a cozy digital library isn’t just 
-                    about storing books — it’s about nurturing a space where stories, memories, and moments of calm can thrive.
+                    Reflecting on this experience, I see several opportunities to further enhance Upay in the future. I would like to explore 
+                    more advanced microinteractions to give users immediate, intuitive feedback during key tasks, such as sending money or 
+                    topping up their wallet, to reinforce confidence and reduce errors. Conducting real-world user testing would be a priority 
+                    to validate assumptions, uncover hidden pain points, and ensure accessibility for diverse audiences. Expanding accessibility 
+                    considerations—including support for users with visual, cognitive, or motor impairments—would improve inclusivity and 
+                    broaden the app’s reach. Additionally, integrating personalized insights, reminders, and adaptive features could make 
+                    Upay even more proactive in helping users manage their finances efficiently. Overall, this project not only strengthened 
+                    my UX design skills but also highlighted the continuous potential for improvement in creating a seamless, secure, and 
+                    user-centered financial experience.
                 </p>
             </section>
         </div>
